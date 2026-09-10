@@ -1,0 +1,4 @@
+DOMAIN,RECORD_TYPE,HOST,ACTION,EXPECTED,TTL
+codestra.co,A,backstage,REPLACE,37.27.128.39,600
+codestra.co,A,sentry,REPLACE,37.27.128.39,600
+codestra.co,A,wazuh,REPLACE,37.27.128.39,600
