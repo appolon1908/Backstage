@@ -1,0 +1,66 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: appolon-platform
+  description: Platform owned by Ralph Appolon
+spec:
+  type: organization
+  profile:
+    displayName: Ralph Appolon
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: codestra-production
+  description: Codestra production application and communications platform
+spec:
+  owner: appolon-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: middleware
+  annotations:
+    github.com/project-slug: appolon1908-hue/Middleware-
+spec:
+  type: service
+  lifecycle: production
+  owner: appolon-platform
+  system: codestra-production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: odoo
+  annotations:
+    github.com/project-slug: appolon1908-hue/Odoo
+spec:
+  type: service
+  lifecycle: production
+  owner: appolon-platform
+  system: codestra-production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sentry
+  annotations:
+    github.com/project-slug: appolon1908-hue/Sentry
+spec:
+  type: service
+  lifecycle: production
+  owner: appolon-platform
+  system: codestra-production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: wazuh
+  annotations:
+    github.com/project-slug: appolon1908-hue/Wazuh
+spec:
+  type: service
+  lifecycle: production
+  owner: appolon-platform
+  system: codestra-production
