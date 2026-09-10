@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
+readonly PUBLIC_DOCKER_CONFIG=/var/lib/codestra/docker-public
+install -d -m 0700 "$PUBLIC_DOCKER_CONFIG"
+if [[ ! -f "$PUBLIC_DOCKER_CONFIG/config.json" ]]; then
+  printf '%s\n' '{"auths":{}}' > "$PUBLIC_DOCKER_CONFIG/config.json"
+  chmod 0600 "$PUBLIC_DOCKER_CONFIG/config.json"
+fi
+export DOCKER_CONFIG="$PUBLIC_DOCKER_CONFIG"
 cd "$(dirname "$0")/.."
 if [[ ! -f .env ]]; then
   umask 077
