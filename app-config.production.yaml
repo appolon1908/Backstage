@@ -25,6 +25,8 @@ auth:
   providers:
     guest:
       dangerouslyAllowOutsideDevelopment: true
+integrations:
+  github: []
 catalog:
   rules:
     - allow: [Component, System, API, Resource, Group, User, Location]
