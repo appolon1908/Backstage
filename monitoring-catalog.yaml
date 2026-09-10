@@ -33,7 +33,7 @@
     "owner": "group:default/appolon-repository-owners",
     "system": "appolon-monitoring",
     "definition": {
-      "$text": "https://github.com/appolon1908-hue/Middleware-/blob/feat/integrated-monitoring-36-operations/contracts/observability/integrated-monitoring.openapi.json"
+      "$text": "https://raw.githubusercontent.com/appolon1908-hue/Middleware-/cedaa23b89f84f365ae6789413411c3f01516952/contracts/observability/integrated-monitoring.openapi.json"
     }
   }
 }
@@ -55,7 +55,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -84,7 +84,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -113,7 +113,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -142,7 +142,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -171,7 +171,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -200,7 +200,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -229,7 +229,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -258,7 +258,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -287,7 +287,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -316,7 +316,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -345,7 +345,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -374,7 +374,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -403,7 +403,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -432,7 +432,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -461,7 +461,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -490,7 +490,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -519,7 +519,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -548,7 +548,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -577,7 +577,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -606,7 +606,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -635,7 +635,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -664,7 +664,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -693,7 +693,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -722,7 +722,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -751,7 +751,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -780,7 +780,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -809,7 +809,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -838,7 +838,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -867,7 +867,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -896,7 +896,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -925,7 +925,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -954,7 +954,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -983,7 +983,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1012,7 +1012,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1041,7 +1041,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1070,7 +1070,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1099,7 +1099,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1128,7 +1128,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1157,7 +1157,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1186,7 +1186,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1215,7 +1215,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1244,7 +1244,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1273,7 +1273,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1302,7 +1302,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1331,7 +1331,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1360,7 +1360,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1389,7 +1389,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1418,7 +1418,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1447,7 +1447,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1476,7 +1476,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1505,7 +1505,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1534,7 +1534,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1563,7 +1563,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1592,7 +1592,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1621,7 +1621,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1650,7 +1650,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1679,7 +1679,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1708,7 +1708,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1737,7 +1737,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1766,7 +1766,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1795,7 +1795,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1824,7 +1824,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
@@ -1853,7 +1853,7 @@
         "title": "Repository"
       },
       {
-        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/docs/integrated-monitoring-design/INTEGRATED-MONITORING-DESIGN.md",
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
         "title": "Monitoring design"
       }
     ]
