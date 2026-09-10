@@ -1,10 +1,10 @@
 app:
   title: Codestra Operations Catalog
-  baseUrl: http://10.40.0.4:17007
+  baseUrl: https://backstage.codestra.co
 organization:
   name: Ralph Appolon
 backend:
-  baseUrl: http://10.40.0.4:17007
+  baseUrl: https://backstage.codestra.co
   listen:
     port: 7007
     host: 0.0.0.0
