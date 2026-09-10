@@ -1,0 +1,33 @@
+app:
+  title: Codestra Operations Catalog
+  baseUrl: http://10.40.0.4:17007
+organization:
+  name: Ralph Appolon
+backend:
+  baseUrl: http://10.40.0.4:17007
+  listen:
+    port: 7007
+    host: 0.0.0.0
+  database:
+    client: pg
+    connection:
+      host: postgres
+      port: 5432
+      user: backstage
+      password: ${POSTGRES_PASSWORD}
+      database: backstage
+  reading:
+    allow:
+      - host: github.com
+      - host: raw.githubusercontent.com
+auth:
+  environment: production
+  providers:
+    guest:
+      dangerouslyAllowOutsideDevelopment: true
+catalog:
+  rules:
+    - allow: [Component, System, API, Resource, Group, User, Location]
+  locations:
+    - type: file
+      target: /app/catalog/platform.yaml
