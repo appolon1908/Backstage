@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage
+  annotations:
+    github.com/project-slug: appolon1908-hue/Backstage
+spec:
+  type: service
+  lifecycle: production
+  owner: appolon-platform
+  system: codestra-production
