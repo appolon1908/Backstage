@@ -1,0 +1,1866 @@
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Group",
+  "metadata": {
+    "name": "appolon-repository-owners"
+  },
+  "spec": {
+    "type": "team",
+    "children": []
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "System",
+  "metadata": {
+    "name": "appolon-monitoring"
+  },
+  "spec": {
+    "owner": "group:default/appolon-repository-owners"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "API",
+  "metadata": {
+    "name": "integrated-monitoring-v1"
+  },
+  "spec": {
+    "type": "openapi",
+    "lifecycle": "experimental",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring",
+    "definition": {
+      "$text": "https://raw.githubusercontent.com/appolon1908-hue/Middleware-/cedaa23b89f84f365ae6789413411c3f01516952/contracts/observability/integrated-monitoring.openapi.json"
+    }
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "frontend-resturant-source",
+    "title": "Frontend-Resturant-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Frontend-Resturant-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Frontend-Resturant-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Frontend-Resturant-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-production-platform-source",
+    "title": "codestra-production-platform",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra-production-platform",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra-production-platform"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra-production-platform",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestraxxxx-source",
+    "title": "Codestraxxxx",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestraxxxx",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestraxxxx"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestraxxxx",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-source",
+    "title": "codestra",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "beyvra-backend-source",
+    "title": "beyvra-backend",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/beyvra-backend",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/beyvra-backend"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/beyvra-backend",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-backend-source",
+    "title": "codestra-backend",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra-backend",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra-backend"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra-backend",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "backend2-source",
+    "title": "backend2",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/backend2",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/backend2"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/backend2",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "beyvra-frontend-source",
+    "title": "beyvra-frontend",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/beyvra-frontend",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/beyvra-frontend"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/beyvra-frontend",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "scrapper-source",
+    "title": "scrapper",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/scrapper",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/scrapper"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/scrapper",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "breero-com-source",
+    "title": "Breero.com",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Breero.com",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Breero.com"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Breero.com",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "booked4seasons-source",
+    "title": "booked4seasons",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/booked4seasons",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/booked4seasons"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/booked4seasons",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "kyqra-source",
+    "title": "kyqra",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/kyqra",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/kyqra"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/kyqra",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "telnexa-source",
+    "title": "telnexa",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/telnexa",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/telnexa"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/telnexa",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "kyqra-crawler-source",
+    "title": "kyqra-crawler",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/kyqra-crawler",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/kyqra-crawler"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/kyqra-crawler",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "klyrow-com-source",
+    "title": "klyrow.com",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/klyrow.com",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/klyrow.com"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/klyrow.com",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-provisioning-service-source",
+    "title": "codestra-provisioning-service",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra-provisioning-service",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra-provisioning-service"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra-provisioning-service",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "moneybee-frontend-source",
+    "title": "Moneybee-frontend-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Moneybee-frontend-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Moneybee-frontend-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Moneybee-frontend-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "moneybee-backend-source",
+    "title": "Moneybee-Backend",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Moneybee-Backend",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Moneybee-Backend"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Moneybee-Backend",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "transportaion-frontend-source",
+    "title": "transportaion-Frontend",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/transportaion-Frontend",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/transportaion-Frontend"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/transportaion-Frontend",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "transportation-backend-source",
+    "title": "transportation-backend-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/transportation-backend-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/transportation-backend-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/transportation-backend-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "larim-a-fornt-end-source",
+    "title": "LARIM-A-Fornt-end",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/LARIM-A-Fornt-end",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/LARIM-A-Fornt-end"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/LARIM-A-Fornt-end",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "larim-a-backend-source",
+    "title": "LARIM-A-Backend",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/LARIM-A-Backend",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/LARIM-A-Backend"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/LARIM-A-Backend",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "telnexa-web-source",
+    "title": "Telnexa-web",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Telnexa-web",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Telnexa-web"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Telnexa-web",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "klyrow-website-source",
+    "title": "klyrow-Website-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/klyrow-Website-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/klyrow-Website-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/klyrow-Website-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "odoo-source",
+    "title": "Odoo",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Odoo",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Odoo"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Odoo",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "keycloak-source",
+    "title": "Keycloak",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Keycloak",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Keycloak"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Keycloak",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "middleware-source",
+    "title": "Middleware-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Middleware-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Middleware-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Middleware-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "n8n-source",
+    "title": "N8N",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/N8N",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/N8N"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/N8N",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "vicidialer-codestra-source",
+    "title": "Vicidialer-Codestra",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Vicidialer-Codestra",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Vicidialer-Codestra"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Vicidialer-Codestra",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "kong-source",
+    "title": "Kong",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Kong",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Kong"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Kong",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "social-codestra-co-source",
+    "title": "social.codestra.co",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/social.codestra.co",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/social.codestra.co"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/social.codestra.co",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "sdk-repository-source",
+    "title": "SDK-repository",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/SDK-repository",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/SDK-repository"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/SDK-repository",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "caddy-source",
+    "title": "Caddy",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Caddy",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Caddy"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Caddy",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "documentaions-source",
+    "title": "documentaions",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/documentaions",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/documentaions"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/documentaions",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "infustruction-repo-source",
+    "title": "Infustruction-repo",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Infustruction-repo",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Infustruction-repo"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "communication-platform-source",
+    "title": "communication-platform-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/communication-platform-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/communication-platform-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/communication-platform-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-grafana-source",
+    "title": "Codestra-Grafana-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Grafana-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Grafana-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Grafana-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-prometheus-source",
+    "title": "Codestra-Prometheus",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Prometheus",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Prometheus"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Prometheus",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-alertmanager-source",
+    "title": "Codestra-Alertmanager",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Alertmanager",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Alertmanager"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Alertmanager",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-loki-source",
+    "title": "Codestra-Loki",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Loki",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Loki"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Loki",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-telemetry-source",
+    "title": "Codestra-Telemetry",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Telemetry",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Telemetry"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Telemetry",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-tempo-source",
+    "title": "Codestra-Tempo",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Tempo",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Tempo"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Tempo",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "superset-source",
+    "title": "Superset",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Superset",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Superset"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Superset",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-node-exporter-source",
+    "title": "Codestra-Node-Exporter",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Node-Exporter",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Node-Exporter"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Node-Exporter",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-cadvisor-source",
+    "title": "Codestra-cAdvisor",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-cAdvisor",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-cAdvisor"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-cAdvisor",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-redis-exporter-source",
+    "title": "Codestra-Redis-Exporter",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Redis-Exporter",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Redis-Exporter"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Redis-Exporter",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-blackbox-exporter-source",
+    "title": "Codestra-Blackbox-Exporter",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Blackbox-Exporter",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Blackbox-Exporter"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Blackbox-Exporter",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-alloy-source",
+    "title": "Codestra-Alloy",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Alloy",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Alloy"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Alloy",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-openbao-source",
+    "title": "Codestra-OpenBao",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-OpenBao",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-OpenBao"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-OpenBao",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-postgres-exporter-source",
+    "title": "Codestra-Postgres-Exporter",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Postgres-Exporter",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Postgres-Exporter"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Postgres-Exporter",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-marketing-source",
+    "title": "Codestra-Marketing-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Marketing-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Marketing-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Marketing-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-communication-cc-source",
+    "title": "Codestra-Communication-CC",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-Communication-CC",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-Communication-CC"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-Communication-CC",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codesrea-social-source",
+    "title": "Codesrea-Social-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codesrea-Social-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codesrea-Social-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codesrea-Social-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-ai-source",
+    "title": "Codestra-AI",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Codestra-AI",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Codestra-AI"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Codestra-AI",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-foundation-source",
+    "title": "codestra-foundation",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra-foundation",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra-foundation"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra-foundation",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-production-runtime-authority-source",
+    "title": "codestra-production-runtime-authority",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra-production-runtime-authority",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra-production-runtime-authority"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra-production-runtime-authority",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "websocket-source",
+    "title": "Websocket-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Websocket-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Websocket-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Websocket-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "database-migrations-source",
+    "title": "Database-migrations-",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Database-migrations-",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Database-migrations-"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Database-migrations-",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-server-c-source",
+    "title": "codestra-server-c",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra-server-c",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra-server-c"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra-server-c",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "codestra-ruleset-toolkit-source",
+    "title": "codestra-ruleset-toolkit",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/codestra-ruleset-toolkit",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/codestra-ruleset-toolkit"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/codestra-ruleset-toolkit",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "backstage-source",
+    "title": "Backstage",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Backstage",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Backstage"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Backstage",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "sentry-source",
+    "title": "Sentry",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Sentry",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Sentry"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Sentry",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
+---
+{
+  "apiVersion": "backstage.io/v1alpha1",
+  "kind": "Resource",
+  "metadata": {
+    "name": "wazuh-source",
+    "title": "Wazuh",
+    "description": "Git repository source inventory; runtime coverage is unverified.",
+    "annotations": {
+      "github.com/project-slug": "appolon1908-hue/Wazuh",
+      "backstage.io/source-location": "url:https://github.com/appolon1908-hue/Wazuh"
+    },
+    "links": [
+      {
+        "url": "https://github.com/appolon1908-hue/Wazuh",
+        "title": "Repository"
+      },
+      {
+        "url": "https://github.com/appolon1908-hue/Infustruction-repo/blob/afeea11b86d296874ec12ce6e8615400240bc72f/INTEGRATED-MONITORING-DESIGN.md",
+        "title": "Monitoring design"
+      }
+    ]
+  },
+  "spec": {
+    "type": "code-repository",
+    "owner": "group:default/appolon-repository-owners",
+    "system": "appolon-monitoring"
+  }
+}
