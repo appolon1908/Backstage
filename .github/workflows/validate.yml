@@ -1,0 +1,22 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Validate shell
+        run: bash -n scripts/*.sh
+      - name: Validate Compose
+        env:
+          POSTGRES_PASSWORD: ci-only
+        run: docker compose config --quiet
+      - name: Reject committed secrets
+        run: |
+          test ! -f .env
+          ! git grep -nE '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|ghp_[A-Za-z0-9]{20,})'
