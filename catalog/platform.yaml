@@ -20,6 +20,19 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
+  name: backstage
+  description: Internal developer portal and operations catalog
+  annotations:
+    github.com/project-slug: appolon1908-hue/Backstage
+spec:
+  type: website
+  lifecycle: production
+  owner: appolon-platform
+  system: codestra-production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
   name: middleware
   annotations:
     github.com/project-slug: appolon1908-hue/Middleware-
@@ -45,6 +58,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: sentry
+  description: Application error tracking and performance monitoring
   annotations:
     github.com/project-slug: appolon1908-hue/Sentry
 spec:
@@ -57,6 +71,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: wazuh
+  description: Security information and event monitoring
   annotations:
     github.com/project-slug: appolon1908-hue/Wazuh
 spec:
