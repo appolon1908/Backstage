@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: codestra-mission-control
+  title: Codestra Mission Control
+  description: Portfolio operations dashboard joining GitHub, Linear, Notion, local Git and runtime observability.
+  annotations:
+    github.com/project-slug: appolon1908-hue/Backstage
+  links:
+    - url: https://github.com/appolon1908-hue/Backstage/tree/main/mission-control
+      title: Dashboard source
+      icon: github
+    - url: https://linear.app/passion-fruit/issue/PAS-196/mc-09-live-mission-control-dashboard-and-portfolio-status-surface
+      title: Linear MC-09
+    - url: https://app.notion.com/p/3e27518c3e06810ab49df91aa1852940?pvs=204
+      title: Notion Operations Dashboard
+    - url: https://backstage.codestra.co
+      title: Backstage
+spec:
+  type: service
+  lifecycle: production
+  owner: appolon-platform
+  system: codestra-production
