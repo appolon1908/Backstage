@@ -6,4 +6,4 @@ Current snapshot: 59 repos; 100 open PRs indexed; 137 Linear issues; 33 in progr
 
 Staging action: PAS-151 remains NOT READY. The previously missing JWT/JWKS fallback now exists as draft, mergeable Kong PR #116 (local JWKS render, DB-less parse, and 3/3 regression tests pass), but runtime apply is NO, no hosted workflow run exists for its head, and PAS-190 remains in force. The canonical Middleware staging application plane is still intentionally stopped pending a current immutable candidate. Do not restart the stale stack as a shortcut.
 
-Local sync action: clean Appolon canonical main branches are behind upstream — Breero.com 1, klyrow.com 2, Middleware- 1, Odoo 1 commit(s). No Prometheus target is down and the alert set is unchanged.
+Local sync action: clean Appolon canonical main branches are behind upstream — Breero.com 1, klyrow.com 2, Middleware- 1, Odoo 1 commit(s). No Prometheus target is down and the alert set is unchanged.\n\nLocal lifecycle: 15-minute Appolon scan classifies pending commit, pending push, pushed/synced, local-behind, remote-only, and local shell states. Cloud Mission Control Watch republishes broader remote truth hourly.\n
