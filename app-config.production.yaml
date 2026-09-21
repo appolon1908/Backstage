@@ -35,3 +35,5 @@ catalog:
       target: /app/catalog/platform.yaml
     - type: url
       target: https://github.com/appolon1908-hue/Backstage/blob/main/monitoring-catalog.yaml
+    - type: file
+      target: /app/catalog/mission-control.yaml
