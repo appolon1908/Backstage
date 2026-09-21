@@ -142,7 +142,11 @@ try:
     with open(SNAP,"w",encoding="utf-8") as f:json.dump(snap,f,indent=2)
 except Exception:
     pass
+QUESTIONS=os.path.join(BASE,"Build-Question-Answers.py")
+if os.path.exists(QUESTIONS):
+    try:subprocess.run([r"C:\Users\Usuario\AppData\Local\Programs\Python\Python312\python.exe",QUESTIONS],timeout=25)
+    except:pass
 if os.path.exists(RENDER):
-    try:subprocess.run(["python",RENDER],timeout=25)
+    try:subprocess.run([r"C:\Users\Usuario\AppData\Local\Programs\Python\Python312\python.exe",RENDER],timeout=25)
     except:pass
 print(json.dumps(doc,separators=(",",":")))
