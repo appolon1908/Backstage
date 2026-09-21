@@ -1,0 +1,1 @@
+# Codestra Mission Control Dashboard\n\nSource of truth: GitHub + Linear + Notion + local Git + Prometheus/Alertmanager/Grafana + SentinelX.\n\nCurrent snapshot: 59 repos; 100 open PRs indexed; 33 in progress; 3 blocked/conflict issues; Codestra Prometheus 38/38 up; 15 active alerts (11 critical).\n
