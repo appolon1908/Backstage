@@ -70,8 +70,9 @@ class Handler(SimpleHTTPRequestHandler):
             title=str(body.get("title","")).strip()
             text=str(body.get("body","")).strip()
             priority=str(body.get("priority","Medium")).strip()
-            if kind not in {"task","comment"}:
-                return self.send_json({"ok":False,"error":"kind must be task or comment"},400)
+            stage=str(body.get("stage","")).strip().lower()
+            if kind not in {"task","comment","stage"}:
+                return self.send_json({"ok":False,"error":"kind must be task, comment, or stage"},400)
             if not repo:
                 return self.send_json({"ok":False,"error":"repo is required"},400)
             snap=read_json(os.path.join(BASE,"snapshot.json"),{})
@@ -82,13 +83,22 @@ class Handler(SimpleHTTPRequestHandler):
                 return self.send_json({"ok":False,"error":"comment requires a linked Linear issue and body"},400)
             if kind=="task" and not title:
                 return self.send_json({"ok":False,"error":"task title is required"},400)
+            if kind=="stage":
+                if not issue:
+                    return self.send_json({"ok":False,"error":"stage change requires a linked Linear issue"},400)
+                if stage not in {"defined","implement","verify","done"}:
+                    return self.send_json({"ok":False,"error":"invalid stage"},400)
+                if stage=="done":
+                    mission=((snap.get("remoteRefresh") or {}).get("missions") or {}).get(issue) or {}
+                    if mission.get("complete") is not True:
+                        return self.send_json({"ok":False,"error":"Done is evidence-locked: verification/completion is not proven for this mission"},409)
             if len(title)>300 or len(text)>12000:
                 return self.send_json({"ok":False,"error":"action content too long"},400)
             aid="MCA-"+datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")[:18]
             item={
                 "id":aid,"createdAt":now(),"updatedAt":now(),"status":"pending",
                 "kind":kind,"repo":repo,"issueId":issue,"title":title,"body":text,
-                "priority":priority,"requestedBy":"Mission Control Dashboard",
+                "priority":priority,"stage":stage,"requestedBy":"Mission Control Dashboard",
                 "delivery":{"target":"Linear","attempts":0,"externalId":"","url":"","error":""}
             }
             with LOCK:
