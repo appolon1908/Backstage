@@ -27,18 +27,18 @@
                         },
     "missions":  {
                      "PAS-151":  {
-                                     "title":  "KONG-05 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Certify live Caddy ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ Kong ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ Middleware staging chain",
+                                     "title":  "KONG-05 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Certify live Caddy ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ Kong ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ Middleware staging chain",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
                                      "complete":  false,
                                      "syncState":  "synced",
                                      "evidence":  "Linear execution state was fail-closed reconciled from Done back to In Progress. Caddy runtime parity is restored, Middleware PR #309 is open Draft + mergeable + APPROVED at 16afd4688680cbe8738d657a1e0d7e62b8956835, but required exact-head hosted CI still fails without useful steps and canonical staging certification is not complete.",
-                                     "missing":  "Real exact-head runner steps + green required CI, accepted non-Draft source path, governed canonical staging apply, live CaddyÃ¢â€ â€™KongÃ¢â€ â€™Middleware readback, observability acceptance, and rollback/recovery proof.",
+                                     "missing":  "Real exact-head runner steps + green required CI, accepted non-Draft source path, governed canonical staging apply, live CaddyÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢KongÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢Middleware readback, observability acceptance, and rollback/recovery proof.",
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain"
                                  },
                      "PAS-195":  {
-                                     "title":  "M1E ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Client Email Suite / Webmail completion and staging certification",
+                                     "title":  "M1E ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Client Email Suite / Webmail completion and staging certification",
                                      "status":  "In Review",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -48,7 +48,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-195/m1e-client-email-suite-webmail-completion-and-staging-certification"
                                  },
                      "PAS-194":  {
-                                     "title":  "Identity prerequisite ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â provision Klyrow staging OIDC client, host and controlled test identities",
+                                     "title":  "Identity prerequisite ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â provision Klyrow staging OIDC client, host and controlled test identities",
                                      "status":  "In Progress / Blocked",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -59,7 +59,7 @@
                                      "review":  "APPROVED_CURRENT_HEAD"
                                  },
                      "PAS-192":  {
-                                     "title":  "Keycloak Runtime Certification ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Klyrow identity/session boundary",
+                                     "title":  "Keycloak Runtime Certification ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Klyrow identity/session boundary",
                                      "status":  "In Progress / Blocked",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -69,7 +69,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-192/keycloak-runtime-certification-klyrow-identitysession-boundary"
                                  },
                      "PAS-198":  {
-                                     "title":  "M1E-O11 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Webmail / Postal production observability suite",
+                                     "title":  "M1E-O11 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Webmail / Postal production observability suite",
                                      "status":  "In Review",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -79,7 +79,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite"
                                  },
                      "PAS-197":  {
-                                     "title":  "M1F ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Platform Admin Suite completion and staging certification",
+                                     "title":  "M1F ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Platform Admin Suite completion and staging certification",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -89,7 +89,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-197/m1f-platform-admin-suite-completion-and-staging-certification"
                                  },
                      "PAS-199":  {
-                                     "title":  "PRO-S1 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Organization \u0026 Identity suite contract",
+                                     "title":  "PRO-S1 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Organization \u0026 Identity suite contract",
                                      "status":  "In Review",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -99,17 +99,17 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-199/pro-s1-organization-and-identity-suite-contract"
                                  },
                      "PAS-234":  {
-                                     "title":  "PLAT-MW Ã¢â‚¬â€ Middleware V3 clean staging rebuild \u0026 certification",
+                                     "title":  "PLAT-MW ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Middleware V3 clean staging rebuild \u0026 certification",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
                                      "complete":  false,
-                                     "evidence":  "Backup/restore recovery is green. Exact 0054Ã¢â€ â€™0059 offline SQL generated. Isolated PostgreSQL-17 upgrade and rollback rehearsals both pass against production clones.",
+                                     "evidence":  "Backup/restore recovery is green. Exact 0054ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢0059 offline SQL generated. Isolated PostgreSQL-17 upgrade and rollback rehearsals both pass against production clones.",
                                      "missing":  "Production/staging migration is intentionally unapplied. PAS-190 hosted CI, explicit migration authorization, immutable staging readback and final rollback acceptance remain open.",
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-234/plat-mw-middleware-v3-clean-staging-rebuild-and-certification"
                                  },
                      "PAS-235":  {
-                                     "title":  "PLAT-EDGE-CADDY Ã¢â‚¬â€ Caddy V3 staging \u0026 edge certification",
+                                     "title":  "PLAT-EDGE-CADDY ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Caddy V3 staging \u0026 edge certification",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -129,7 +129,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-214/pro-s3b-billing-finance-gate-b"
                                  },
                      "PAS-236":  {
-                                     "title":  "PLAT-GW-KONG Ã¢â‚¬â€ Kong V3 auth/routing staging certification",
+                                     "title":  "PLAT-GW-KONG ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Kong V3 auth/routing staging certification",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -139,7 +139,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-236/plat-gw-kong-kong-v3-authrouting-staging-certification"
                                  },
                      "PAS-244":  {
-                                     "title":  "PLAT-GW-KONG Ã¢â‚¬â€ deterministic route reconciliation dry-run/apply/rollback",
+                                     "title":  "PLAT-GW-KONG ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â deterministic route reconciliation dry-run/apply/rollback",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -149,7 +149,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-244/plat-gw-kong-deterministic-route-reconciliation-dry-runapplyrollback"
                                  },
                      "PAS-245":  {
-                                     "title":  "CI-CONTINGENCY ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â repo-scoped self-hosted runner on Ubuntu desktop",
+                                     "title":  "CI-CONTINGENCY ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â repo-scoped self-hosted runner on Ubuntu desktop",
                                      "status":  "In Progress",
                                      "owner":  "Unassigned",
                                      "stage":  "Reviewed / Defined",
@@ -159,7 +159,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-245/ci-contingency-repo-scoped-self-hosted-runner-on-ubuntu-desktop"
                                  },
                      "PAS-237":  {
-                                     "title":  "PLAT-ID-KEYCLOAK ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Keycloak identity runtime certification",
+                                     "title":  "PLAT-ID-KEYCLOAK ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Keycloak identity runtime certification",
                                      "status":  "Backlog",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -169,7 +169,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/pas-237"
                                  },
                      "PAS-238":  {
-                                     "title":  "PLAT-ODOO ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Odoo 19 governed integration staging certification",
+                                     "title":  "PLAT-ODOO ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Odoo 19 governed integration staging certification",
                                      "status":  "Backlog",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -179,7 +179,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/pas-238"
                                  },
                      "PAS-239":  {
-                                     "title":  "PLAT-SECRETS ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â OpenBao secrets authority initialization \u0026 certification",
+                                     "title":  "PLAT-SECRETS ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â OpenBao secrets authority initialization \u0026 certification",
                                      "status":  "Backlog",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -189,7 +189,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/pas-239"
                                  },
                      "PAS-240":  {
-                                     "title":  "PLAT-OBS ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Full monitoring/observability stack certification",
+                                     "title":  "PLAT-OBS ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Full monitoring/observability stack certification",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
@@ -199,7 +199,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-240/plat-obs-full-monitoringobservability-stack-certification"
                                  },
                      "PAS-241":  {
-                                     "title":  "PLAT-AUTO ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â n8n governed automation staging certification",
+                                     "title":  "PLAT-AUTO ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â n8n governed automation staging certification",
                                      "status":  "Backlog",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -209,7 +209,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/pas-241"
                                  },
                      "PAS-242":  {
-                                     "title":  "PLAT-ANALYTICS ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Superset governed analytics certification",
+                                     "title":  "PLAT-ANALYTICS ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Superset governed analytics certification",
                                      "status":  "Backlog",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -219,7 +219,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/pas-242"
                                  },
                      "PAS-243":  {
-                                     "title":  "PLAT-SECOPS ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Wazuh/Sentry security telemetry certification",
+                                     "title":  "PLAT-SECOPS ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Wazuh/Sentry security telemetry certification",
                                      "status":  "Backlog",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -229,7 +229,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/pas-243"
                                  },
                      "PAS-61":  {
-                                    "title":  "API-M1 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Freeze Middleware OpenAPI, route authority and Postman generator",
+                                    "title":  "API-M1 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Freeze Middleware OpenAPI, route authority and Postman generator",
                                     "status":  "In Review",
                                     "owner":  "Ralph Appolon",
                                     "priority":  "Urgent",
@@ -241,7 +241,7 @@
                                     "review":  "APPROVED_CURRENT_HEAD"
                                 },
                      "PAS-60":  {
-                                    "title":  "Middleware API Program ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â OpenAPI \u0026 Postman Certification Control",
+                                    "title":  "Middleware API Program ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â OpenAPI \u0026 Postman Certification Control",
                                     "status":  "In Progress",
                                     "owner":  "Ralph Appolon",
                                     "priority":  "Urgent",
@@ -252,7 +252,7 @@
                                     "missing":  "PAS-61 protected-path acceptance is incomplete; PAS-62 through PAS-66 certification lanes remain open."
                                 },
                      "PAS-62":  {
-                                    "title":  "API-M2 ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Certify command and operation lifecycle in Postman",
+                                    "title":  "API-M2 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Certify command and operation lifecycle in Postman",
                                     "status":  "Todo",
                                     "owner":  "Ralph Appolon",
                                     "priority":  "Urgent",
@@ -263,7 +263,7 @@
                                     "missing":  "No mission-specific material implementation or exact-head verification is proven yet."
                                 },
                      "PAS-46":  {
-                                    "title":  "V3-M5 Ã¢â‚¬â€ Close provider readback and reconciliation gaps",
+                                    "title":  "V3-M5 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Close provider readback and reconciliation gaps",
                                     "status":  "Todo",
                                     "owner":  "Ralph Appolon",
                                     "stage":  "Reviewed / Defined",
@@ -273,7 +273,7 @@
                                     "url":  "https://linear.app/passion-fruit/issue/PAS-46/v3-m5-close-provider-readback-and-reconciliation-gaps"
                                 },
                      "PAS-190":  {
-                                     "title":  "GitHub Actions Ã¢â‚¬â€ restore hosted job execution for core repos",
+                                     "title":  "GitHub Actions ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â restore hosted job execution for core repos",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Reviewed / Defined",
@@ -283,7 +283,7 @@
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-190/github-actions-restore-hosted-job-execution-for-core-repos"
                                  },
                      "PAS-191":  {
-                                     "title":  "Caddy governance Ã¢â‚¬â€ remove main from promotion-only ruleset",
+                                     "title":  "Caddy governance ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â remove main from promotion-only ruleset",
                                      "status":  "Done",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Verified / Complete",
@@ -294,17 +294,17 @@
                                      "completedAt":  "2026-09-22T16:42:02.627Z"
                                  },
                      "PAS-166":  {
-                                     "title":  "Middleware V3 Ã¢â‚¬â€ Final Completion Mission: protected main Ã¢â€ â€™ staging Ã¢â€ â€™ production-ready",
+                                     "title":  "Middleware V3 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Final Completion Mission: protected main ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ staging ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ production-ready",
                                      "status":  "In Progress",
                                      "owner":  "Ralph Appolon",
                                      "stage":  "Implemented",
                                      "complete":  false,
-                                     "evidence":  "Caddy runtime green; Kong JWT auth path certified; corrected PAS-244 read-only route plan validated; Middleware 0054Ã¢â€ â€0059 upgrade/rollback rehearsals pass on isolated clones.",
+                                     "evidence":  "Caddy runtime green; Kong JWT auth path certified; corrected PAS-244 read-only route plan validated; Middleware 0054ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Â0059 upgrade/rollback rehearsals pass on isolated clones.",
                                      "missing":  "PAS-190 real exact-head CI, corrected PAS-244 source acceptance, staging certification, explicit production migration/readback and Klyrow reconciliation gates remain open.",
                                      "url":  "https://linear.app/passion-fruit/issue/PAS-166/middleware-v3-final-completion-mission-protected-main-staging"
                                  },
                      "PAS-91":  {
-                                    "title":  "DB-14 Ã¢â‚¬â€ Create encrypted PostgreSQL backup authority and evidence model",
+                                    "title":  "DB-14 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Create encrypted PostgreSQL backup authority and evidence model",
                                     "status":  "Done",
                                     "owner":  "Ralph Appolon",
                                     "stage":  "Verified / Complete",
@@ -315,7 +315,7 @@
                                     "completedAt":  "2026-09-22T21:14:15.422Z"
                                 },
                      "PAS-83":  {
-                                    "title":  "DB-06 Ã¢â‚¬â€ Create least-privilege PostgreSQL service roles and ownership model",
+                                    "title":  "DB-06 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Create least-privilege PostgreSQL service roles and ownership model",
                                     "status":  "Done",
                                     "owner":  "Ralph Appolon",
                                     "stage":  "Verified / Complete",
@@ -326,7 +326,7 @@
                                     "completedAt":  "2026-09-22T21:17:47.233Z"
                                 },
                      "PAS-82":  {
-                                    "title":  "DB-05 Ã¢â‚¬â€ Enforce verify-full, hostssl and certificate denial tests in staging",
+                                    "title":  "DB-05 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Enforce verify-full, hostssl and certificate denial tests in staging",
                                     "status":  "In Progress",
                                     "owner":  "Ralph Appolon",
                                     "stage":  "Implemented",
@@ -336,7 +336,7 @@
                                     "url":  "https://linear.app/passion-fruit/issue/PAS-82/db-05-enforce-verify-full-hostssl-and-certificate-denial-tests-in"
                                 },
                      "PAS-92":  {
-                                    "title":  "DB-15 Ã¢â‚¬â€ Perform full restore rehearsal and record recovery evidence",
+                                    "title":  "DB-15 ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Perform full restore rehearsal and record recovery evidence",
                                     "status":  "In Progress",
                                     "owner":  "Ralph Appolon",
                                     "stage":  "Implemented",
@@ -346,7 +346,7 @@
                                     "url":  "https://linear.app/passion-fruit/issue/PAS-92/db-15-perform-full-restore-rehearsal-and-record-recovery-evidence"
                                 },
                      "PAS-89":  {
-                                    "title":  "DB-12 â€” Certify command atomicity, idempotency, outbox claims, leases and fencing on real PostgreSQL",
+                                    "title":  "DB-12 Ã¢â‚¬â€ Certify command atomicity, idempotency, outbox claims, leases and fencing on real PostgreSQL",
                                     "status":  "Done",
                                     "owner":  "Ralph Appolon",
                                     "stage":  "Needs Review",
@@ -538,6 +538,7 @@
                      }
                  ],
     "changes":  [
+                    "Backstage full snapshot publication lag resolved: question_answers.json, remote_refresh.json and snapshot.json were published to main and remotely JSON-verified without touching Appolon repository worktrees.",
                     "PAS-89 changed to Done in Linear at 2026-09-22T21:30:01.762Z, but Mission Control could not find a durable independent execution artifact after the disposable test targets were destroyed; completion is therefore marked CONFLICT / needs review fail-closed.",
                     "Fresh GitHub reconciliation corrects PAS-195: klyrow.com PR #165 is merged, while PAS-195 remains In Review because hosted CI and final governed certification are not complete.",
                     "Middleware PR #310 remains Draft/mergeable but GitHub reviewDecision is REVIEW_REQUIRED; its Required exact-SHA CI still fails with zero executed steps.",
@@ -590,11 +591,11 @@
     "syncMetadata":  {
                          "last_linear_sync":  "2026-09-22T18:13:38.4522696-04:00",
                          "last_notion_sync":  "2026-09-22T18:13:38.4522696-04:00",
-                         "last_github_sync":  "2026-09-22T18:13:38.4522696-04:00",
+                         "last_github_sync":  "2026-09-22T18:14:55.2177418-04:00",
                          "last_local_sync":  "2026-09-22T18:12:50.9225037-04:00",
                          "last_runtime_sync":  "2026-09-22T18:12:50.9225037-04:00",
                          "sync_state":  "conflict",
-                         "sync_note":  "PAS-89 is Done in Linear and described as 33/33 certification tests passing, but durable independent test-execution evidence was not found during reconciliation; derived completion remains fail-closed. Kong PR #117 source-vs-corrected-plan drift and Backstage snapshot publication lag also remain explicit."
+                         "sync_note":  "PAS-89 remains a completion-evidence conflict pending durable independent proof. Kong PR #117 source-vs-corrected-plan drift also remains explicit. Backstage full-snapshot publication lag is resolved."
                      },
     "platformProtocol":  {
                              "parent":  "PAS-233",
@@ -613,7 +614,7 @@
                                               "PAS-242",
                                               "PAS-243"
                                           ],
-                             "note":  "Portfolio-wide governed mission/test protocol remains defined. PAS-234, PAS-235 and PAS-236 have material implementation evidence but are not Verified/Complete; PAS-237Ã¢â‚¬â€œPAS-243 remain Backlog except PAS-240, which is Implemented/In Progress. PAS-245 is the active PAS-190 runner contingency but is currently unassigned in Linear; protected exact-head certification remains blocked."
+                             "note":  "Portfolio-wide governed mission/test protocol remains defined. PAS-234, PAS-235 and PAS-236 have material implementation evidence but are not Verified/Complete; PAS-237ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“PAS-243 remain Backlog except PAS-240, which is Implemented/In Progress. PAS-245 is the active PAS-190 runner contingency but is currently unassigned in Linear; protected exact-head certification remains blocked."
                          },
     "checkedAt":  "2026-09-22T18:12:50.9225037-04:00",
     "localWork":  {
@@ -627,15 +628,14 @@
                       "scanNeedsReview":  0
                   },
     "publicationDrift":  {
-                             "backstageSnapshot":  "remote snapshot remains a known publication-lag item; local full snapshot is current at runtimeCheckedAt 2026-09-22T16:52:16.876480-04:00 and remote_refreshAt 2026-09-22T17:27:00.945043-04:00",
-                             "remoteBytes":  121962,
-                             "remoteBlob":  "7908da8a77de8a54d54b4e8df3979a94b5828f7a",
-                             "lastPublishedCommit":  "9021c5797a2cffbd6a1b946ee2c64576a3618a5f",
-                             "localBytes":  130376,
-                             "localGeneratedAt":  "2026-09-22T13:33:55-04:00",
-                             "note":  "Current remote_refresh.json and all 16 management answers are published or in-flight in this reconciliation. The refreshed full local snapshot is complete and current, but the remote full snapshot is intentionally preserved until a complete, non-truncating publication path is available. No Appolon/user repository worktree was pushed or mutated to publish Mission Control derived data.",
-                             "backstageRemoteRefresh":  "publishing current 18:07 AST reconciliation in this contents update; GitHub write response is the commit authority",
-                             "backstageQuestionAnswers":  "published: commit e29f9061920a8ff7907066f69e4c8f089feef31f / blob 288eeda5784bebe2ae26906469c7708392bfe6b5",
-                             "authoritativeSource":  "published: Build-Question-Answers.py commit f06de55a7c3d86e30afbcbfe85b14d341bf3c0d5 / blob b5732172538c45e497a9da50303a8a55ff69f1ab"
+                             "backstageSnapshot":  "published and remotely JSON-verified on main; prior full-snapshot publication lag is resolved",
+                             "snapshotCommit":  "d70dc1ed73ce3d04420c7a54bc8bbfdbd42e2262",
+                             "snapshotBlob":  "78b6501ecee9f8bdcaeebb7df5d45a25e3267f66",
+                             "remoteRefreshCommit":  "892bdbbb4f0cd4127b87351cedcab0dec18f1d77",
+                             "remoteRefreshBlob":  "ef0848714c30bb117db2d10d7255e44fa4599d9c",
+                             "questionAnswersCommit":  "fa5f26f97d64a726ad985bdc95232480c3a540a0",
+                             "questionAnswersBlob":  "df261701198cae0346a142d51b8dd9e4e2002a8b",
+                             "note":  "Full snapshot publication is now complete through a non-truncating chunked read plus GitHub contents update path. Remote question_answers.json, remote_refresh.json and snapshot.json all parse as valid JSON. No Appolon repository worktree was pushed or mutated.",
+                             "authoritativeSource":  "appolon1908-hue/Backstage/mission-control"
                          }
 }
