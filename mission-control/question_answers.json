@@ -96,7 +96,7 @@
     "last_linear_sync": "2026-09-22T18:13:38.4522696-04:00",
     "last_notion_sync": "2026-09-22T18:13:38.4522696-04:00",
     "last_github_sync": "2026-09-22T18:14:55.2177418-04:00",
-    "last_local_sync": "2026-09-22T18:12:50.9225037-04:00",
+    "last_local_sync": "2026-09-22T18:15:51.866607-04:00",
     "last_runtime_sync": "2026-09-22T18:12:50.9225037-04:00",
     "sync_state": "conflict",
     "sync_note": "PAS-89 remains a completion-evidence conflict pending durable independent proof. Kong PR #117 source-vs-corrected-plan drift also remains explicit. Backstage full-snapshot publication lag is resolved."
