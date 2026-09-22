@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T05:23:08.360599-04:00",
+  "generatedAt": "2026-09-22T12:12:05.873044-04:00",
   "sources": {
     "github": "https://github.com/ingtrader21-spec",
     "backstage": "https://github.com/appolon1908-hue/Backstage",
@@ -22,7 +22,7 @@
     "localPendingCommit": 5,
     "localPendingPush": 2,
     "localBehind": 10,
-    "localSynced": 7,
+    "localSynced": 8,
     "localScanNeedsReview": 0,
     "staleLocalPending24h": 4,
     "remoteOnlyRepos": 46,
@@ -31,7 +31,6 @@
   "monitoring": {
     "codestra": {
       "prometheus": {
-        "ip": "10.253.127.2",
         "targets_total": 38,
         "targets_up": 38,
         "targets_down": []
@@ -138,7 +137,6 @@
     },
     "klyrow": {
       "prometheus": {
-        "ip": "172.23.0.7",
         "targets_total": 2,
         "targets_up": 2,
         "targets_down": []
@@ -154,7 +152,6 @@
     },
     "telnexa": {
       "prometheus": {
-        "ip": "172.27.0.2",
         "targets_total": 3,
         "targets_up": 3,
         "targets_down": []
@@ -209,87 +206,116 @@
     {
       "state": "active",
       "name": "CaddyConfigurationDrift",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraRestoreTestAgeExceededWarning",
-      "severity": "warning"
+      "severity": "warning",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraWatchdog",
-      "severity": "informational"
+      "severity": "informational",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraRestoreTestAgeExceeded",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "KongDatabaseDiskWarning",
-      "severity": "warning"
+      "severity": "warning",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "MiddlewareDatabaseBackupStale",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "MiddlewareDatabaseBackupFailed",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CaddyPublicBehaviorFailure",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CaddyMTLSProbeFailure",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "MiddlewareDatabaseMigrationMismatch",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraN8nRestoreRehearsalOverdue",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "MiddlewareDatabaseRestoreOverdue",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraDiskCapacityWarning",
-      "severity": "warning"
+      "severity": "warning",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraDatabaseBackupStale",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraDatabaseRestoreOverdue",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CaddyPublicBehaviorFailure",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CaddyMTLSProbeFailure",
-      "severity": "critical"
+      "severity": "critical",
+      "source": "Codestra Alertmanager"
+    },
+    {
+      "state": "firing",
+      "name": "KlyrowEventDeliveryStalled",
+      "severity": "critical",
+      "source": "Klyrow Prometheus"
+    },
+    {
+      "state": "firing",
+      "name": "KlyrowUsageDeliveryStalled",
+      "severity": "critical",
+      "source": "Klyrow Prometheus"
     }
   ],
   "repositories": [
@@ -326,7 +352,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -370,7 +396,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 2,
         "pendingCommit": 0,
         "pendingPush": 1,
@@ -405,7 +431,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -449,7 +475,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -493,7 +519,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -528,7 +554,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -563,7 +589,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -598,7 +624,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -633,7 +659,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -677,7 +703,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 12,
         "pendingCommit": 5,
         "pendingPush": 1,
@@ -685,7 +711,7 @@
         "startedAt": "2026-09-19T20:24:32-04:00",
         "unpushedSince": "2026-09-21T16:31:03-04:00",
         "dirtySince": "2026-09-19T22:15:46.623467+00:00",
-        "latestCommitAt": "2026-09-21T16:31:03-04:00"
+        "latestCommitAt": "2026-09-22T09:33:07-04:00"
       }
     },
     {
@@ -721,7 +747,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -756,7 +782,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -791,7 +817,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -826,7 +852,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -861,7 +887,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -896,7 +922,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -931,7 +957,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -966,7 +992,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1001,7 +1027,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1036,7 +1062,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1071,7 +1097,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1106,7 +1132,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1141,7 +1167,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1176,7 +1202,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1211,7 +1237,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1269,7 +1295,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1304,7 +1330,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1348,7 +1374,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1392,7 +1418,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1427,7 +1453,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1471,7 +1497,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1506,7 +1532,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1541,7 +1567,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1576,7 +1602,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1611,7 +1637,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1646,7 +1672,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1690,7 +1716,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1725,7 +1751,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1760,7 +1786,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1795,7 +1821,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1830,7 +1856,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1865,7 +1891,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1900,7 +1926,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1935,7 +1961,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
+        "checkedAt": "2026-09-22T12:17:04.957846-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1952,34 +1978,4 @@
       "visibility": "private",
       "group": "core",
       "github": "https://github.com/ingtrader21-spec/Database-migrations-",
-      "goal": "DB-API-4 \u00e2\u20ac\u201d Run staging and production-safe database Postman gate",
-      "linearStatus": "In Review",
-      "linearIssue": "PAS-102",
-      "linearUrl": "https://linear.app/passion-fruit/issue/PAS-102/db-api-4-run-staging-and-production-safe-database-postman-gate",
-      "blocked": false,
-      "blocker": "",
-      "blockerUrl": "",
-      "openPrs": 0,
-      "local": null,
-      "worktreeCount": 0,
-      "dirtyFiles": 0,
-      "maxBehind": 0,
-      "maxAhead": 0,
-      "assignee": "Ralph Appolon",
-      "localWork": {
-        "state": "Remote only",
-        "color": "gray",
-        "pending": false,
-        "checkedAt": "2026-09-22T11:02:05.973838-04:00",
-        "worktrees": 0,
-        "pendingCommit": 0,
-        "pendingPush": 0,
-        "behind": 0,
-        "startedAt": "",
-        "unpushedSince": "",
-        "dirtySince": "",
-        "latestCommitAt": ""
-      }
-    },
-    {
-      "name": "Infustruct
+      "goal": "DB-API-4 \u00e2\u20ac\u201d Run 
