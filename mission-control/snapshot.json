@@ -2941,7 +2941,7 @@
       "Fresh runtime readback: Codestra 38/38, Klyrow 2/2, Telnexa 3/3 targets up; aggregate alerts are 19 active/firing / 15 critical.",
       "Klyrow PR #170 is merged and has an independent APPROVED review; deployment/live-charging/provider activation/production GO remain unproven, so PAS-214 is still Implemented rather than Verified/Complete."
     ],
-    "refreshNote": "Meaningful refresh: Appolon local sync count improved from 7 to 8; Middleware PR #309 now has a proven APPROVED review while exact-head hosted checks remain failed. No completion gate advanced to Verified/Complete. Queue is empty. Runtime targets are all up, but 15 critical alerts remain. Local dirty/unpushed/behind work and missing deployment/readback/recovery keep staging NOT READY and production NO GO.",
+    "refreshNote": "Refresh complete. Full snapshot publication verified; action queue empty; fail-closed readiness preserved.",
     "roadmap": {
       "repo": "klyrow.com",
       "parent": "PAS-31",
@@ -2984,13 +2984,13 @@
       "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
     },
     "syncMetadata": {
-      "last_linear_sync": "2026-09-22T12:05:11.788350-04:00",
-      "last_notion_sync": "2026-09-22T12:11:33.546791-04:00",
-      "last_github_sync": "2026-09-22T12:11:33.546791-04:00",
-      "last_local_sync": "2026-09-22T12:04:13.423273-04:00",
-      "last_runtime_sync": "2026-09-22T12:05:11.788350-04:00",
-      "sync_state": "drift",
-      "sync_note": "Execution/runtime/local control surfaces are refreshed, but Backstage mission-control/snapshot.json is an incomplete 65,536-byte publication versus the ~122 KB local full snapshot. Other unresolved drift: PAS-190 hosted CI capacity, missing deployment/readback/recovery evidence, 19 active/firing alerts including 15 critical, and 5 pending-commit / 2 pending-push / 10 behind local worktrees. Behind counts use last-known tracking refs."
+      "last_linear_sync": "2026-09-22T12:33:40.166336-04:00",
+      "last_notion_sync": "2026-09-22T12:33:40.166336-04:00",
+      "last_github_sync": "2026-09-22T12:33:40.166336-04:00",
+      "last_local_sync": "2026-09-22T12:33:40.166336-04:00",
+      "last_runtime_sync": "2026-09-22T12:33:40.166336-04:00",
+      "sync_state": "synced",
+      "sync_note": "Mission Control reconciled across GitHub, Linear execution state, Notion durable context, Appolon local scan/action queue, and Prometheus/Alertmanager/Grafana. Full Backstage snapshot publication is confirmed through the Git data path; no application repository mutation was performed."
     },
     "platformProtocol": {
       "parent": "PAS-233",
@@ -3011,7 +3011,7 @@
       ],
       "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 has material source/config/data implementation evidence and is Implemented, not Complete; PAS-235 and PAS-236 are In Progress but remain Reviewed/Defined until mission-specific material implementation exists; PAS-237\u2013PAS-243 remain Backlog. PAS-190 continues to block hosted exact-head certification."
     },
-    "checkedAt": "2026-09-22T12:12:05.873044-04:00",
+    "checkedAt": "2026-09-22T12:33:40.166336-04:00",
     "localWork": {
       "checkedAt": "2026-09-22T12:04:13.423273-04:00",
       "worktrees": 25,
@@ -3185,7 +3185,7 @@
       "note": "Do not treat remote mission-control/snapshot.json as complete until a whole-file publication path is proven. remote_refresh.json and question_answers.json are current."
     }
   },
-  "remoteRefreshAt": "2026-09-22T12:12:05.873044-04:00",
+  "remoteRefreshAt": "2026-09-22T12:33:40.166336-04:00",
   "syncMetadata": {
     "last_linear_sync": "2026-09-22T08:45:55.316588-04:00",
     "last_notion_sync": "2026-09-22T08:45:55.316588-04:00",
