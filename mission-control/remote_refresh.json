@@ -129,13 +129,13 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-214/pro-s3b-billing-finance-gate-b"
     },
     "PAS-236": {
-      "title": "PLAT-GW-KONG Ã¢â‚¬â€ Kong V3 auth/routing staging certification",
+      "title": "PLAT-GW-KONG — Kong V3 auth/routing staging certification",
       "status": "In Progress",
       "owner": "Ralph Appolon",
       "stage": "Implemented",
       "complete": false,
-      "evidence": "Kong PR #115 is open, non-draft and mergeable at exact head 21b724baec44ab11f60da639cb0a813199c3fbea with 1,035 additions / 645 deletions across 22 files.",
-      "missing": "All exact-head workflows remain red; live apply, immutable staging, readback and rollback are not proven. PAS-190 remains a blocker.",
+      "evidence": "Production auth authority resolved to RS256 JWT fallback. Corrected compatibility-preserving route dry-run is UPDATE=15 DELETE=5 KEEP=4 ERROR=0 with no apply.",
+      "missing": "PR #117 source still needs corrected manifest/planner; exact-head CI remains zero-step under PAS-190; live apply/staging readback/rollback not performed.",
       "url": "https://linear.app/passion-fruit/issue/PAS-236/plat-gw-kong-kong-v3-authrouting-staging-certification"
     },
     "PAS-244": {
@@ -144,8 +144,8 @@
       "owner": "Ralph Appolon",
       "stage": "Implemented",
       "complete": false,
-      "evidence": "Exact PR #117 planner live dry-run: UPDATE=13 DELETE=7 KEEP=4 ERROR=0, apply=false. Temporary fail-closed correction proves missing required successors must yield RC=2 with UPDATE=13 DELETE=5 KEEP=4 ERROR=2. Current PR #117 is open Draft + mergeable + APPROVED.",
-      "missing": "PR #117 source still lacks the hard successor check; the two n8n successor routes are absent; exact-head CI is red; rollback package and live apply remain unproven/not performed.",
+      "evidence": "Cross-repo authority correction validated read-only: preserve legacy n8n v1 compatibility aliases through 2027-06-30 by repointing them to Middleware :8095. Corrected live dry-run UPDATE=15 DELETE=5 KEEP=4 ERROR=0, apply=false.",
+      "missing": "Source PR #117 still carries the prior retirement plan and must be corrected/reviewed/CI-verified before any staging/live apply.",
       "url": "https://linear.app/passion-fruit/issue/PAS-244/plat-gw-kong-deterministic-route-reconciliation-dry-runapplyrollback"
     },
     "PAS-245": {
@@ -291,6 +291,16 @@
       "evidence": "GitHub ruleset readback verifies promotion ruleset 22657889 excludes main and protects only development/test/staging/production; main ruleset 22138259 remains active; bypass actors are empty.",
       "missing": "",
       "url": "https://linear.app/passion-fruit/issue/PAS-191/caddy-governance-remove-main-from-promotion-only-ruleset"
+    },
+    "PAS-166": {
+      "title": "Middleware V3 — Final Completion Mission: protected main → staging → production-ready",
+      "status": "In Progress",
+      "owner": "Ralph Appolon",
+      "stage": "Implemented",
+      "complete": false,
+      "evidence": "Caddy runtime green; Kong JWT auth path certified; corrected PAS-244 read-only route plan validated; Middleware 0054↔0059 upgrade/rollback rehearsals pass on isolated clones.",
+      "missing": "PAS-190 real exact-head CI, corrected PAS-244 source acceptance, staging certification, explicit production migration/readback and Klyrow reconciliation gates remain open.",
+      "url": "https://linear.app/passion-fruit/issue/PAS-166/middleware-v3-final-completion-mission-protected-main-staging"
     }
   },
   "prChecks": [
@@ -441,13 +451,13 @@
     }
   ],
   "changes": [
-    "PAS-191 verified complete from live GitHub ruleset readback and removed as an active Caddy blocker.",
-    "Latest GitHub reruns still fail before step execution; PAS-190 remains the external CI blocker.",
-    "Caddy runtime remains drift-free and has zero critical alerts.",
-    "Codestra now has 4 active / 1 critical; Klyrow 2 active / 2 critical; aggregate 6 active / 3 critical.",
-    "Appolon scan remains 26 worktrees / 13 repos, 5 pending-commit, 2 pending-push, 8 behind, 11 synced, 0 scan errors."
+    "Production auth authority resolved to RS256 JWT fallback; Enterprise OIDC is not active because no license is installed.",
+    "PAS-244 compatibility-preserving production plan validated: UPDATE=15 DELETE=5 KEEP=4 ERROR=0, no apply.",
+    "Middleware isolated DB upgrade/rollback rehearsals pass; production DB remains intentionally unmigrated at 0054.",
+    "Fresh GitHub reruns still return steps=null; PAS-190 remains external hard stop.",
+    "Caddy runtime remains drift-free with zero critical alerts; aggregate runtime critical count is 3 including Klyrow."
   ],
-  "refreshNote": "Completion boundary reached without bypassing production, migration, replay, or CI gates.",
+  "refreshNote": "Production continuation advanced to the last safe pre-effect boundary. PROVIDER_EFFECTS=0, PRODUCTION_EFFECTS=0, PRODUCTION_GO=NO.",
   "roadmap": {
     "repo": "klyrow.com",
     "parent": "PAS-31",
@@ -490,13 +500,13 @@
     "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
   },
   "syncMetadata": {
-    "last_linear_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_notion_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_github_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_local_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_runtime_sync": "2026-09-22T16:48:55.326225-04:00",
+    "last_linear_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_notion_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_github_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_local_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_runtime_sync": "2026-09-22T17:07:25.891673-04:00",
     "sync_state": "synced",
-    "sync_note": "Control surfaces are reconciled. Remaining blockers require external GitHub Actions capacity or explicit migration/reconciliation effect authorization; no hidden drift remains."
+    "sync_note": "Control surfaces reconciled for production continuation. Remaining gates are external CI and explicitly effectful staging/migration/reconciliation steps; no production effect bypass is authorized."
   },
   "platformProtocol": {
     "parent": "PAS-233",
@@ -517,7 +527,7 @@
     ],
     "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 is Implemented, not Complete; PAS-235 remains Reviewed/Defined; PAS-236 now has partial material implementation through PAS-244 / Kong PR #117 and is Implemented, not Complete; PAS-237Ã¢â‚¬â€œPAS-243 remain Backlog. PAS-245 is the active governed PAS-190 runner contingency; protected exact-head certification is still blocked."
   },
-  "checkedAt": "2026-09-22T16:48:55.326225-04:00",
+  "checkedAt": "2026-09-22T17:07:25.891673-04:00",
   "localWork": {
     "checkedAt": "2026-09-22T16:23:56.811386-04:00",
     "worktrees": 26,
