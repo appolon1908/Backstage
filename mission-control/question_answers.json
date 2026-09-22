@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T14:24:59-04:00",
+  "generatedAt": "2026-09-22T14:34:13-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
@@ -94,12 +94,12 @@
   },
   "syncMetadata": {
     "last_linear_sync": "2026-09-22T14:24:59-04:00",
-    "last_notion_sync": "2026-09-22T14:24:59-04:00",
-    "last_github_sync": "2026-09-22T14:24:59-04:00",
+    "last_notion_sync": "2026-09-22T14:34:13-04:00",
+    "last_github_sync": "2026-09-22T14:34:13-04:00",
     "last_local_sync": "2026-09-22T14:19:35.114169-04:00",
     "last_runtime_sync": "2026-09-22T14:24:59-04:00",
     "sync_state": "conflict",
-    "sync_note": "PAS-151 remains Linear=Done while completion truth is unverified; PAS-61 is In Review with material PR #310 implementation but Draft/no review/red exact-head CI; PAS-190 remains active; local dirty/unpushed/behind work persists; runtime has 9 critical alerts although all 43 monitored Prometheus targets are up."
+    "sync_note": "PAS-151 remains Linear=Done while completion truth is unverified; PAS-61 is In Review with material PR #310 implementation but Draft/no review/red exact-head CI; PAS-190 remains active; local dirty/unpushed/behind work and 9 critical runtime alerts persist; full snapshot publication is stale because the complete local file could not be safely transferred through the current connector read."
   },
   "summary": {
     "activeAlerts": 12,
