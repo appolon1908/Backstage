@@ -1,14 +1,24 @@
 {
-  "checkedAt": "2026-09-22T09:37:11.923074-04:00",
   "monitoring": {
     "codestraPrometheus": "38/38",
     "klyrowPrometheus": "2/2",
     "telnexaPrometheus": "3/3",
-    "activeAlerts": 17,
-    "criticalAlerts": 13,
+    "activeAlerts": 19,
+    "criticalAlerts": 15,
     "grafanaCodestra": "ok",
     "grafanaKlyrow": "ok",
-    "newCriticalAlerts": []
+    "newCriticalAlerts": [
+      "KlyrowEventDeliveryStalled",
+      "KlyrowUsageDeliveryStalled"
+    ],
+    "codestraAlertmanagerActive": 17,
+    "codestraCriticalAlerts": 13,
+    "klyrowPrometheusFiring": 2,
+    "klyrowCriticalAlerts": 2,
+    "klyrowCriticalAlertNames": [
+      "KlyrowEventDeliveryStalled",
+      "KlyrowUsageDeliveryStalled"
+    ]
   },
   "actionsCapacity": {
     "issue": "PAS-190",
@@ -20,17 +30,17 @@
   },
   "missions": {
     "PAS-151": {
-      "title": "KONG-05 — Certify live Caddy → Kong → Middleware staging chain",
+      "title": "KONG-05 â€” Certify live Caddy â†’ Kong â†’ Middleware staging chain",
       "status": "In Progress",
       "owner": "Ralph Appolon",
       "stage": "Implemented",
       "complete": false,
       "evidence": "Middleware PR #309 is open Draft and mergeable at 16afd468; untouched-backup PostgreSQL 17 rehearsal, migrations, four-constraint reconciler, RUNTIME_SCHEMA_VERIFIED and 2/2 focused tests pass. Kong PR #115 is open non-draft and mergeable at f824a653; stacked draft #116 is mergeable at 5e2e316 with JWT/JWKS render/config-parse evidence.",
-      "missing": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy→Kong→Middleware readback/rollback. Production GO remains NO.",
+      "missing": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddyâ†’Kongâ†’Middleware readback/rollback. Production GO remains NO.",
       "url": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain"
     },
     "PAS-195": {
-      "title": "M1E — Client Email Suite / Webmail completion and staging certification",
+      "title": "M1E â€” Client Email Suite / Webmail completion and staging certification",
       "status": "In Review",
       "owner": "Ralph Appolon",
       "stage": "Implemented",
@@ -40,7 +50,7 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-195/m1e-client-email-suite-webmail-completion-and-staging-certification"
     },
     "PAS-194": {
-      "title": "Identity prerequisite — provision Klyrow staging OIDC client, host and controlled test identities",
+      "title": "Identity prerequisite â€” provision Klyrow staging OIDC client, host and controlled test identities",
       "status": "In Progress / Blocked",
       "owner": "Ralph Appolon",
       "stage": "Implemented",
@@ -50,7 +60,7 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-194/identity-prerequisite-provision-klyrow-staging-oidc-client-host-and"
     },
     "PAS-192": {
-      "title": "Keycloak Runtime Certification — Klyrow identity/session boundary",
+      "title": "Keycloak Runtime Certification â€” Klyrow identity/session boundary",
       "status": "In Progress / Blocked",
       "owner": "Ralph Appolon",
       "stage": "Reviewed / Defined",
@@ -60,7 +70,7 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-192/keycloak-runtime-certification-klyrow-identitysession-boundary"
     },
     "PAS-198": {
-      "title": "M1E-O11 — Webmail / Postal production observability suite",
+      "title": "M1E-O11 â€” Webmail / Postal production observability suite",
       "status": "In Review",
       "owner": "Ralph Appolon",
       "stage": "Implemented",
@@ -70,7 +80,7 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite"
     },
     "PAS-197": {
-      "title": "M1F — Platform Admin Suite completion and staging certification",
+      "title": "M1F â€” Platform Admin Suite completion and staging certification",
       "status": "In Progress",
       "owner": "Ralph Appolon",
       "stage": "Reviewed / Defined",
@@ -80,7 +90,7 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-197/m1f-platform-admin-suite-completion-and-staging-certification"
     },
     "PAS-199": {
-      "title": "PRO-S1 — Organization & Identity suite contract",
+      "title": "PRO-S1 â€” Organization & Identity suite contract",
       "status": "In Review",
       "owner": "Ralph Appolon",
       "stage": "Implemented",
@@ -90,7 +100,7 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-199/pro-s1-organization-and-identity-suite-contract"
     },
     "PAS-234": {
-      "title": "PLAT-MW — Middleware V3 clean staging rebuild & certification",
+      "title": "PLAT-MW â€” Middleware V3 clean staging rebuild & certification",
       "status": "In Progress",
       "owner": "Ralph Appolon",
       "stage": "Implemented",
@@ -100,12 +110,12 @@
       "url": "https://linear.app/passion-fruit/issue/PAS-234/plat-mw-middleware-v3-clean-staging-rebuild-and-certification"
     },
     "PAS-235": {
-      "title": "PLAT-EDGE-CADDY — Caddy V3 staging & edge certification",
+      "title": "PLAT-EDGE-CADDY â€” Caddy V3 staging & edge certification",
       "status": "In Progress",
       "owner": "Ralph Appolon",
       "stage": "Reviewed / Defined",
       "complete": false,
-      "evidence": "Linear moved PAS-235 from Backlog to In Progress at 2026-09-22T05:53:08.569Z. All completion fields remain NO, so only Gate A 01–05 read-only inventory/authority/contract/evidence-freeze work is authorized.",
+      "evidence": "Linear moved PAS-235 from Backlog to In Progress at 2026-09-22T05:53:08.569Z. All completion fields remain NO, so only Gate A 01â€“05 read-only inventory/authority/contract/evidence-freeze work is authorized.",
       "missing": "PAS-235-specific implementation, tests/CI, immutable staging, readback and rollback are not proven. PAS-190 hosted Actions capacity and PAS-191 Caddy main promotion-ruleset deadlock remain explicit blockers.",
       "url": "https://linear.app/passion-fruit/issue/PAS-235/plat-edge-caddy-caddy-v3-staging-and-edge-certification"
     },
@@ -118,6 +128,86 @@
       "evidence": "GitHub PR #170 is MERGED. Source head af8e052ccd73241e1fb9a1eb340bb77068abd9a2 merged as c7ea0fd257a463048f64b153b27b1b662fce10a1. Material Billing & Finance API/UI/contract implementation and local regression evidence exist.",
       "missing": "Merged source is not Verified/Complete: exact-head hosted runs 35696975713 and 35734210573 ended startup_failure; immutable staging deployment/readback/runtime/recovery evidence remains unproven. Live charging and production GO remain unauthorized.",
       "url": "https://linear.app/passion-fruit/issue/PAS-214/pro-s3b-billing-finance-gate-b"
+    },
+    "PAS-236": {
+      "title": "PLAT-GW-KONG — Kong V3 auth/routing staging certification",
+      "status": "In Progress",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-236"
+    },
+    "PAS-237": {
+      "title": "PLAT-ID-KEYCLOAK — Keycloak identity runtime certification",
+      "status": "Backlog",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-237"
+    },
+    "PAS-238": {
+      "title": "PLAT-ODOO — Odoo 19 governed integration staging certification",
+      "status": "Backlog",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-238"
+    },
+    "PAS-239": {
+      "title": "PLAT-SECRETS — OpenBao secrets authority initialization & certification",
+      "status": "Backlog",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-239"
+    },
+    "PAS-240": {
+      "title": "PLAT-OBS — Full monitoring/observability stack certification",
+      "status": "Backlog",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-240"
+    },
+    "PAS-241": {
+      "title": "PLAT-AUTO — n8n governed automation staging certification",
+      "status": "Backlog",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-241"
+    },
+    "PAS-242": {
+      "title": "PLAT-ANALYTICS — Superset governed analytics certification",
+      "status": "Backlog",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-242"
+    },
+    "PAS-243": {
+      "title": "PLAT-SECOPS — Wazuh/Sentry security telemetry certification",
+      "status": "Backlog",
+      "owner": "Ralph Appolon",
+      "stage": "Reviewed / Defined",
+      "complete": false,
+      "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
+      "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
+      "url": "https://linear.app/passion-fruit/issue/pas-243"
     }
   },
   "prChecks": [
@@ -233,13 +323,13 @@
     "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
   },
   "syncMetadata": {
-    "last_linear_sync": "2026-09-22T09:39:01.704179-04:00",
-    "last_notion_sync": "2026-09-22T09:39:01.704179-04:00",
-    "last_github_sync": "2026-09-22T09:39:01.704179-04:00",
-    "last_local_sync": "2026-09-22T09:39:01.704179-04:00",
-    "last_runtime_sync": "2026-09-22T09:39:01.704179-04:00",
-    "sync_state": "synced",
-    "sync_note": "GitHub, Linear execution state, Notion durable handoff, Appolon local scan and runtime readback were reconciled in this watch. Linear evidence-note writes were unavailable, but authoritative Linear statuses already match fail-closed completion truth. Backstage derived files are being published from the full local snapshot."
+    "last_linear_sync": "2026-09-22T11:06:10.422532-04:00",
+    "last_notion_sync": "2026-09-22T10:44:19.4823609-04:00",
+    "last_github_sync": "2026-09-22T10:44:19.4823609-04:00",
+    "last_local_sync": "2026-09-22T11:06:10.422532-04:00",
+    "last_runtime_sync": "2026-09-22T10:44:19.4823609-04:00",
+    "sync_state": "drift",
+    "sync_note": "Platform lane statuses PAS-236–243 refreshed from Linear. Derived files are being regenerated and published."
   },
   "platformProtocol": {
     "parent": "PAS-233",
@@ -258,6 +348,182 @@
       "PAS-242",
       "PAS-243"
     ],
-    "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 now has material source/config/data implementation evidence and is classified Implemented, not Complete; PAS-235 remains Gate-A-only Reviewed/Defined; PAS-236–PAS-243 remain Backlog. PAS-190 continues to block hosted exact-head certification."
+    "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 has material source/config/data implementation evidence and is Implemented, not Complete; PAS-235 and PAS-236 are In Progress but remain Reviewed/Defined until mission-specific material implementation exists; PAS-237–PAS-243 remain Backlog. PAS-190 continues to block hosted exact-head certification."
+  },
+  "checkedAt": "2026-09-22T11:06:10.422532-04:00",
+  "localWork": {
+    "checkedAt": "2026-09-22T10:42:05.657670-04:00",
+    "worktrees": 25,
+    "repos": 13,
+    "pendingCommit": 5,
+    "pendingPush": 2,
+    "behind": 10,
+    "synced": 7,
+    "scanNeedsReview": 0,
+    "remoteFetchFreshness": "not fully proven: broad fetch timed out",
+    "pending": [
+      {
+        "repo": "Agent-Desktop-WebRTC",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Agent-Desktop-WebRTC\\Code",
+        "branch": "",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 0,
+        "state": "Local shell / pending clone"
+      },
+      {
+        "repo": "Breero.com",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Breero.com\\Code",
+        "branch": "main",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 1,
+        "state": "Pushed / local behind"
+      },
+      {
+        "repo": "codestra-foundation",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\codestra-foundation\\Code",
+        "branch": "",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 0,
+        "state": "Local shell / pending clone"
+      },
+      {
+        "repo": "Keycloak",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Keycloak\\klyrow-staging-identity",
+        "branch": "mission/klyrow-staging-identity-20260921",
+        "dirty": 0,
+        "ahead": 1,
+        "behind": 0,
+        "state": "Committed Local / pending push"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\klyrow.com\\Code",
+        "branch": "main",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 2,
+        "state": "Pushed / local behind"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Active_Desktop_Migration\\klyrow-ingtrader21-spec",
+        "branch": "main",
+        "dirty": 5,
+        "ahead": 0,
+        "behind": 5,
+        "state": "Started Local / pending commit"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Active_Desktop_Migration\\klyrow-media-01",
+        "branch": "saas/media-library-foundation",
+        "dirty": 691,
+        "ahead": 0,
+        "behind": 0,
+        "state": "Started Local / pending commit"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Klyrow\\klyrow-admin-ops",
+        "branch": "mission/m1-admin-ops-20260921",
+        "dirty": 0,
+        "ahead": 1,
+        "behind": 0,
+        "state": "Committed Local / pending push"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-billing-02b",
+        "branch": "billing/02b-customer-portal",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 6,
+        "state": "Pushed / local behind"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-billing-02r",
+        "branch": "fix/billing-02-payment-integrity",
+        "dirty": 14,
+        "ahead": 0,
+        "behind": 11,
+        "state": "Started Local / pending commit"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-brand-01",
+        "branch": "saas/brand-profile-foundation",
+        "dirty": 20,
+        "ahead": 0,
+        "behind": 12,
+        "state": "Started Local / pending commit"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-m6c",
+        "branch": "mission/m6c-refunds-disputes-taxvat-documents",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 15,
+        "state": "Pushed / local behind"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-pr142-media",
+        "branch": "HEAD",
+        "dirty": 12,
+        "ahead": 0,
+        "behind": 0,
+        "state": "Started Local / pending commit"
+      },
+      {
+        "repo": "klyrow.com",
+        "path": "C:\\Users\\Usuario\\Desktop\\klyrow.com",
+        "branch": "pr-152-repair",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 7,
+        "state": "Pushed / local behind"
+      },
+      {
+        "repo": "Middleware-",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Middleware-\\Code",
+        "branch": "main",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 1,
+        "state": "Pushed / local behind"
+      },
+      {
+        "repo": "Odoo",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Odoo\\Code",
+        "branch": "main",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 1,
+        "state": "Pushed / local behind"
+      },
+      {
+        "repo": "OpenAPI",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\OpenAPI\\Code",
+        "branch": "",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 0,
+        "state": "Local shell / pending clone"
+      },
+      {
+        "repo": "websocket",
+        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\websocket\\Code",
+        "branch": "",
+        "dirty": 0,
+        "ahead": 0,
+        "behind": 0,
+        "state": "Local shell / pending clone"
+      }
+    ]
   }
 }
