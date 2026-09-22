@@ -1,104 +1,176 @@
-import os, json, html
+import os,json,html
 BASE=r"C:\Users\Usuario\01_DEVELOPMENT\Mission-Control"
 SNAP=os.path.join(BASE,"snapshot.json")
 OUT=os.path.join(BASE,"dashboard.html")
 with open(SNAP,encoding="utf-8-sig") as f:s=json.load(f)
+
 repos=s.get("repositories",[])
 summ=s.get("summary",{})
 alerts=s.get("alerts",[])
-mon=s.get("monitoring",{})
+questions=s.get("questionAnswers") or []
+remote=s.get("remoteRefresh") or {}
+missions=remote.get("missions") or {}
+mon=s.get("monitoring") or {}
 prom=(mon.get("codestra") or {}).get("prometheus") or {}
-am=(mon.get("codestra") or {}).get("alertmanager") or {}
 kp=(mon.get("klyrow") or {}).get("prometheus") or {}
 tp=(mon.get("telnexa") or {}).get("prometheus") or {}
 
 def e(v):return html.escape(str(v if v is not None else ""),quote=True)
+
 def active_mission(r):
     return bool(r.get("linearIssue")) and r.get("linearStatus") not in ("Unlinked","Duplicate","Canceled","Cancelled")
+
 def implementation_signal(r):
     w=r.get("localWork") or {}
     return bool((r.get("dirtyFiles") or 0)>0 or (r.get("maxAhead") or 0)>0 or (r.get("openPrs") or 0)>0 or (w.get("pendingCommit") or 0)>0 or (w.get("pendingPush") or 0)>0)
-def completion_truth(r):
+
+def remote_complete(r):
+    m=missions.get(r.get("linearIssue") or "")
+    return bool(m and m.get("complete") is True)
+
+def truth(r):
     if not active_mission(r):
-        return ("No active mission","gray","No active Linear execution mission is linked.")
-    status=r.get("linearStatus") or ""
+        return {"label":"No active mission","color":"gray","note":"No active Linear execution mission is linked.","stage":"unlinked"}
     impl=implementation_signal(r)
+    verified=remote_complete(r)
+    status=r.get("linearStatus") or ""
+    if verified:
+        return {"label":"Verified / Complete","color":"green","note":"Remote mission evidence marks the mission complete.","stage":"done"}
     if status=="Done":
         if impl:
-            return ("Done status / verification not proven","yellow","Linear is Done and code-change evidence exists, but tests/CI/runtime completion must still be proven.")
-        return ("Done status / implementation not proven","red","Linear is Done, but this snapshot does not prove implementation. Review/definition alone is not completion.")
+            return {"label":"Done status / verification not proven","color":"yellow","note":"Implementation evidence exists, but verification/deployment/readback is not proven.","stage":"verify"}
+        return {"label":"Done status / implementation not proven","color":"red","note":"Linear says Done, but implementation evidence is not proven.","stage":"defined"}
     if status=="In Review":
         if impl:
-            return ("Review + implementation evidence","yellow","Review is in progress and code-change evidence exists; verification/completion is still pending.")
-        return ("Review only / implementation not proven","red","Review/definition exists, but no implementation evidence is proven in this snapshot.")
+            return {"label":"Implemented / verification pending","color":"yellow","note":"Implementation evidence exists. Review is not completion; verification is still pending.","stage":"verify"}
+        return {"label":"Review only / implementation not proven","color":"red","note":"Review/definition exists, but implementation evidence is not proven.","stage":"defined"}
     if impl:
-        return ("Implementation in progress","orange","Local/PR code-change evidence exists; verification and completion remain pending.")
-    return ("Defined / implementation not proven","red","A mission is defined, but implementation evidence is not proven.")
+        return {"label":"Implementation in progress","color":"orange","note":"Code/config/local/PR evidence exists; verification remains pending.","stage":"implement"}
+    return {"label":"Defined / implementation not proven","color":"red","note":"The mission is defined, but no implementation evidence is proven.","stage":"defined"}
 
-truths={r.get("name"):completion_truth(r) for r in repos}
-incomplete=sum(1 for r in repos if active_mission(r) and truths[r.get("name")][0] not in ("No active mission",))
-review_only=sum(1 for r in repos if truths[r.get("name")][0] in ("Review only / implementation not proven","Defined / implementation not proven","Done status / implementation not proven"))
+truths={r.get("name"):truth(r) for r in repos}
 
-css="""*{box-sizing:border-box}body{margin:0;font:14px/1.45 Inter,system-ui;background:#071018;color:#e9f2f8}a{color:#8fc6ff;text-decoration:none}a:hover{text-decoration:underline}header{position:sticky;top:0;z-index:5;padding:16px 22px;background:#071018f2;border-bottom:1px solid #213647;backdrop-filter:blur(12px)}h1{margin:0;font-size:22px}.sub,.muted,.tiny{color:#8da6b8}.tiny{font-size:12px}.clock{font-variant-numeric:tabular-nums;color:#d8e7f1;margin-top:5px}.wrap{max-width:2100px;margin:auto;padding:18px}.grid{display:grid;gap:12px}.kpis{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}.qa{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.ops{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.card{background:#0e1b26;border:1px solid #213647;border-radius:12px;padding:14px}.kpi b{font-size:26px;display:block}.green{color:#42d392}.yellow{color:#f6c95f}.orange{color:#f59e5f}.red{color:#ff6b6b}.blue{color:#6aaeff}.gray{color:#8da6b8}.section{margin-top:18px}.answers b{display:block;margin-bottom:4px}.alerts,.toolbar{display:flex;gap:8px;flex-wrap:wrap}.pill,.badge{border:1px solid #213647;border-radius:999px;padding:5px 8px;display:inline-block}.pill.critical,.badge.red{color:#ff9d9d;border-color:#6d2c2c}.pill.warning,.badge.yellow,.badge.orange{color:#f6d57b;border-color:#66552a}.badge.green{color:#66e6ad;border-color:#2f6d56}.badge.gray{color:#9fb0bd}.toolbar{margin:10px 0}input,select{background:#0a1721;border:1px solid #213647;color:#e9f2f8;padding:9px;border-radius:8px}input{min-width:280px}.tablewrap{overflow:auto;border:1px solid #213647;border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;min-width:2200px}th,td{padding:10px;text-align:left;vertical-align:top;border-bottom:1px solid #172a38}th{position:sticky;top:92px;background:#0b1822;color:#a8bdcb;font-size:12px}.repo{font-weight:700}.blocked{color:#ff6b6b;font-weight:700}tr:hover{background:#102331}footer{text-align:center;color:#8da6b8;padding:24px}"""
+def steps(r):
+    t=truths.get(r.get("name"),{})
+    defined=active_mission(r)
+    implemented=implementation_signal(r)
+    verified=remote_complete(r)
+    handed=bool(verified and r.get("linearStatus")=="Done")
+    return [
+      {"n":1,"name":"Define the goal","state":"done" if defined else "pending","detail":("Mission "+str(r.get("linearIssue"))+" linked") if defined else "No active execution mission linked"},
+      {"n":2,"name":"Implement","state":"done" if implemented else "pending","detail":"Code/config/data change evidence exists" if implemented else "Implementation evidence not proven"},
+      {"n":3,"name":"Verify","state":"done" if verified else "pending","detail":"Tests/CI/runtime completion evidence proven" if verified else "Tests/CI/readback/deployment evidence still required"},
+      {"n":4,"name":"Done + handoff","state":"done" if handed else "pending","detail":"Verified complete and closed" if handed else "Completion/successor handoff not proven"}
+    ]
 
+for r in repos:
+    r["completionTruth"]=truths.get(r.get("name"))
+    r["goalSteps"]=steps(r)
+
+review_only=sum(1 for t in truths.values() if t["label"] in ("Review only / implementation not proven","Defined / implementation not proven","Done status / implementation not proven"))
+verified_complete=sum(1 for t in truths.values() if t["label"]=="Verified / Complete")
 pending_commit=summ.get("localPendingCommit",0);pending_push=summ.get("localPendingPush",0);behind=summ.get("localBehind",0);synced=summ.get("localSynced",0)
-cards=[
-("Repositories",summ.get("repositories",len(repos)),"blue"),("Open PRs",summ.get("openPrsIndexed",0),"blue"),("In progress",summ.get("inProgress",0),"yellow"),
-("Review/defined ≠ implemented",review_only,"red" if review_only else "green"),("Blocked/conflict",summ.get("blockedIssues",0),"red" if summ.get("blockedIssues",0) else "green"),
-("Pending commit",pending_commit,"orange" if pending_commit else "green"),("Pending push",pending_push,"red" if pending_push else "green"),
-("Local behind",behind,"orange" if behind else "green"),("Pushed/synced",synced,"green"),("Critical alerts",summ.get("criticalAlerts",0),"red" if summ.get("criticalAlerts",0) else "green"),
-("Prometheus",f'{prom.get("targets_up",0)}/{prom.get("targets_total",0)}',"green")
-]
+attention=[r for r in repos if r.get("blocked") or (r.get("localWork") or {}).get("pending") or truths.get(r.get("name"),{}).get("color")=="red"]
+default_repo=(attention[0].get("name") if attention else (repos[0].get("name") if repos else ""))
 
+payload={"snapshot":s,"repositories":repos,"questions":questions,"defaultRepo":default_repo}
+
+css=r"""
+:root{--bg:#071018;--sidebar:#09141e;--panel:#0e1b26;--panel2:#122431;--line:#213647;--text:#eef6fb;--muted:#8da6b8;--green:#42d392;--yellow:#f6c95f;--orange:#f59e5f;--red:#ff6b6b;--blue:#6aaeff;--purple:#b794f6}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font:14px/1.45 Inter,ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text)}a{color:#91c9ff;text-decoration:none}a:hover{text-decoration:underline}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.shell{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;background:var(--sidebar);border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column}.brand{padding:8px 10px 18px}.brand h1{font-size:18px;margin:0}.brand div{color:var(--muted);font-size:12px;margin-top:4px}.nav{display:grid;gap:6px}.navbtn{border:0;background:transparent;color:#b7c7d4;text-align:left;padding:10px 12px;border-radius:9px}.navbtn:hover,.navbtn.active{background:#132534;color:white}.navbtn .count{float:right;color:var(--muted)}.sidebar-footer{margin-top:auto;padding:12px 10px;color:var(--muted);font-size:11px}.main{min-width:0}.topbar{position:sticky;top:0;z-index:10;background:#071018f2;border-bottom:1px solid var(--line);backdrop-filter:blur(12px);padding:13px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.topbar .clock{margin-left:auto;color:#d9e8f2;font-variant-numeric:tabular-nums}.global-search{min-width:300px;flex:1;max-width:560px}.input,.select,.textarea{width:100%;background:#091720;color:var(--text);border:1px solid var(--line);border-radius:9px;padding:9px 10px}.textarea{min-height:96px;resize:vertical}.content{max-width:1800px;margin:auto;padding:18px}.view{display:none}.view.active{display:block}.view-header{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:14px}.view-header h2{margin:0;font-size:22px}.view-header p{margin:4px 0 0;color:var(--muted)}
+.grid{display:grid;gap:12px}.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.qa-grid{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px;box-shadow:0 10px 28px #0002}.card h3{margin:0 0 8px;font-size:15px}.kpi b{font-size:26px;display:block}.kpi span{color:var(--muted)}.muted,.tiny{color:var(--muted)}.tiny{font-size:12px}.red{color:var(--red)}.yellow{color:var(--yellow)}.orange{color:var(--orange)}.green{color:var(--green)}.blue{color:var(--blue)}.purple{color:var(--purple)}.gray{color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:4px 8px;font-size:12px}.badge.green{border-color:#2d6d55}.badge.red{border-color:#6c3232}.badge.yellow,.badge.orange{border-color:#66562c}.badge.blue{border-color:#2e5578}.badge.purple{border-color:#654b83}.badge.gray{border-color:#344956}
+.section{margin-top:18px}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.section-title h3{margin:0}.quick-answer{min-height:112px}.quick-answer b{display:block;margin-bottom:6px}.linkrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.btn{border:1px solid var(--line);background:#132535;color:white;border-radius:9px;padding:8px 11px}.btn:hover{background:#193143}.btn.primary{background:#1f5f96;border-color:#337db4}.btn.danger{border-color:#6c3232;color:#ffc0c0}.btn.small{padding:5px 8px;font-size:12px}
+.repo-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}.repo-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;transition:.12s}.repo-card:hover{transform:translateY(-1px);border-color:#3b5a70}.repo-card.active{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}.repo-card h4{margin:0 0 6px}.repo-meta{display:flex;gap:6px;flex-wrap:wrap;margin:7px 0}.repo-goal{color:#cbd9e3;min-height:42px}
+.focus-head{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}.focus-head h2{margin:0}.focus-stat{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.goal-path{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.step{position:relative;background:#0b1923;border:1px solid var(--line);border-radius:11px;padding:12px;min-height:108px}.step.done{border-color:#2d6d55}.step.pending{border-color:#534727}.step-num{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#162b3b;font-weight:700}.step.done .step-num{background:#1c5b45}.step h4{margin:8px 0 4px}.step p{margin:0;color:var(--muted);font-size:12px}
+.pipeline{display:grid;grid-template-columns:repeat(4,minmax(250px,1fr));gap:12px;overflow-x:auto}.lane{background:#091720;border:1px solid var(--line);border-radius:13px;min-height:420px;padding:10px}.lane h3{margin:4px 3px 10px}.task-card{background:var(--panel);border:1px solid #1e3545;border-radius:10px;padding:10px;margin-bottom:8px;cursor:pointer}.task-card:hover{border-color:#43647b}.task-card .task-title{font-weight:700;margin-bottom:5px}
+.alert-list{display:grid;gap:8px}.alert{display:flex;justify-content:space-between;gap:14px;background:#0a1822;border:1px solid var(--line);padding:9px 10px;border-radius:9px}.alert.critical{border-color:#6d3232}.alert.warning{border-color:#66552a}
+.incomplete-list{display:grid;gap:8px}.incomplete-row{display:grid;grid-template-columns:180px 1fr 150px 130px;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:10px;border-radius:10px}.incomplete-row:hover{border-color:#3b5a70}
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.form-group{margin:10px 0}.form-group label{display:block;margin-bottom:5px;color:#b7c9d6}.queue{display:grid;gap:8px}.queue-item{background:#0a1822;border:1px solid var(--line);border-radius:10px;padding:10px}.queue-head{display:flex;justify-content:space-between;gap:12px}.status-pending{color:var(--yellow)}.status-delivered{color:var(--green)}.status-failed,.status-needs_review{color:var(--red)}.status-cancelled{color:var(--muted)}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px}.table{width:100%;border-collapse:collapse;min-width:1100px}.table th,.table td{padding:9px 10px;border-bottom:1px solid #172a38;text-align:left;vertical-align:top}.table th{background:#0b1822;color:#9eb3c2;font-size:12px}
+details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px}details+details{margin-top:7px}summary{cursor:pointer;font-weight:700}.toast{position:fixed;right:18px;bottom:18px;z-index:99;background:#122634;border:1px solid #31516a;padding:11px 14px;border-radius:10px;display:none;max-width:420px}
+@media(max-width:1050px){.shell{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}.nav{grid-template-columns:repeat(3,1fr)}.sidebar-footer{display:none}.topbar{top:0}.two,.three,.four,.action-grid{grid-template-columns:1fr}.goal-path{grid-template-columns:1fr 1fr}.pipeline{grid-template-columns:repeat(4,280px)}}@media(max-width:650px){.nav{grid-template-columns:1fr 1fr}.goal-path{grid-template-columns:1fr}.global-search{min-width:180px}.incomplete-row{grid-template-columns:1fr}}
+"""
+
+data=json.dumps(payload,separators=(",",":")).replace("</","<\\/")
 parts=['<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Codestra Mission Control</title><style>',css,'</style></head><body>']
-parts.append('<header><h1>Codestra Mission Control</h1><div class="sub">GitHub · Linear · Notion · Local Git · Prometheus · Alertmanager · Grafana · SentinelX</div><div class="clock">Live local time: <b id="clock"></b> · Snapshot: '+e(s.get("generatedAt",""))+' · Local scan: '+e(s.get("localWorkCheckAt","not yet scanned"))+'</div></header><div class="wrap">')
-parts.append('<div class="grid kpis">'+''.join(f'<div class="card kpi"><b class="{col}">{e(val)}</b><span class="muted">{e(label)}</span></div>' for label,val,col in cards)+'</div>')
-parts.append('<div class="section"><h2>Completion truth</h2><div class="grid qa answers">')
-parts.append('<div class="card"><b>Reviewed / Defined</b><span class="blue">Understanding, complaint analysis, audit, plan, specification or review.</span><div class="tiny">This is evidence that the problem was understood. It is NOT implementation.</div></div>')
-parts.append('<div class="card"><b>Implemented</b><span class="orange">A code/config/data change must exist.</span><div class="tiny">Evidence can include local changes, local commits, a PR or merged code. A review document alone cannot satisfy this gate.</div></div>')
-parts.append('<div class="card"><b>Verified / Complete</b><span class="green">Implementation plus verification evidence.</span><div class="tiny">Tests/CI and, where applicable, deployment/readback/runtime evidence must prove the requested outcome. Linear Done alone is not sufficient.</div></div>')
-parts.append('</div></div>')
-parts.append('<div class="section"><h2>Questions answered now</h2><div class="grid qa answers">')
-qas=s.get("questionAnswers") or []
-if qas:
-    for q in qas:
-        parts.append('<div class="card"><b>'+e(q.get("question",""))+'</b><span class="'+e(q.get("status","gray"))+'">'+e(q.get("answer","Unknown / Not Proven"))+'</span></div>')
-else:
-    parts.append('<div class="card"><b>Question coverage</b><span class="gray">Unknown / Not Proven — question-answer refresh has not run yet.</span></div>')
-parts.append('</div></div>')
-parts.append('<div class="section"><h2>Live operations</h2><div class="grid ops"><div class="card"><b>Codestra Prometheus</b><div class="green">'+e(prom.get("targets_up",0))+'/'+e(prom.get("targets_total",0))+' targets up</div></div><div class="card"><b>Alertmanager</b><div class="'+("red" if summ.get("criticalAlerts",0) else "green")+'">'+e(summ.get("activeAlerts",len(alerts)))+' active · '+e(summ.get("criticalAlerts",0))+' critical</div></div><div class="card"><b>Klyrow Prometheus</b><div class="green">'+e(kp.get("targets_up",0))+'/'+e(kp.get("targets_total",0))+' targets up</div></div><div class="card"><b>Telnexa Prometheus</b><div class="green">'+e(tp.get("targets_up",0))+'/'+e(tp.get("targets_total",0))+' targets up</div></div></div><div class="alerts">'+(''.join('<span class="pill '+e(a.get("severity",""))+'">'+e(a.get("severity",""))+' · '+e(a.get("name",""))+'</span>' for a in alerts) or '<span class="pill">No active alerts</span>')+'</div></div>')
-parts.append('<div class="section"><h2>Repository mission queue</h2><div class="toolbar"><input id="search" placeholder="Search repo, mission, local status, completion truth…"><select id="filter"><option value="">All states</option><option value="notImplemented">Review/defined, implementation not proven</option><option value="doneUnproven">Done but completion not proven</option><option value="blocked">Blocked/conflict</option><option value="pendingPush">Pending push</option><option value="pendingCommit">Pending commit</option><option value="behind">Local behind</option><option value="synced">Pushed/synced</option><option value="In Progress">In Progress</option><option value="In Review">In Review</option><option value="Unlinked">Unlinked</option></select><select id="group"><option value="">All groups</option><option value="core">Core</option><option value="monitoring">Monitoring</option><option value="saas">Apps/SaaS</option></select></div><div class="tablewrap"><table><thead><tr><th>Repository</th><th>Goal / mission</th><th>Assignee / Linear status</th><th>Completion truth</th><th>PRs</th><th>Blocker</th><th>Local work lifecycle</th><th>Started / pending since</th><th>Git / push evidence</th><th>Latest commit / daily work</th><th>Actions</th></tr></thead><tbody id="repoRows"></tbody></table></div></div></div>')
-repo_json=json.dumps(repos,separators=(",",":")).replace("</","<\\/")
-parts.append('<script id="repo-data" type="application/json">'+repo_json+'</script>')
-truth_json=json.dumps({k:{"label":v[0],"color":v[1],"note":v[2]} for k,v in truths.items()},separators=(",",":")).replace("</","<\\/")
-parts.append('<script id="truth-data" type="application/json">'+truth_json+'</script>')
-js=r"""<script>
-const DATA=JSON.parse(document.getElementById('repo-data').textContent);
-const TRUTH=JSON.parse(document.getElementById('truth-data').textContent);
+parts.append('<div class="shell"><aside class="sidebar"><div class="brand"><h1>Codestra Mission Control</h1><div>One source of operational truth</div></div><nav class="nav">')
+for vid,label in [("executive","Executive"),("repo","Repository Focus"),("pipeline","Task Pipeline"),("runtime","Runtime"),("incomplete","Incomplete Work"),("actions","Actions")]:
+    parts.append(f'<button class="navbtn{" active" if vid=="executive" else ""}" data-view="{vid}">{label}<span class="count" id="nav-{vid}-count"></span></button>')
+parts.append('</nav><div class="sidebar-footer">Reviewed ≠ Implemented<br>Implemented ≠ Complete<br><span class="green">Green means evidence-backed.</span></div></aside><main class="main">')
+parts.append('<div class="topbar"><button class="btn small" id="backExec">Overview</button><input class="input global-search" id="globalSearch" placeholder="Search repository or mission…"><select class="select" id="repoSelect" style="max-width:280px"></select><div class="clock">Local: <b id="clock"></b><br><span class="tiny">Snapshot '+e(s.get("generatedAt",""))+' · scan '+e(s.get("localWorkCheckAt",""))+'</span></div></div><div class="content">')
+
+# Executive view
+parts.append('<section class="view active" id="view-executive"><div class="view-header"><div><h2>Executive Overview</h2><p>What needs attention, what is moving, and whether staging/production are truly ready.</p></div></div>')
+cards=[("Repos",summ.get("repositories",len(repos)),"blue"),("In progress",summ.get("inProgress",0),"yellow"),("Verified complete",verified_complete,"green"),("Review/defined only",review_only,"red" if review_only else "green"),("Pending push",pending_push,"red" if pending_push else "green"),("Critical alerts",summ.get("criticalAlerts",0),"red" if summ.get("criticalAlerts",0) else "green"),("Staging",(s.get("readiness") or {}).get("staging",{}).get("state","Unknown"),"red"),("Production",(s.get("readiness") or {}).get("production",{}).get("state","Unknown"),"red")]
+parts.append('<div class="grid kpis">'+''.join(f'<div class="card kpi"><b class="{col}">{e(val)}</b><span>{e(label)}</span></div>' for label,val,col in cards)+'</div>')
+parts.append('<div class="section"><div class="section-title"><h3>Answers you need first</h3><button class="btn small" onclick="showAllQuestions()">All 16 questions</button></div><div class="grid four" id="priorityQuestions"></div></div>')
+parts.append('<div class="section"><div class="section-title"><h3>Highest attention repositories</h3><span class="tiny">Click any card to focus on one repository.</span></div><div class="repo-list" id="attentionRepos"></div></div>')
+parts.append('<div class="section" id="allQuestionsSection" style="display:none"><div class="section-title"><h3>All management questions</h3><button class="btn small" onclick="document.getElementById(\'allQuestionsSection\').style.display=\'none\'">Collapse</button></div><div class="grid qa-grid" id="allQuestions"></div></div></section>')
+
+# Repo Focus
+parts.append('<section class="view" id="view-repo"><div id="repoFocus"></div></section>')
+
+# Pipeline
+parts.append('<section class="view" id="view-pipeline"><div class="view-header"><div><h2>Task Pipeline</h2><p>Every active repository moves through Define → Implement → Verify → Done + Handoff.</p></div></div><div class="pipeline"><div class="lane"><h3 class="blue">1. Defined / Reviewed</h3><div id="lane-defined"></div></div><div class="lane"><h3 class="orange">2. Implementing</h3><div id="lane-implement"></div></div><div class="lane"><h3 class="yellow">3. Verification</h3><div id="lane-verify"></div></div><div class="lane"><h3 class="green">4. Verified / Done</h3><div id="lane-done"></div></div></div></section>')
+
+# Runtime
+parts.append('<section class="view" id="view-runtime"><div class="view-header"><div><h2>Runtime & Monitoring</h2><p>Prometheus, Alertmanager and operational readiness—separate from code review status.</p></div></div>')
+parts.append('<div class="grid three"><div class="card"><h3>Codestra Prometheus</h3><b class="green">'+e(prom.get("targets_up",0))+'/'+e(prom.get("targets_total",0))+' targets up</b></div><div class="card"><h3>Klyrow Prometheus</h3><b class="green">'+e(kp.get("targets_up",0))+'/'+e(kp.get("targets_total",0))+' targets up</b></div><div class="card"><h3>Telnexa Prometheus</h3><b class="green">'+e(tp.get("targets_up",0))+'/'+e(tp.get("targets_total",0))+' targets up</b></div></div>')
+parts.append('<div class="section"><div class="section-title"><h3>Active alerts</h3><span class="badge red">'+e(summ.get("activeAlerts",len(alerts)))+' active · '+e(summ.get("criticalAlerts",0))+' critical</span></div><div class="alert-list" id="runtimeAlerts"></div></div></section>')
+
+# Incomplete
+parts.append('<section class="view" id="view-incomplete"><div class="view-header"><div><h2>Incomplete Work</h2><p>Review-only, blocked, dirty, unpushed, behind, stale or otherwise not proven complete.</p></div></div><div class="toolbar"><select class="select" id="incompleteFilter" style="max-width:280px"><option value="">All incomplete</option><option value="review">Review/defined only</option><option value="blocked">Blocked</option><option value="dirty">Pending commit</option><option value="push">Pending push</option><option value="behind">Behind</option><option value="unknown">Unknown/unlinked</option></select></div><div class="incomplete-list" id="incompleteList"></div></section>')
+
+# Actions
+parts.append('<section class="view" id="view-actions"><div class="view-header"><div><h2>Actions</h2><p>Create a Linear task or add a comment from the dashboard. Actions are queued locally and delivered by Mission Control Watch.</p></div><button class="btn" onclick="loadActions()">Refresh queue</button></div><div class="action-grid"><div class="card"><h3>Create task</h3><div class="form-group"><label>Repository</label><select class="select" id="taskRepo"></select></div><div class="form-group"><label>Task title</label><input class="input" id="taskTitle" placeholder="What needs to be done?"></div><div class="form-row"><div class="form-group"><label>Priority</label><select class="select" id="taskPriority"><option>Urgent</option><option>High</option><option selected>Medium</option><option>Low</option></select></div><div class="form-group"><label>Goal stage</label><select class="select" id="taskStage"><option>Define</option><option selected>Implement</option><option>Verify</option><option>Deploy/Readback</option><option>Handoff</option></select></div></div><div class="form-group"><label>Description / acceptance evidence</label><textarea class="textarea" id="taskBody" placeholder="Describe the implementation, acceptance criteria, evidence required, and what counts as complete."></textarea></div><button class="btn primary" onclick="queueTask()">Queue task</button> <span class="tiny">Delivered to Linear by the hourly Mission Control Watch.</span></div>')
+parts.append('<div class="card"><h3>Add comment</h3><div class="form-group"><label>Repository / current mission</label><select class="select" id="commentRepo" onchange="syncCommentIssue()"></select></div><div class="form-group"><label>Linear issue</label><input class="input" id="commentIssue" readonly></div><div class="form-group"><label>Comment</label><textarea class="textarea" id="commentBody" placeholder="Add an implementation note, blocker, evidence, or next action."></textarea></div><button class="btn primary" onclick="queueComment()">Queue comment</button> <span class="tiny">Use the Linear link in Repository Focus for immediate manual entry.</span></div></div><div class="section"><div class="section-title"><h3>Action queue</h3><span class="tiny" id="actionQueueSummary"></span></div><div class="queue" id="actionQueue"></div></div></section>')
+
+parts.append('</div></main></div><div class="toast" id="toast"></div><script id="mc-data" type="application/json">'+data+'</script>')
+js=r"""
+<script>
+const D=JSON.parse(document.getElementById('mc-data').textContent);
+const REPOS=D.repositories||[], QUESTIONS=D.questions||[];
+let currentRepo=D.defaultRepo||REPOS[0]?.name||'';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function tick(){document.getElementById('clock').textContent=new Date().toLocaleString(undefined,{dateStyle:'full',timeStyle:'medium'});}tick();setInterval(tick,1000);
-function fmt(v){if(!v)return '<span class="muted">—</span>';const d=new Date(v);return isNaN(d)?esc(v):esc(d.toLocaleString());}
-function row(r){
- const w=r.localWork||{state:r.local?'Local state pending scan':'Remote only',color:'gray',pending:false};
- const life='<span class="badge '+esc(w.color||'gray')+'">'+esc(w.state||'Unknown')+'</span>';
- const t=TRUTH[r.name]||{label:'Unknown',color:'gray',note:'No completion truth available.'};
- const truth='<span class="badge '+esc(t.color)+'">'+esc(t.label)+'</span><div class="tiny">'+esc(t.note)+'</div>';
- const prs=(r.prs||[]).length?r.prs.map(p=>'<div><a href="'+esc(p.url)+'">#'+p.number+' '+esc(p.title)+'</a></div>').join(''):'<span class="muted">0 indexed</span>';
- const blocker=r.blocked?'<a class="blocked" href="'+esc(r.blockerUrl)+'">'+esc(r.blocker)+'</a>':'<span class="green">No linked conflict</span>';
- const assignee=esc(r.assignee||'Unassigned');
- let git='<span class="muted">No local clone/state</span>';
- if(r.local){git='<b>'+esc(r.local.branch||'HEAD')+'</b> @ '+esc(r.local.head||'—')+'<div class="tiny">'+esc(r.local.path||'')+'</div><div>dirty '+Number(r.dirtyFiles||0)+' · ahead '+Number(r.maxAhead||0)+' · behind '+Number(r.maxBehind||0)+' · '+Number(r.worktreeCount||0)+' worktree(s)</div>';}
- const last=r.local?.last_commit?String(r.local.last_commit).split('|').map(esc).join('<br>'):'<span class="muted">Unavailable</span>';
- const since=w.dirtySince||w.unpushedSince||w.startedAt||'';
- return '<tr><td><div class="repo"><a href="'+esc(r.github)+'">'+esc(r.name)+'</a></div><div class="tiny">'+esc(r.visibility)+' · '+esc(r.group||'')+'</div></td>'+
- '<td><a href="'+esc(r.linearUrl)+'">'+esc(r.linearIssue)+' '+esc(r.goal)+'</a></td>'+
- '<td><b>'+assignee+'</b><div>'+esc(r.linearStatus)+'</div></td><td>'+truth+'</td><td>'+prs+'</td><td>'+blocker+'</td><td>'+life+'<div class="tiny">checked '+fmt(w.checkedAt)+'</div></td>'+
- '<td>'+fmt(since)+'<div class="tiny">'+(w.unpushedSince?'Unpushed since '+fmt(w.unpushedSince):'')+'</div></td><td>'+git+'</td><td class="tiny">'+last+'</td>'+
- '<td><a href="'+esc(r.notionUrl)+'">Notion</a> · <a href="'+esc(r.github)+'/pulls">PRs</a> · <a href="'+esc(r.github)+'/actions">CI</a></td></tr>';
-}
-function render(){const q=document.getElementById('search').value.toLowerCase(),f=document.getElementById('filter').value,g=document.getElementById('group').value;const list=DATA.filter(r=>{const w=r.localWork||{},t=TRUTH[r.name]||{};const hay=[r.name,r.goal,r.linearStatus,r.blocker,r.assignee,r.local?.branch,r.local?.head,w.state,t.label,t.note].join(' ').toLowerCase();if(q&&!hay.includes(q))return false;if(g&&r.group!==g)return false;if(f==='notImplemented'&&!['Review only / implementation not proven','Defined / implementation not proven'].includes(t.label))return false;if(f==='doneUnproven'&&!String(t.label).startsWith('Done status /'))return false;if(f==='blocked'&&!r.blocked)return false;if(f==='pendingPush'&&!(w.pendingPush>0||r.maxAhead>0))return false;if(f==='pendingCommit'&&!(w.pendingCommit>0||r.dirtyFiles>0))return false;if(f==='behind'&&!(w.behind>0||r.maxBehind>0))return false;if(f==='synced'&&w.state!=='Pushed / synced')return false;if(f&&!['notImplemented','doneUnproven','blocked','pendingPush','pendingCommit','behind','synced'].includes(f)&&r.linearStatus!==f)return false;return true});document.getElementById('repoRows').innerHTML=list.map(row).join('');}
-document.querySelectorAll('input,select').forEach(x=>x.addEventListener('input',render));render();
-</script>"""
-parts.append(js);parts.append('<footer><b>Completion rule:</b> Review/analysis/definition does not equal implementation. Implementation does not equal verified completion. Local push state uses the last-known upstream tracking ref; the hourly cloud watch refreshes remote truth.</footer></body></html>')
+function toast(msg,bad=false){const x=document.getElementById('toast');x.textContent=msg;x.style.display='block';x.style.borderColor=bad?'#6d3232':'#31516a';setTimeout(()=>x.style.display='none',4500)}
+function tick(){document.getElementById('clock').textContent=new Date().toLocaleString(undefined,{dateStyle:'medium',timeStyle:'medium'});}tick();setInterval(tick,1000);
+function repo(name){return REPOS.find(r=>r.name===name)}
+function badge(label,color='gray'){return '<span class="badge '+esc(color)+'">'+esc(label)+'</span>'}
+function setView(v){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');document.querySelectorAll('.navbtn').forEach(x=>x.classList.toggle('active',x.dataset.view===v));if(v==='repo')renderRepoFocus();if(v==='pipeline')renderPipeline();if(v==='incomplete')renderIncomplete();if(v==='actions')loadActions();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.navbtn').forEach(x=>x.addEventListener('click',()=>setView(x.dataset.view)));
+document.getElementById('backExec').onclick=()=>setView('executive');
+function selectRepo(name){if(!repo(name))return;currentRepo=name;document.getElementById('repoSelect').value=name;setView('repo')}
+function fillSelect(id,linkedOnly=false){const el=document.getElementById(id);el.innerHTML=REPOS.filter(r=>!linkedOnly||r.linearIssue).map(r=>'<option value="'+esc(r.name)+'">'+esc(r.name)+'</option>').join('');if(repo(currentRepo))el.value=currentRepo}
+fillSelect('repoSelect');fillSelect('taskRepo');fillSelect('commentRepo',true);
+document.getElementById('repoSelect').addEventListener('change',e=>selectRepo(e.target.value));
+document.getElementById('globalSearch').addEventListener('input',e=>{const q=e.target.value.toLowerCase();const matches=REPOS.filter(r=>[r.name,r.goal,r.linearIssue,r.assignee].join(' ').toLowerCase().includes(q)).slice(0,12);document.getElementById('attentionRepos').innerHTML=matches.map(repoCard).join('')});
+document.getElementById('globalSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const q=e.target.value.toLowerCase();const r=REPOS.find(r=>r.name.toLowerCase()===q)||REPOS.find(r=>r.name.toLowerCase().includes(q));if(r)selectRepo(r.name)}});
+function repoCard(r){const t=r.completionTruth||{};const w=r.localWork||{};return '<div class="repo-card" onclick="selectRepo(\''+esc(r.name).replace(/'/g,"\\'")+'\')"><h4>'+esc(r.name)+'</h4><div class="repo-meta">'+badge(r.linearStatus||'Unlinked','blue')+badge(t.label||'Unknown',t.color||'gray')+badge(w.state||'Remote only',w.color||'gray')+'</div><div class="repo-goal">'+esc(r.goal||'No goal linked')+'</div><div class="tiny">'+esc(r.assignee||'Unassigned')+' · '+Number(r.openPrs||0)+' PR(s)</div></div>'}
+function priorityScore(r){let n=0;const t=r.completionTruth||{},w=r.localWork||{};if(r.blocked)n+=50;if(t.color==='red')n+=30;if(w.pending)n+=25;if(Number(r.openPrs||0)>0)n+=10;if(r.linearStatus==='In Progress')n+=5;return n}
+function renderExecutive(){const top=[...REPOS].sort((a,b)=>priorityScore(b)-priorityScore(a)).slice(0,10);document.getElementById('attentionRepos').innerHTML=top.map(repoCard).join('');const key=['What needs my attention right now?','What should happen next?','Is staging ready?','Is production ready?'];document.getElementById('priorityQuestions').innerHTML=key.map(k=>QUESTIONS.find(q=>q.question===k)).filter(Boolean).map(q=>'<div class="card quick-answer"><b>'+esc(q.question)+'</b><span class="'+esc(q.status||'gray')+'">'+esc(q.answer)+'</span></div>').join('');document.getElementById('allQuestions').innerHTML=QUESTIONS.map(q=>'<div class="card quick-answer"><b>'+esc(q.question)+'</b><span class="'+esc(q.status||'gray')+'">'+esc(q.answer)+'</span></div>').join('')}
+window.showAllQuestions=()=>{document.getElementById('allQuestionsSection').style.display='block';document.getElementById('allQuestionsSection').scrollIntoView({behavior:'smooth'})}
+function renderRepoFocus(){const r=repo(currentRepo)||REPOS[0];if(!r)return;const t=r.completionTruth||{},w=r.localWork||{},steps=r.goalSteps||[];const prs=(r.prs||[]).map(p=>'<div><a href="'+esc(p.url)+'" target="_blank">#'+p.number+' '+esc(p.title)+'</a></div>').join('')||'<span class="muted">No indexed open PRs</span>';const blocker=r.blocked?'<div class="red">'+esc(r.blocker||'Blocked')+'</div>':'<div class="green">No linked blocker</div>';document.getElementById('repoFocus').innerHTML='<div class="focus-head"><div><h2>'+esc(r.name)+'</h2><div class="tiny">'+esc(r.full||'')+'</div><div class="focus-stat">'+badge(r.linearStatus||'Unlinked','blue')+badge(t.label||'Unknown',t.color||'gray')+badge(w.state||'Remote only',w.color||'gray')+'</div></div><div class="linkrow"><a class="btn" target="_blank" href="'+esc(r.github)+'">GitHub</a><a class="btn" target="_blank" href="'+esc(r.linearUrl)+'">Linear</a><a class="btn" target="_blank" href="'+esc(r.notionUrl)+'">Notion</a><a class="btn" target="_blank" href="'+esc(r.github)+'/actions">CI</a></div></div><div class="section grid two"><div class="card"><h3>Current goal</h3><b>'+esc(r.goal||'No goal linked')+'</b><div class="tiny" style="margin-top:8px">Owner: '+esc(r.assignee||'Unassigned')+' · Mission: '+esc(r.linearIssue||'Unlinked')+'</div></div><div class="card"><h3>Completion truth</h3>'+badge(t.label||'Unknown',t.color||'gray')+'<p class="muted">'+esc(t.note||'')+'</p></div></div><div class="section"><div class="section-title"><h3>Path to the goal</h3><span class="tiny">A review can finish step 1; it cannot finish step 2.</span></div><div class="goal-path">'+steps.map(s=>'<div class="step '+esc(s.state)+'"><div class="step-num">'+s.n+'</div><h4>'+esc(s.name)+'</h4><p>'+esc(s.detail)+'</p></div>').join('')+'</div></div><div class="section grid three"><div class="card"><h3>Local work</h3>'+badge(w.state||'Remote only',w.color||'gray')+'<div class="tiny" style="margin-top:8px">dirty '+Number(r.dirtyFiles||0)+' · ahead '+Number(r.maxAhead||0)+' · behind '+Number(r.maxBehind||0)+' · '+Number(r.worktreeCount||0)+' worktree(s)</div><div class="tiny">'+(r.local?esc((r.local.branch||'HEAD')+' @ '+(r.local.head||'—')):'No local state')+'</div></div><div class="card"><h3>Open PRs</h3>'+prs+'</div><div class="card"><h3>Blocker</h3>'+blocker+'</div></div><div class="section grid two"><div class="card"><h3>Add mission comment</h3><textarea class="textarea" id="focusComment" placeholder="What changed, what was implemented, what is blocked, or what evidence is available?"></textarea><div class="linkrow"><button class="btn primary" onclick="queueFocusComment()">Queue comment</button><a class="btn" target="_blank" href="'+esc(r.linearUrl)+'">Open Linear now</a></div></div><div class="card"><h3>Create next task</h3><input class="input" id="focusTaskTitle" placeholder="Next implementation task"><textarea class="textarea" id="focusTaskBody" placeholder="Acceptance criteria, implementation evidence required, tests/readback required."></textarea><div class="linkrow"><button class="btn primary" onclick="queueFocusTask()">Queue task</button><button class="btn" onclick="setView(\'pipeline\')">View pipeline</button></div></div></div>'}
+function renderPipeline(){for(const id of ['defined','implement','verify','done'])document.getElementById('lane-'+id).innerHTML='';for(const r of REPOS){const stage=(r.completionTruth||{}).stage||'unlinked';if(!['defined','implement','verify','done'].includes(stage))continue;const el=document.getElementById('lane-'+stage);el.insertAdjacentHTML('beforeend','<div class="task-card" onclick="selectRepo(\''+esc(r.name).replace(/'/g,"\\'")+'\')"><div class="task-title">'+esc(r.name)+'</div><div>'+esc(r.goal||'No goal')+'</div><div class="tiny">'+esc(r.assignee||'Unassigned')+' · '+esc(r.linearStatus||'')+'</div></div>')}}
+function incompleteReason(r){const t=r.completionTruth||{},w=r.localWork||{},a=[];if(t.color==='red'||t.color==='yellow')a.push(t.label);if(r.blocked)a.push('Blocked');if(Number(w.pendingCommit||r.dirtyFiles||0)>0)a.push('Pending commit');if(Number(w.pendingPush||r.maxAhead||0)>0)a.push('Pending push');if(Number(w.behind||r.maxBehind||0)>0)a.push('Behind');if(r.linearStatus==='Unlinked')a.push('Unlinked');return a}
+function renderIncomplete(){const f=document.getElementById('incompleteFilter').value;const list=REPOS.filter(r=>{const rs=incompleteReason(r);if(!rs.length)return false;if(!f)return true;if(f==='review')return rs.some(x=>/Review|Defined|implementation not proven/.test(x));if(f==='blocked')return r.blocked;if(f==='dirty')return rs.includes('Pending commit');if(f==='push')return rs.includes('Pending push');if(f==='behind')return rs.includes('Behind');if(f==='unknown')return r.linearStatus==='Unlinked'||(r.completionTruth||{}).color==='gray';return true});document.getElementById('incompleteList').innerHTML=list.map(r=>'<div class="incomplete-row" onclick="selectRepo(\''+esc(r.name).replace(/'/g,"\\'")+'\')"><b>'+esc(r.name)+'</b><div>'+esc(incompleteReason(r).join(' · '))+'<div class="tiny">'+esc(r.goal||'')+'</div></div><div>'+esc(r.assignee||'Unassigned')+'</div><button class="btn small">Focus</button></div>').join('')||'<div class="card green">No matching incomplete work.</div>'}
+document.getElementById('incompleteFilter').addEventListener('change',renderIncomplete);
+function renderRuntime(){document.getElementById('runtimeAlerts').innerHTML=(D.snapshot.alerts||[]).map(a=>'<div class="alert '+esc(a.severity||'')+'"><div><b>'+esc(a.name||'Alert')+'</b><div class="tiny">'+esc(a.state||'')+'</div></div>'+badge(a.severity||'unknown',a.severity==='critical'?'red':a.severity==='warning'?'yellow':'gray')+'</div>').join('')||'<div class="card green">No active alerts.</div>'}
+async function postAction(payload){if(location.protocol==='file:'){toast('Actions require the local live dashboard at http://127.0.0.1:8765',true);return null}try{const r=await fetch('/api/action',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const j=await r.json();if(!r.ok)throw new Error(j.error||'Action failed');toast('Queued '+j.action.id);loadActions();return j}catch(e){toast(e.message,true);return null}}
+function queueTask(){const r=document.getElementById('taskRepo').value;const stage=document.getElementById('taskStage').value;const title=document.getElementById('taskTitle').value.trim();const body=document.getElementById('taskBody').value.trim();const priority=document.getElementById('taskPriority').value;postAction({kind:'task',repo:r,title:'['+r+'] '+title,priority,body:'Goal stage: '+stage+'\\n\\n'+body})}
+function syncCommentIssue(){const r=repo(document.getElementById('commentRepo').value);document.getElementById('commentIssue').value=r?.linearIssue||''}window.syncCommentIssue=syncCommentIssue;
+function queueComment(){const r=repo(document.getElementById('commentRepo').value);postAction({kind:'comment',repo:r.name,issueId:r.linearIssue,body:document.getElementById('commentBody').value.trim()})}
+function queueFocusComment(){const r=repo(currentRepo);postAction({kind:'comment',repo:r.name,issueId:r.linearIssue,body:document.getElementById('focusComment').value.trim()})}
+function queueFocusTask(){const r=repo(currentRepo);const title=document.getElementById('focusTaskTitle').value.trim();const body=document.getElementById('focusTaskBody').value.trim();postAction({kind:'task',repo:r.name,title:'['+r.name+'] '+title,priority:'High',body})}
+async function loadActions(){const box=document.getElementById('actionQueue');if(location.protocol==='file:'){box.innerHTML='<div class="card yellow">Open the live Appolon dashboard at http://127.0.0.1:8765 to create and track actions.</div>';return}try{const j=await fetch('/api/actions',{cache:'no-store'}).then(r=>r.json());const items=[...(j.items||[])].reverse();document.getElementById('actionQueueSummary').textContent=items.filter(x=>x.status==='pending').length+' pending · '+items.length+' total';box.innerHTML=items.slice(0,100).map(x=>'<div class="queue-item"><div class="queue-head"><b>'+esc(x.kind.toUpperCase()+' · '+x.repo)+'</b><span class="status-'+esc(x.status)+'">'+esc(x.status)+'</span></div><div>'+esc(x.title||x.body||'')+'</div><div class="tiny">'+esc(x.id)+' · '+esc(x.createdAt)+'</div>'+(x.status==='pending'?'<div class="linkrow"><button class="btn small danger" onclick="cancelAction(\''+esc(x.id)+'\')">Cancel</button></div>':'')+'</div>').join('')||'<div class="card muted">No queued actions yet.</div>'}catch(e){box.innerHTML='<div class="card red">Action queue unavailable: '+esc(e.message)+'</div>'}}
+async function cancelAction(id){try{await fetch('/api/action/'+encodeURIComponent(id)+'/cancel',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});loadActions()}catch(e){toast(e.message,true)}}
+window.selectRepo=selectRepo;window.setView=setView;window.queueTask=queueTask;window.queueComment=queueComment;window.queueFocusComment=queueFocusComment;window.queueFocusTask=queueFocusTask;window.loadActions=loadActions;window.cancelAction=cancelAction;
+renderExecutive();renderPipeline();renderRuntime();renderIncomplete();syncCommentIssue();
+document.getElementById('nav-executive-count').textContent=D.snapshot.summary?.repositories||REPOS.length;document.getElementById('nav-incomplete-count').textContent=REPOS.filter(r=>incompleteReason(r).length).length;document.getElementById('nav-runtime-count').textContent=D.snapshot.summary?.criticalAlerts||0;
+</script>
+"""
+parts.append(js);parts.append('</body></html>')
 with open(OUT,"w",encoding="utf-8") as f:f.write(''.join(parts))
-print(json.dumps({"dashboard":OUT,"repos":len(repos),"reviewOnlyOrUnproven":review_only,"localCheckAt":s.get("localWorkCheckAt"),"pendingCommit":pending_commit,"pendingPush":pending_push,"behind":behind,"synced":synced}))
+print(json.dumps({"dashboard":OUT,"repos":len(repos),"defaultRepo":default_repo,"views":6,"verifiedComplete":verified_complete,"reviewOnly":review_only}))
