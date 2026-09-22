@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T18:07:34.974389-04:00",
+  "generatedAt": "2026-09-22T18:12:50.9225037-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
@@ -14,7 +14,7 @@
     {
       "question": "What was completed today?",
       "status": "green",
-      "answer": "Verified/Complete today: PAS-191, PAS-91, PAS-83, PAS-89. Each is counted only because independent implementation/runtime evidence is recorded; Linear Done alone is not completion. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI and required staging/runtime/recovery evidence are missing. PAS-61 has material implementation evidence but is not complete because PR #310 is Draft with red exact-head hosted CI; review evidence is REVIEW_REQUIRED. Portfolio-wide completion outside the refreshed evidence set remains Unknown / Not Proven. 1 local worktree commit(s) are dated today, but commits alone are not completion."
+      "answer": "Verified/Complete today: PAS-191, PAS-91, PAS-83. Each is counted only because independent implementation/runtime evidence is recorded; Linear Done alone is not completion. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI and required staging/runtime/recovery evidence are missing. PAS-61 has material implementation evidence but is not complete because PR #310 is Draft with red exact-head hosted CI; review evidence is REVIEW_REQUIRED. Portfolio-wide completion outside the refreshed evidence set remains Unknown / Not Proven. 1 local worktree commit(s) are dated today, but commits alone are not completion."
     },
     {
       "question": "What is blocked?",
@@ -93,13 +93,13 @@
     }
   },
   "syncMetadata": {
-    "last_linear_sync": "2026-09-22T18:07:34.974389-04:00",
-    "last_notion_sync": "2026-09-22T18:07:34.974389-04:00",
-    "last_github_sync": "2026-09-22T18:05:19.700516-04:00",
-    "last_local_sync": "2026-09-22T18:02:04.851006-04:00",
-    "last_runtime_sync": "2026-09-22T18:05:19.700516-04:00",
-    "sync_state": "drift",
-    "sync_note": "GitHub/Linear/Notion/local/runtime shared facts are reconciled. Remaining deliberate drift: Kong PR #117 committed route authority still differs from the corrected compatibility-preserving plan; the full Backstage snapshot publication remains lagged. PAS-245 is unassigned in authoritative Linear and must not be inferred as owned elsewhere."
+    "last_linear_sync": "2026-09-22T18:13:38.4522696-04:00",
+    "last_notion_sync": "2026-09-22T18:13:38.4522696-04:00",
+    "last_github_sync": "2026-09-22T18:13:38.4522696-04:00",
+    "last_local_sync": "2026-09-22T18:12:50.9225037-04:00",
+    "last_runtime_sync": "2026-09-22T18:12:50.9225037-04:00",
+    "sync_state": "conflict",
+    "sync_note": "PAS-89 is Done in Linear and described as 33/33 certification tests passing, but durable independent test-execution evidence was not found during reconciliation; derived completion remains fail-closed. Kong PR #117 source-vs-corrected-plan drift and Backstage snapshot publication lag also remain explicit."
   },
   "summary": {
     "activeAlerts": 6,
