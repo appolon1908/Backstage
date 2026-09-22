@@ -8,84 +8,27 @@
     "criticalAlerts": 13,
     "grafanaCodestra": "ok",
     "grafanaKlyrow": "ok",
-    "newCriticalAlerts": [
-      "CodestraRestoreTestAgeExceeded",
-      "MiddlewareDatabaseRestoreOverdue"
-    ]
+    "newCriticalAlerts": ["CodestraRestoreTestAgeExceeded","MiddlewareDatabaseRestoreOverdue"]
   },
   "actionsCapacity": {
-    "issue": "PAS-190",
-    "title": "GitHub Actions — restore hosted job execution for core repos",
-    "status": "Todo",
-    "owner": "Ralph Appolon",
-    "priority": "Urgent",
-    "rootCause": "GitHub account notifications confirm 100% of included Actions minutes were used and a billing problem was reported; fresh required hosted jobs still fail with runner_id=0 and zero executed steps.",
-    "url": "https://linear.app/passion-fruit/issue/PAS-190/github-actions-restore-hosted-job-execution-for-core-repos",
-    "nextAction": "Restore GitHub-hosted Actions eligibility/capacity at the account level, or register an approved isolated self-hosted runner through a secure operator-controlled path; then rerun exact-head required checks without weakening gates."
+    "issue":"PAS-190",
+    "title":"GitHub Actions — restore hosted job execution for core repos",
+    "status":"Todo",
+    "owner":"Ralph Appolon",
+    "priority":"Urgent",
+    "rootCause":"GitHub account notifications confirm 100% of included Actions minutes were used and a billing problem was reported; fresh required hosted jobs still fail with runner_id=0 and zero executed steps.",
+    "url":"https://linear.app/passion-fruit/issue/PAS-190/github-actions-restore-hosted-job-execution-for-core-repos",
+    "nextAction":"Restore GitHub-hosted Actions eligibility/capacity at the account level, or register an approved isolated self-hosted runner through a secure operator-controlled path; then rerun exact-head required checks without weakening gates."
   },
   "missions": {
-    "PAS-151": {
-      "title": "KONG-05 — Certify live Caddy → Kong → Middleware staging chain",
-      "status": "In Progress",
-      "owner": "Ralph Appolon",
-      "stage": "Implemented",
-      "complete": false,
-      "evidence": "Middleware PR #309 is open Draft and mergeable at 16afd468; untouched-backup PostgreSQL 17 rehearsal, migrations, four-constraint reconciler, RUNTIME_SCHEMA_VERIFIED and 2/2 focused tests pass. Kong PR #115 is open non-draft and mergeable at f824a653; stacked draft #116 is mergeable at 5e2e316 with JWT/JWKS render/config-parse evidence.",
-      "missing": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy→Kong→Middleware readback/rollback. Production GO remains NO.",
-      "url": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain"
-    },
-    "PAS-195": {
-      "title": "M1E — Client Email Suite / Webmail completion and staging certification",
-      "status": "In Review",
-      "owner": "Ralph Appolon",
-      "stage": "Implemented",
-      "complete": false,
-      "evidence": "klyrow.com PR #165 is open, non-draft and mergeable at exact head 8295f7cc; source tests, RLS/PostgreSQL checks, Playwright and isolated immutable staging evidence are recorded.",
-      "missing": "Fresh Codestra deploy-readiness run 35676100378 at 2026-09-22T01:31:54Z failed before runner steps: source-ci and secret-scan have runner_id=0 and steps=[]. Immutable/staging/production-readonly jobs were skipped. Required independent exact-head review is also not proven.",
-      "url": "https://linear.app/passion-fruit/issue/PAS-195/m1e-client-email-suite-webmail-completion-and-staging-certification"
-    },
-    "PAS-194": {
-      "title": "Identity prerequisite — provision Klyrow staging OIDC client, host and controlled test identities",
-      "status": "In Progress / Blocked",
-      "owner": "Ralph Appolon",
-      "stage": "Implemented",
-      "complete": false,
-      "evidence": "Keycloak PR #124 is open, non-draft and mergeable at exact head a49390e1 with governed klyrow-staging-portal desired state and isolated repository validation evidence.",
-      "missing": "PAS-190 hosted CI recovery; independent review; live realm apply; staging.klyrow.com DNS/TLS; controlled test identities; staging runtime readiness.",
-      "url": "https://linear.app/passion-fruit/issue/PAS-194/identity-prerequisite-provision-klyrow-staging-oidc-client-host-and"
-    },
-    "PAS-192": {
-      "title": "Keycloak Runtime Certification — Klyrow identity/session boundary",
-      "status": "In Progress / Blocked",
-      "owner": "Ralph Appolon",
-      "stage": "Reviewed / Defined",
-      "complete": false,
-      "evidence": "Runtime certification scope and fail-closed acceptance matrix are defined; prerequisite PAS-194 source candidate exists.",
-      "missing": "Real authenticated staging login/callback/claims/session/revoke/logout, wrong-tenant denial, MFA/step-up/recovery and runtime identity evidence cannot run until PAS-194 is cleared.",
-      "url": "https://linear.app/passion-fruit/issue/PAS-192/keycloak-runtime-certification-klyrow-identitysession-boundary"
-    },
-    "PAS-198": {
-      "title": "M1E-O11 — Webmail / Postal production observability suite",
-      "status": "In Review",
-      "owner": "Ralph Appolon",
-      "stage": "Implemented",
-      "complete": false,
-      "evidence": "klyrow.com PR #166 is open, non-draft and mergeable at exact head 8c9af4fe54df1a43cf1b8eb867d8a1aeb2697da5. It adds the read-only Operations Center/Webmail-Postal observability APIs, Prometheus SLI rules, Alertmanager policies, Grafana dashboard, SLO/runbook and bounded trace evidence on top of PAS-195 head 8295f7cc.",
-      "missing": "PAS-190 hosted CI execution recovery; independent exact-head review; immutable staging validation. Production effects remain disabled and no promotion is authorized.",
-      "url": "https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite"
-    },
-    "PAS-197": {
-      "title": "M1F — Platform Admin Suite completion and staging certification",
-      "status": "In Progress",
-      "owner": "Ralph Appolon",
-      "stage": "Implemented / Active Execution",
-      "complete": false,
-      "evidence": "Linear execution lane is started and assigned. It is the active Klyrow Platform Admin completion/certification lane alongside PAS-198 review.",
-      "missing": "Exact implementation/PR/CI/staging evidence for PAS-197 is not yet proven in this refresh; dependent hosted CI remains blocked by PAS-190.",
-      "url": "https://linear.app/passion-fruit/issue/PAS-197/m1f-platform-admin-suite-completion-and-staging-certification"
-    }
+    "PAS-151":{"title":"KONG-05 — Certify live Caddy → Kong → Middleware staging chain","status":"In Progress","owner":"Ralph Appolon","stage":"Implemented","complete":false,"evidence":"Middleware PR #309 is open Draft and mergeable at 16afd468; untouched-backup PostgreSQL 17 rehearsal, migrations, four-constraint reconciler, RUNTIME_SCHEMA_VERIFIED and 2/2 focused tests pass. Kong PR #115 is open non-draft and mergeable at f824a653; stacked draft #116 is mergeable at 5e2e316 with JWT/JWKS render/config-parse evidence.","missing":"PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy→Kong→Middleware readback/rollback. Production GO remains NO.","url":"https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain"},
+    "PAS-195":{"title":"M1E — Client Email Suite / Webmail completion and staging certification","status":"In Review","owner":"Ralph Appolon","stage":"Implemented","complete":false,"evidence":"klyrow.com PR #165 is open, non-draft and mergeable at exact head 8295f7cc; source tests, RLS/PostgreSQL checks, Playwright and isolated immutable staging evidence are recorded.","missing":"Fresh Codestra deploy-readiness run 35676100378 at 2026-09-22T01:31:54Z failed before runner steps: source-ci and secret-scan have runner_id=0 and steps=[]. Immutable/staging/production-readonly jobs were skipped. Required independent exact-head review is also not proven.","url":"https://linear.app/passion-fruit/issue/PAS-195/m1e-client-email-suite-webmail-completion-and-staging-certification"},
+    "PAS-194":{"title":"Identity prerequisite — provision Klyrow staging OIDC client, host and controlled test identities","status":"In Progress / Blocked","owner":"Ralph Appolon","stage":"Implemented","complete":false,"evidence":"Keycloak PR #124 is open, non-draft and mergeable at exact head a49390e1 with governed klyrow-staging-portal desired state and isolated repository validation evidence.","missing":"PAS-190 hosted CI recovery; independent review; live realm apply; staging.klyrow.com DNS/TLS; controlled test identities; staging runtime readiness.","url":"https://linear.app/passion-fruit/issue/PAS-194/identity-prerequisite-provision-klyrow-staging-oidc-client-host-and"},
+    "PAS-192":{"title":"Keycloak Runtime Certification — Klyrow identity/session boundary","status":"In Progress / Blocked","owner":"Ralph Appolon","stage":"Reviewed / Defined","complete":false,"evidence":"Runtime certification scope and fail-closed acceptance matrix are defined; prerequisite PAS-194 source candidate exists.","missing":"Real authenticated staging login/callback/claims/session/revoke/logout, wrong-tenant denial, MFA/step-up/recovery and runtime identity evidence cannot run until PAS-194 is cleared.","url":"https://linear.app/passion-fruit/issue/PAS-192/keycloak-runtime-certification-klyrow-identitysession-boundary"},
+    "PAS-198":{"title":"M1E-O11 — Webmail / Postal production observability suite","status":"In Review","owner":"Ralph Appolon","stage":"Implemented","complete":false,"evidence":"klyrow.com PR #166 is open, non-draft and mergeable at exact head 8c9af4fe54df1a43cf1b8eb867d8a1aeb2697da5. It adds the read-only Operations Center/Webmail-Postal observability APIs, Prometheus SLI rules, Alertmanager policies, Grafana dashboard, SLO/runbook and bounded trace evidence on top of PAS-195 head 8295f7cc.","missing":"PAS-190 hosted CI execution recovery; independent exact-head review; immutable staging validation. Production effects remain disabled and no promotion is authorized.","url":"https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite"},
+    "PAS-197":{"title":"M1F — Platform Admin Suite completion and staging certification","status":"In Progress","owner":"Ralph Appolon","stage":"Reviewed / Defined","complete":false,"evidence":"Linear execution lane is started and assigned; the PAS-197 scope and exit gates are defined. Existing Admin/observability foundation is evidenced through PAS-198/#166, not as proof that PAS-197 remaining work is implemented.","missing":"PAS-197-specific material code/config/data change evidence is not proven in this refresh; exact PR/CI/staging evidence for the remaining Admin Suite work is also missing. Hosted CI remains blocked by PAS-190.","url":"https://linear.app/passion-fruit/issue/PAS-197/m1f-platform-admin-suite-completion-and-staging-certification"}
   },
-  "prChecks": [
+  "prChecks":[
     {"repo":"ingtrader21-spec/klyrow.com","number":165,"head":"8295f7cc0f6bd1bde735da9620fe6cdd3498fe4a","mergeable":true,"draft":false,"ci":"RED_ZERO_STEP","review":"REQUESTED_NOT_PROVEN","url":"https://github.com/ingtrader21-spec/klyrow.com/pull/165"},
     {"repo":"ingtrader21-spec/Middleware-","number":309,"head":"16afd4688680cbe8738d657a1e0d7e62b8956835","mergeable":true,"draft":true,"ci":"RED_ZERO_STEP","review":"NONE_SUBMITTED","url":"https://github.com/ingtrader21-spec/Middleware-/pull/309"},
     {"repo":"ingtrader21-spec/Keycloak","number":124,"head":"a49390e1320d508bd68304f8d2cbfda724fcb7cb","mergeable":true,"draft":false,"ci":"RED_ZERO_STEP","review":"REQUESTED_NOT_PROVEN","url":"https://github.com/ingtrader21-spec/Keycloak/pull/124"},
@@ -94,30 +37,14 @@
     {"repo":"ingtrader21-spec/Caddy","number":183,"head":"f06d86a4bdb4a175e70a32a32a735f191f4cd58d","mergeable":true,"draft":false,"ci":"RED_ZERO_STEP","review":"REQUESTED_NOT_PROVEN","url":"https://github.com/ingtrader21-spec/Caddy/pull/183"},
     {"repo":"ingtrader21-spec/klyrow.com","number":166,"head":"8c9af4fe54df1a43cf1b8eb867d8a1aeb2697da5","mergeable":true,"draft":false,"ci":"RED_ZERO_STEP","review":"NONE_SUBMITTED","url":"https://github.com/ingtrader21-spec/klyrow.com/pull/166"}
   ],
-  "changes": [
+  "changes":[
     "RUNTIME DETERIORATION: Alertmanager increased from 15 active / 11 critical to 17 active / 13 critical. New critical alerts: CodestraRestoreTestAgeExceeded and MiddlewareDatabaseRestoreOverdue. Prometheus targets remain Codestra 38/38, Klyrow 2/2, Telnexa 3/3.",
-    "LINEAR FAN-OUT: PAS-197 is In Progress and assigned; PAS-199 through PAS-228 created the Klyrow PRO S1-S10 suite parent/child execution tree. Most new suite tasks are Backlog/unstarted and remain Reviewed/Defined until implementation evidence exists.",
+    "LINEAR FAN-OUT: PAS-197 is In Progress and assigned but remains Reviewed/Defined because PAS-197-specific implementation evidence is not proven. PAS-199 through PAS-228 created the Klyrow PRO S1-S10 suite parent/child execution tree; most are Backlog/unstarted and Reviewed/Defined only.",
     "PAS-198 remains Implemented/In Review at klyrow PR #166 exact head 8c9af4fe; PR is mergeable, but three exact-head workflows fail and gateway CI jobs have steps=null, so verification is blocked by PAS-190 plus independent review and immutable staging validation.",
     "PAS-151 remains Implemented but not Verified/Complete: Middleware #309 mergeable Draft; Kong #115 mergeable non-draft and #116 mergeable Draft; runtime apply/readback is still missing.",
     "Local scan remains 5 pending-commit worktrees, 2 pending-push, 10 behind, 7 synced, 0 scan-needs-review; dashboard action queue is empty."
   ],
-  "refreshNote": "Material change: runtime risk worsened to 17 active / 13 critical alerts and the Klyrow product execution tree expanded (PAS-197, PAS-199–228). PAS-190 still blocks exact-head hosted CI. Production remains NO GO; staging remains NOT READY.",
-  "roadmap": {
-    "repo": "klyrow.com",
-    "parent": "PAS-31",
-    "suiteParents": ["PAS-199","PAS-200","PAS-201","PAS-202","PAS-203","PAS-204","PAS-205","PAS-206","PAS-207","PAS-208"],
-    "suiteChildren": ["PAS-209","PAS-210","PAS-211","PAS-212","PAS-213","PAS-214","PAS-215","PAS-216","PAS-217","PAS-218","PAS-219","PAS-220","PAS-221","PAS-222","PAS-223","PAS-224","PAS-225","PAS-226","PAS-227","PAS-228"],
-    "state": "Created and assigned; most new suite execution children are Backlog / not started",
-    "owner": "Ralph Appolon",
-    "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
-  },
-  "syncMetadata": {
-    "last_linear_sync": "2026-09-21T23:20:46.688303-04:00",
-    "last_notion_sync": "2026-09-21T23:20:46.688303-04:00",
-    "last_github_sync": "2026-09-21T23:19:44.684786-04:00",
-    "last_local_sync": null,
-    "last_runtime_sync": "2026-09-21T23:19:44.684786-04:00",
-    "sync_state": "drift",
-    "sync_note": "Linear, Notion, GitHub, local and runtime checked lanes reconciled. Remaining drift: exact blob parity for local Render-Dashboard.py versus Backstage is not proven; required V2 features are present and localhost health passes."
-  }
+  "refreshNote":"Material change: runtime risk worsened to 17 active / 13 critical alerts and the Klyrow product execution tree expanded (PAS-197, PAS-199–228). PAS-197 remains Reviewed/Defined until its own implementation evidence exists. PAS-190 still blocks exact-head hosted CI. Production remains NO GO; staging remains NOT READY.",
+  "roadmap":{"repo":"klyrow.com","parent":"PAS-31","suiteParents":["PAS-199","PAS-200","PAS-201","PAS-202","PAS-203","PAS-204","PAS-205","PAS-206","PAS-207","PAS-208"],"suiteChildren":["PAS-209","PAS-210","PAS-211","PAS-212","PAS-213","PAS-214","PAS-215","PAS-216","PAS-217","PAS-218","PAS-219","PAS-220","PAS-221","PAS-222","PAS-223","PAS-224","PAS-225","PAS-226","PAS-227","PAS-228"],"state":"Created and assigned; most new suite execution children are Backlog / not started","owner":"Ralph Appolon","note":"Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."},
+  "syncMetadata":{"last_linear_sync":"2026-09-21T23:20:46.688303-04:00","last_notion_sync":"2026-09-21T23:20:46.688303-04:00","last_github_sync":"2026-09-21T23:19:44.684786-04:00","last_local_sync":null,"last_runtime_sync":"2026-09-21T23:19:44.684786-04:00","sync_state":"drift","sync_note":"Linear, Notion, GitHub, local and runtime checked lanes reconciled. Remaining drift: exact blob parity for local Render-Dashboard.py versus Backstage is not proven; required V2 features are present and localhost health passes."}
 }
