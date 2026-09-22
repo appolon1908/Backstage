@@ -105,8 +105,8 @@
       "owner": "Ralph Appolon",
       "stage": "Implemented",
       "complete": false,
-      "evidence": "Linear authoritative completion fields now report DONE_SOURCE=YES, DONE_CONFIG=YES and DONE_DATA=YES while DONE_TESTS/INTEGRATION/OBSERVABILITY/STAGING and ROLLBACK_PROVEN remain NO. GitHub PR #309 is open Draft + mergeable at exact head 16afd4688680cbe8738d657a1e0d7e62b8956835 with 190 additions across 2 files and material staging reconciler implementation. PR evidence includes isolated PostgreSQL 17 restore/reconcile/verify rehearsal and 2/2 focused source tests; no canonical staging DDL was executed.",
-      "missing": "Required exact-head hosted CI still fails before execution (run 35659524590: 2 jobs, runner_id=0, zero steps); PR #309 remains Draft with no independent review proven. Integration, observability acceptance, immutable staging deployment/readback and rollback/recovery evidence remain unproven. PAS-190 still blocks protected-path certification.",
+      "evidence": "GitHub PR #309 remains open Draft + mergeable at exact head 16afd4688680cbe8738d657a1e0d7e62b8956835 with material staging reconciler implementation. An independent APPROVED review is now present. Isolated PostgreSQL 17 restore/reconcile/verify-only rehearsal and 2/2 focused source tests are recorded; no canonical staging DDL was executed.",
+      "missing": "Exact-head hosted checks remain failed, including required exact-SHA status and validation/security/orchestrator checks. PR #309 is still Draft. Integration/observability acceptance, immutable staging deployment/readback and rollback/recovery evidence remain unproven; PAS-190 continues to block protected-path certification.",
       "url": "https://linear.app/passion-fruit/issue/PAS-234/plat-mw-middleware-v3-clean-staging-rebuild-and-certification"
     },
     "PAS-235": {
@@ -227,9 +227,10 @@
       "head": "16afd4688680cbe8738d657a1e0d7e62b8956835",
       "mergeable": true,
       "draft": true,
-      "ci": "RED",
-      "review": "NONE_SUBMITTED",
-      "url": "https://github.com/ingtrader21-spec/Middleware-/pull/309"
+      "ci": "RED_EXACT_HEAD",
+      "review": "APPROVED",
+      "url": "https://github.com/ingtrader21-spec/Middleware-/pull/309",
+      "reviewedAt": "2026-09-22T13:33:28Z"
     },
     {
       "repo": "ingtrader21-spec/Keycloak",
@@ -270,17 +271,40 @@
       "ci": "RED",
       "review": "REQUESTED_NOT_PROVEN",
       "url": "https://github.com/ingtrader21-spec/Caddy/pull/183"
+    },
+    {
+      "repo": "ingtrader21-spec/Codestra-Grafana-",
+      "number": 33,
+      "head": "e00b54c8e15bcecaffc78a971bfef89b28c1da05",
+      "mergeable": true,
+      "draft": false,
+      "ci": "RED_VALIDATION",
+      "review": "NOT_PROVEN",
+      "url": "https://github.com/ingtrader21-spec/Codestra-Grafana-/pull/33"
+    },
+    {
+      "repo": "ingtrader21-spec/klyrow.com",
+      "number": 170,
+      "head": "af8e052ccd73241e1fb9a1eb340bb77068abd9a2",
+      "mergeable": null,
+      "draft": false,
+      "merged": true,
+      "mergeCommit": "c7ea0fd257a463048f64b153b27b1b662fce10a1",
+      "ci": "HOSTED_VERIFICATION_NOT_PROVEN",
+      "review": "APPROVED",
+      "url": "https://github.com/ingtrader21-spec/klyrow.com/pull/170",
+      "reviewedAt": "2026-09-22T13:33:01Z"
     }
   ],
   "changes": [
-    "PAS-190 is now Linear In Progress but remains the release-wide hosted-Actions execution blocker.",
-    "klyrow.com PR #170 merged; PAS-214 remains Implemented/In Review because hosted exact-head execution and staging/readback/recovery are not proven.",
-    "klyrow.com PR #166 merged with an approved review; PAS-198 remains Implemented/In Review because hosted CI and immutable staging certification are not proven.",
-    "klyrow.com PR #167 merged; PAS-199 remains Implemented/In Review because hosted CI and PAS-194/PAS-192 runtime identity gates remain.",
-    "Appolon authoritative Render-Dashboard.py was redeployed from Backstage and Mission Control restarted successfully.",
-    "Fresh runtime readback: Codestra 38/38, Klyrow 2/2, Telnexa 3/3 targets up; Grafana healthy; Alertmanager 17 active / 13 critical."
+    "Appolon Mission Control application source was reconciled from Backstage; source changes required a safe local server restart and localhost health is green.",
+    "Fresh Appolon scan: 25 worktrees / 13 repos, 5 pending-commit, 2 pending-push, 10 behind, 8 synced, 0 scanner errors.",
+    "Middleware PR #309 remains Draft + mergeable and exact-head CI remains red; an APPROVED review is now proven, advancing review evidence but not completion.",
+    "Codestra-Grafana PR #33 remains open + mergeable with its declared validation gate red.",
+    "Fresh runtime readback: Codestra 38/38, Klyrow 2/2, Telnexa 3/3 targets up; aggregate alerts are 19 active/firing / 15 critical.",
+    "Klyrow PR #170 is merged and has an independent APPROVED review; deployment/live-charging/provider activation/production GO remain unproven, so PAS-214 is still Implemented rather than Verified/Complete."
   ],
-  "refreshNote": "No material Linear execution, GitHub PR/head/CI, local-work-count, queue, or runtime transition was detected in this refresh. Fresh checks confirm Appolon 25 worktrees / 13 repos, 5 pending-commit, 2 pending-push, 10 behind, 7 synced, 0 scanner errors; Codestra Prometheus 38/38, Klyrow 2/2, Telnexa 3/3, Codestra Grafana 13.2.0 and Klyrow Grafana 12.4.9 healthy, Alertmanager 17 active / 13 critical. Authoritative Backstage Mission Control application content remains functionally equivalent on Appolon; observed blob differences are line-ending/final-newline normalization, not a material logic delta, so no server restart is required. Persistent drift remains fail-closed: PAS-190 hosted exact-head CI execution is still failing/startup-blocked, independent review and required staging/readback/recovery evidence remain unproven, local dirty/unpushed/behind work remains, 13 critical alerts remain active, and the published Backstage snapshot.json is stale.",
+  "refreshNote": "Meaningful refresh: Appolon local sync count improved from 7 to 8; Middleware PR #309 now has a proven APPROVED review while exact-head hosted checks remain failed. No completion gate advanced to Verified/Complete. Queue is empty. Runtime targets are all up, but 15 critical alerts remain. Local dirty/unpushed/behind work and missing deployment/readback/recovery keep staging NOT READY and production NO GO.",
   "roadmap": {
     "repo": "klyrow.com",
     "parent": "PAS-31",
@@ -323,13 +347,13 @@
     "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
   },
   "syncMetadata": {
-    "last_linear_sync": "2026-09-22T11:06:10.422532-04:00",
-    "last_notion_sync": "2026-09-22T10:44:19.4823609-04:00",
-    "last_github_sync": "2026-09-22T10:44:19.4823609-04:00",
-    "last_local_sync": "2026-09-22T11:06:10.422532-04:00",
-    "last_runtime_sync": "2026-09-22T10:44:19.4823609-04:00",
+    "last_linear_sync": "2026-09-22T11:39:18.583625-04:00",
+    "last_notion_sync": "2026-09-22T11:43:53.807801-04:00",
+    "last_github_sync": "2026-09-22T11:43:53.807801-04:00",
+    "last_local_sync": "2026-09-22T11:33:35.934030-04:00",
+    "last_runtime_sync": "2026-09-22T11:39:18.583625-04:00",
     "sync_state": "drift",
-    "sync_note": "Platform lane statuses PAS-236–243 refreshed from Linear. Derived files are being regenerated and published."
+    "sync_note": "Execution state and review evidence are aligned across Linear/Notion/dashboard. Remaining drift: failed exact-head CI/validation, missing deployment-readback-recovery evidence, 15 critical alerts, and local dirty/unpushed/behind work. Behind counts use last-known tracking refs."
   },
   "platformProtocol": {
     "parent": "PAS-233",
@@ -350,180 +374,35 @@
     ],
     "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 has material source/config/data implementation evidence and is Implemented, not Complete; PAS-235 and PAS-236 are In Progress but remain Reviewed/Defined until mission-specific material implementation exists; PAS-237–PAS-243 remain Backlog. PAS-190 continues to block hosted exact-head certification."
   },
-  "checkedAt": "2026-09-22T11:06:10.422532-04:00",
+  "checkedAt": "2026-09-22T11:43:53.807801-04:00",
   "localWork": {
-    "checkedAt": "2026-09-22T10:42:05.657670-04:00",
+    "checkedAt": "2026-09-22T11:33:35.934030-04:00",
     "worktrees": 25,
     "repos": 13,
     "pendingCommit": 5,
     "pendingPush": 2,
     "behind": 10,
-    "synced": 7,
+    "synced": 8,
     "scanNeedsReview": 0,
-    "remoteFetchFreshness": "not fully proven: broad fetch timed out",
+    "remoteFetchFreshness": "behind/ahead use last-known local tracking refs; no fresh portfolio-wide remote fetch was proven in this watch",
     "pending": [
-      {
-        "repo": "Agent-Desktop-WebRTC",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Agent-Desktop-WebRTC\\Code",
-        "branch": "",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 0,
-        "state": "Local shell / pending clone"
-      },
-      {
-        "repo": "Breero.com",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Breero.com\\Code",
-        "branch": "main",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 1,
-        "state": "Pushed / local behind"
-      },
-      {
-        "repo": "codestra-foundation",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\codestra-foundation\\Code",
-        "branch": "",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 0,
-        "state": "Local shell / pending clone"
-      },
-      {
-        "repo": "Keycloak",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Keycloak\\klyrow-staging-identity",
-        "branch": "mission/klyrow-staging-identity-20260921",
-        "dirty": 0,
-        "ahead": 1,
-        "behind": 0,
-        "state": "Committed Local / pending push"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\klyrow.com\\Code",
-        "branch": "main",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 2,
-        "state": "Pushed / local behind"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Active_Desktop_Migration\\klyrow-ingtrader21-spec",
-        "branch": "main",
-        "dirty": 5,
-        "ahead": 0,
-        "behind": 5,
-        "state": "Started Local / pending commit"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Active_Desktop_Migration\\klyrow-media-01",
-        "branch": "saas/media-library-foundation",
-        "dirty": 691,
-        "ahead": 0,
-        "behind": 0,
-        "state": "Started Local / pending commit"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Klyrow\\klyrow-admin-ops",
-        "branch": "mission/m1-admin-ops-20260921",
-        "dirty": 0,
-        "ahead": 1,
-        "behind": 0,
-        "state": "Committed Local / pending push"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-billing-02b",
-        "branch": "billing/02b-customer-portal",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 6,
-        "state": "Pushed / local behind"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-billing-02r",
-        "branch": "fix/billing-02-payment-integrity",
-        "dirty": 14,
-        "ahead": 0,
-        "behind": 11,
-        "state": "Started Local / pending commit"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-brand-01",
-        "branch": "saas/brand-profile-foundation",
-        "dirty": 20,
-        "ahead": 0,
-        "behind": 12,
-        "state": "Started Local / pending commit"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-m6c",
-        "branch": "mission/m6c-refunds-disputes-taxvat-documents",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 15,
-        "state": "Pushed / local behind"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\Desktop\\klyrow-pr142-media",
-        "branch": "HEAD",
-        "dirty": 12,
-        "ahead": 0,
-        "behind": 0,
-        "state": "Started Local / pending commit"
-      },
-      {
-        "repo": "klyrow.com",
-        "path": "C:\\Users\\Usuario\\Desktop\\klyrow.com",
-        "branch": "pr-152-repair",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 7,
-        "state": "Pushed / local behind"
-      },
-      {
-        "repo": "Middleware-",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Middleware-\\Code",
-        "branch": "main",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 1,
-        "state": "Pushed / local behind"
-      },
-      {
-        "repo": "Odoo",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Odoo\\Code",
-        "branch": "main",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 1,
-        "state": "Pushed / local behind"
-      },
-      {
-        "repo": "OpenAPI",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\OpenAPI\\Code",
-        "branch": "",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 0,
-        "state": "Local shell / pending clone"
-      },
-      {
-        "repo": "websocket",
-        "path": "C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\websocket\\Code",
-        "branch": "",
-        "dirty": 0,
-        "ahead": 0,
-        "behind": 0,
-        "state": "Local shell / pending clone"
-      }
+      {"repo":"Agent-Desktop-WebRTC","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Agent-Desktop-WebRTC\\Code","branch":"","dirty":0,"ahead":0,"behind":0,"state":"Local shell / pending clone"},
+      {"repo":"Breero.com","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Breero.com\\Code","branch":"main","dirty":0,"ahead":0,"behind":1,"state":"Pushed / local behind"},
+      {"repo":"codestra-foundation","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\codestra-foundation\\Code","branch":"","dirty":0,"ahead":0,"behind":0,"state":"Local shell / pending clone"},
+      {"repo":"Keycloak","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Keycloak\\klyrow-staging-identity","branch":"mission/klyrow-staging-identity-20260921","dirty":0,"ahead":1,"behind":0,"state":"Committed Local / pending push"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\klyrow.com\\Code","branch":"main","dirty":0,"ahead":0,"behind":2,"state":"Pushed / local behind"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Active_Desktop_Migration\\klyrow-ingtrader21-spec","branch":"main","dirty":5,"ahead":0,"behind":5,"state":"Started Local / pending commit"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Active_Desktop_Migration\\klyrow-media-01","branch":"saas/media-library-foundation","dirty":691,"ahead":0,"behind":0,"state":"Started Local / pending commit"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\Worktrees\\Klyrow\\klyrow-admin-ops","branch":"mission/m1-admin-ops-20260921","dirty":0,"ahead":1,"behind":5,"state":"Committed Local / pending push"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\Desktop\\klyrow-billing-02b","branch":"billing/02b-customer-portal","dirty":0,"ahead":0,"behind":6,"state":"Pushed / local behind"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\Desktop\\klyrow-billing-02r","branch":"fix/billing-02-payment-integrity","dirty":14,"ahead":0,"behind":11,"state":"Started Local / pending commit"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\Desktop\\klyrow-brand-01","branch":"saas/brand-profile-foundation","dirty":20,"ahead":0,"behind":12,"state":"Started Local / pending commit"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\Desktop\\klyrow-m6c","branch":"mission/m6c-refunds-disputes-taxvat-documents","dirty":0,"ahead":0,"behind":15,"state":"Pushed / local behind"},
+      {"repo":"klyrow.com","path":"C:\\Users\\Usuario\\Desktop\\klyrow-pr142-media","branch":"HEAD","dirty":12,"ahead":0,"behind":0,"state":"Started Local / pending commit"},
+      {"repo":"Middleware-","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Middleware-\\Code","branch":"main","dirty":0,"ahead":0,"behind":1,"state":"Pushed / local behind"},
+      {"repo":"Odoo","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\Odoo\\Code","branch":"main","dirty":0,"ahead":0,"behind":1,"state":"Pushed / local behind"},
+      {"repo":"OpenAPI","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\OpenAPI\\Code","branch":"","dirty":0,"ahead":0,"behind":0,"state":"Local shell / pending clone"},
+      {"repo":"websocket","path":"C:\\Users\\Usuario\\01_DEVELOPMENT\\GitHub\\ingtrader21-spec\\websocket\\Code","branch":"","dirty":0,"ahead":0,"behind":0,"state":"Local shell / pending clone"}
     ]
   }
 }
