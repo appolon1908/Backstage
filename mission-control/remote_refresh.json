@@ -3,20 +3,18 @@
     "codestraPrometheus": "38/38",
     "klyrowPrometheus": "2/2",
     "telnexaPrometheus": "3/3",
-    "codestraActiveAlerts": 10,
-    "codestraCriticalAlerts": 7,
+    "codestraActiveAlerts": 7,
+    "codestraCriticalAlerts": 4,
     "klyrowActiveAlerts": 2,
     "klyrowCriticalAlerts": 2,
-    "activeAlerts": 12,
-    "criticalAlerts": 9,
+    "activeAlerts": 9,
+    "criticalAlerts": 6,
     "grafanaCodestra": "ok",
     "grafanaKlyrow": "ok",
     "criticalNames": [
       "CaddyConfigurationDrift",
       "CaddyPublicBehaviorFailure",
-      "CaddyMTLSProbeFailure",
       "MiddlewareDatabaseMigrationMismatch",
-      "CodestraN8nRestoreRehearsalOverdue",
       "KlyrowEventDeliveryStalled",
       "KlyrowUsageDeliveryStalled"
     ]
@@ -117,8 +115,8 @@
       "owner": "Ralph Appolon",
       "stage": "Implemented",
       "complete": false,
-      "evidence": "Caddy state backup now uses the dedicated restricted SFTP transfer identity and passes remote checksum readback. DONE_SOURCE/DONE_CONFIG/DONE_DATA are YES in Linear.",
-      "missing": "PAS-190/PAS-191 plus configuration drift, two public-behavior failures, two mTLS probe failures, exact-head tests, immutable staging/readback and rollback remain open.",
+      "evidence": "Caddy state backup passes. Expired mTLS observer certificate was renewed through the existing private-integration CA; both Middleware mTLS probes are now healthy.",
+      "missing": "Caddy config drift and two 502 public/staging behavior failures remain. Runtime authorities conflict on the intended upstreams; resolve via governed route authority/PAS-244. PAS-190/PAS-191 and staging/readback/rollback remain open.",
       "url": "https://linear.app/passion-fruit/issue/PAS-235/plat-edge-caddy-caddy-v3-staging-and-edge-certification"
     },
     "PAS-214": {
@@ -135,10 +133,10 @@
       "title": "PLAT-GW-KONG — Kong V3 auth/routing staging certification",
       "status": "In Progress",
       "owner": "Ralph Appolon",
-      "stage": "Reviewed / Defined",
+      "stage": "Implemented",
       "complete": false,
-      "evidence": "Linear is In Progress. Kong PR #115 advanced to exact head 21b724baec44ab11f60da639cb0a813199c3fbea and remains open/mergeable.",
-      "missing": "All current exact-head workflow runs are failing; mission-specific implementation/staging/readback/rollback certification is not proven.",
+      "evidence": "Kong PR #115 is open, non-draft and mergeable at exact head 21b724baec44ab11f60da639cb0a813199c3fbea with 1,035 additions / 645 deletions across 22 files.",
+      "missing": "All exact-head workflows remain red; live apply, immutable staging, readback and rollback are not proven. PAS-190 remains a blocker.",
       "url": "https://linear.app/passion-fruit/issue/PAS-236/plat-gw-kong-kong-v3-authrouting-staging-certification"
     },
     "PAS-244": {
@@ -147,8 +145,8 @@
       "owner": "Ralph Appolon",
       "stage": "Implemented",
       "complete": false,
-      "evidence": "Kong PR #117 is open Draft + mergeable at 0435745537de6236d419f675af7af99e4795a273 with 291 additions across 3 files. It materially implements the read-only deterministic 24-route planner: 13 REPOINT / 7 RETIRE / 4 EXCEPTION, with live apply disabled.",
-      "missing": "Independent review and protected exact-head CI. Run 35757020393 failed before steps with runner_id=0. No live apply is authorized for this phase.",
+      "evidence": "Kong PR #117 is open Draft + mergeable at exact head 0435745537de6236d419f675af7af99e4795a273 with 291 additions across 3 files. LIVE_APPLY_PERFORMED remains NO.",
+      "missing": "All exact-head workflows are red; deterministic live-diff/rollback certification and parent Gate B acceptance remain unproven.",
       "url": "https://linear.app/passion-fruit/issue/PAS-244/plat-gw-kong-deterministic-route-reconciliation-dry-runapplyrollback"
     },
     "PAS-245": {
@@ -197,8 +195,8 @@
       "owner": "Ralph Appolon",
       "stage": "Implemented",
       "complete": false,
-      "evidence": "Material runtime/config repair completed: dedicated restricted backup SFTP identity activated; Middleware backup, all-database backup, isolated restore, and Caddy state backup pass. Codestra critical alerts fell from 13 to 7.",
-      "missing": "Middleware migration mismatch, n8n isolated restore authority, Caddy drift/public/mTLS failures, Klyrow DEAD_LETTER alerts, full observability test matrix and rollback certification remain open.",
+      "evidence": "Restricted SFTP backup transport, Middleware backup, full encrypted DB backup, isolated DB restore, Caddy backup, Caddy mTLS renewal, and isolated n8n restore verification are proven. Codestra critical alerts fell from 13 to 4.",
+      "missing": "Middleware migration mismatch, Caddy route/config conflict, Klyrow production dead-letter reconciliation, full observability certification and PAS-190 remain open.",
       "url": "https://linear.app/passion-fruit/issue/PAS-240/plat-obs-full-monitoringobservability-stack-certification"
     },
     "PAS-241": {
@@ -381,11 +379,11 @@
     }
   ],
   "changes": [
-    "Runtime backup/recovery repair reduced Codestra Alertmanager from 17 active / 13 critical to 10 active / 7 critical.",
-    "Middleware encrypted off-host backup, full all-database backup, isolated database restore, and Caddy state backup now pass using a dedicated restricted SFTP identity.",
-    "PAS-240 moved Backlog to In Progress with material runtime/config implementation evidence; completion remains fail-closed.",
-    "Kong PR #115 advanced to exact head 21b724baec44ab11f60da639cb0a813199c3fbea but all current workflows remain red.",
-    "Appolon local scan remains 25 worktrees / 13 repos, 5 pending-commit, 2 pending-push, 10 behind, 8 synced, 0 scan errors."
+    "Codestra critical alerts reduced from 13 to 4 after backup/recovery, Caddy mTLS and n8n isolated restore repairs; aggregate critical runtime attention is now 6 including Klyrow.",
+    "Both Caddy mTLS criticals cleared after governed certificate renewal through the existing private-integration CA.",
+    "n8n isolated restore verification passed; exporter now consumes signed RESTORE-RESULT evidence and the restore-overdue critical cleared.",
+    "Klyrow dead-letter reconciliation dry-run classifies all 82 provider events as 80 skip / 2 requeue and 1 usage requeue; no production replay was applied.",
+    "PAS-236 and PAS-244 now have material Kong source implementation evidence but remain unverified due red exact-head CI and no live apply."
   ],
   "refreshNote": "Fresh GitHub/Linear/Notion/local/runtime reconciliation. New material change: PAS-61/Pull Request #310 is Implemented/In Review but not Verified/Complete. Dashboard source remains semantically aligned to Backstage; no application-source restart required. Action queue is empty. Runtime targets are all up, but 9 critical alerts remain. Staging NOT READY; production NO GO.",
   "roadmap": {
@@ -430,13 +428,13 @@
     "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
   },
   "syncMetadata": {
-    "last_linear_sync": "2026-09-22T15:28:16.614307-04:00",
-    "last_notion_sync": "2026-09-22T15:28:16.614307-04:00",
-    "last_github_sync": "2026-09-22T15:28:16.614307-04:00",
-    "last_local_sync": "2026-09-22T15:28:16.614307-04:00",
-    "last_runtime_sync": "2026-09-22T15:28:16.614307-04:00",
+    "last_linear_sync": "2026-09-22T15:49:42.981316-04:00",
+    "last_notion_sync": "2026-09-22T15:49:42.981316-04:00",
+    "last_github_sync": "2026-09-22T15:49:42.981316-04:00",
+    "last_local_sync": "2026-09-22T15:49:42.981316-04:00",
+    "last_runtime_sync": "2026-09-22T15:49:42.981316-04:00",
     "sync_state": "synced",
-    "sync_note": "Control surfaces reconciled after runtime recovery repair. Operational blockers remain fail-closed but are not synchronization drift."
+    "sync_note": "GitHub, Linear, Notion, Appolon local state/action queue, and runtime evidence are reconciled. Remaining blockers are operational/certification gates, not control-surface drift."
   },
   "platformProtocol": {
     "parent": "PAS-233",
@@ -457,7 +455,7 @@
     ],
     "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 is Implemented, not Complete; PAS-235 remains Reviewed/Defined; PAS-236 now has partial material implementation through PAS-244 / Kong PR #117 and is Implemented, not Complete; PAS-237–PAS-243 remain Backlog. PAS-245 is the active governed PAS-190 runner contingency; protected exact-head certification is still blocked."
   },
-  "checkedAt": "2026-09-22T15:28:16.614307-04:00",
+  "checkedAt": "2026-09-22T15:49:42.981316-04:00",
   "localWork": {
     "checkedAt": "2026-09-22T14:19:35.114169-04:00",
     "worktrees": 25,
