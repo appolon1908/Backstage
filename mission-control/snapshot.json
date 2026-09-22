@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T13:33:55-04:00",
+  "generatedAt": "2026-09-22T17:25:43.682035-04:00",
   "sources": {
     "github": "https://github.com/ingtrader21-spec",
     "backstage": "https://github.com/appolon1908-hue/Backstage",
@@ -36,73 +36,32 @@
         "targets_down": []
       },
       "alertmanager": {
-        "ip": "10.253.127.3",
-        "active_alerts": 10,
+        "active_alerts": 4,
+        "critical_alerts": 1,
         "alerts": [
           {
             "state": "active",
-            "name": "CaddyConfigurationDrift",
-            "severity": "critical",
-            "host": "middleware"
-          },
-          {
-            "state": "active",
             "name": "CodestraWatchdog",
-            "severity": "informational",
-            "host": "middleware"
+            "severity": "informational"
           },
           {
             "state": "active",
             "name": "KongDatabaseDiskWarning",
-            "severity": "warning",
-            "host": "middleware"
-          },
-          {
-            "state": "active",
-            "name": "CaddyPublicBehaviorFailure",
-            "severity": "critical",
-            "host": "api.staging.internal.codestra.agency"
-          },
-          {
-            "state": "active",
-            "name": "CaddyMTLSProbeFailure",
-            "severity": "critical",
-            "host": "middleware.internal.codestra.agency"
+            "severity": "warning"
           },
           {
             "state": "active",
             "name": "MiddlewareDatabaseMigrationMismatch",
-            "severity": "critical",
-            "host": "middleware"
-          },
-          {
-            "state": "active",
-            "name": "CodestraN8nRestoreRehearsalOverdue",
-            "severity": "critical",
-            "host": "middleware"
+            "severity": "critical"
           },
           {
             "state": "active",
             "name": "CodestraDiskCapacityWarning",
-            "severity": "warning",
-            "host": "middleware"
-          },
-          {
-            "state": "active",
-            "name": "CaddyPublicBehaviorFailure",
-            "severity": "critical",
-            "host": "bridge-staging.codestra.agency"
-          },
-          {
-            "state": "active",
-            "name": "CaddyMTLSProbeFailure",
-            "severity": "critical",
-            "host": "middleware-staging.internal.codestra.agency"
+            "severity": "warning"
           }
         ]
       },
       "grafana": {
-        "ip": "172.28.0.9",
         "health": {
           "database": "ok",
           "version": "13.2.0",
@@ -118,18 +77,17 @@
       },
       "alerts": [
         {
-          "state": "firing",
           "name": "KlyrowEventDeliveryStalled",
-          "severity": "critical"
+          "severity": "critical",
+          "state": "firing"
         },
         {
-          "state": "firing",
           "name": "KlyrowUsageDeliveryStalled",
-          "severity": "critical"
+          "severity": "critical",
+          "state": "firing"
         }
       ],
       "grafana": {
-        "ip": "172.23.0.3",
         "health": {
           "database": "ok",
           "version": "12.4.9",
@@ -148,129 +106,83 @@
   },
   "hosts": [
     {
-      "hostname": "Ubuntu-jammy-latest-amd64-base.zst",
-      "label": "server-4-klyrow-telnexa-obs",
+      "hostname": "static",
+      "label": "server-2-telephony-vicidial",
       "agent_version": "0.11.18",
       "operational": true,
-      "connected_at": "2026-09-21T20:02:08.541905+00:00"
+      "connected_at": "2026-09-22T21:06:39.622121+00:00"
     },
     {
-      "hostname": "middleware",
-      "label": "server-1-middleware-core",
-      "agent_version": "0.11.18",
+      "hostname": "codestra-OptiPlex-3050",
+      "label": "desktop-ubuntu-codestra",
+      "agent_version": "0.19.0",
       "operational": true,
-      "connected_at": "2026-09-21T20:07:45.074980+00:00"
-    },
-    {
-      "hostname": "Appolon",
-      "label": "appolon-laptop",
-      "agent_version": "0.18.0",
-      "operational": true,
-      "connected_at": "2026-09-21T18:59:51.955134+00:00"
+      "connected_at": "2026-09-22T20:10:31.238144+00:00"
     },
     {
       "hostname": "Ubuntu-jammy-latest-amd64-base.zst",
       "label": "server-3-apps-breero-larimia",
       "agent_version": "0.11.18",
       "operational": true,
-      "connected_at": "2026-09-21T17:36:26.013888+00:00"
+      "connected_at": "2026-09-22T20:52:12.230482+00:00"
     },
     {
-      "hostname": "static",
-      "label": "server-2-telephony-vicidial",
+      "hostname": "Ubuntu-jammy-latest-amd64-base.zst",
+      "label": "server-4-klyrow-telnexa-obs",
       "agent_version": "0.11.18",
       "operational": true,
-      "connected_at": "2026-09-21T20:07:27.279955+00:00"
+      "connected_at": "2026-09-22T20:57:32.500998+00:00"
     },
     {
-      "hostname": "DESKTOP-TU7KIHA",
-      "label": "desktop-local-postman",
-      "agent_version": "0.15.2",
+      "hostname": "middleware",
+      "label": "server-1-middleware-core",
+      "agent_version": "0.11.18",
       "operational": true,
-      "connected_at": "2026-09-21T18:54:08.966025+00:00"
+      "connected_at": "2026-09-22T21:01:25.640974+00:00"
+    },
+    {
+      "hostname": "Appolon",
+      "label": "appolon-laptop",
+      "agent_version": "0.18.0",
+      "operational": true,
+      "connected_at": "2026-09-22T20:11:48.236471+00:00"
     }
   ],
   "alerts": [
     {
       "state": "active",
-      "name": "CaddyConfigurationDrift",
-      "severity": "critical",
-      "source": "Codestra Alertmanager",
-      "host": "middleware"
-    },
-    {
-      "state": "active",
       "name": "CodestraWatchdog",
       "severity": "informational",
-      "source": "Codestra Alertmanager",
-      "host": "middleware"
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "KongDatabaseDiskWarning",
       "severity": "warning",
-      "source": "Codestra Alertmanager",
-      "host": "middleware"
-    },
-    {
-      "state": "active",
-      "name": "CaddyPublicBehaviorFailure",
-      "severity": "critical",
-      "source": "Codestra Alertmanager",
-      "host": "api.staging.internal.codestra.agency"
-    },
-    {
-      "state": "active",
-      "name": "CaddyMTLSProbeFailure",
-      "severity": "critical",
-      "source": "Codestra Alertmanager",
-      "host": "middleware.internal.codestra.agency"
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "MiddlewareDatabaseMigrationMismatch",
       "severity": "critical",
-      "source": "Codestra Alertmanager",
-      "host": "middleware"
-    },
-    {
-      "state": "active",
-      "name": "CodestraN8nRestoreRehearsalOverdue",
-      "severity": "critical",
-      "source": "Codestra Alertmanager",
-      "host": "middleware"
+      "source": "Codestra Alertmanager"
     },
     {
       "state": "active",
       "name": "CodestraDiskCapacityWarning",
       "severity": "warning",
-      "source": "Codestra Alertmanager",
-      "host": "middleware"
+      "source": "Codestra Alertmanager"
     },
     {
-      "state": "active",
-      "name": "CaddyPublicBehaviorFailure",
-      "severity": "critical",
-      "source": "Codestra Alertmanager",
-      "host": "bridge-staging.codestra.agency"
-    },
-    {
-      "state": "active",
-      "name": "CaddyMTLSProbeFailure",
-      "severity": "critical",
-      "source": "Codestra Alertmanager",
-      "host": "middleware-staging.internal.codestra.agency"
-    },
-    {
-      "state": "firing",
       "name": "KlyrowEventDeliveryStalled",
       "severity": "critical",
+      "state": "firing",
       "source": "Klyrow Prometheus"
     },
     {
-      "state": "firing",
       "name": "KlyrowUsageDeliveryStalled",
       "severity": "critical",
+      "state": "firing",
       "source": "Klyrow Prometheus"
     }
   ],
@@ -308,7 +220,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -352,7 +264,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 3,
         "pendingCommit": 0,
         "pendingPush": 1,
@@ -387,7 +299,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -431,7 +343,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -475,7 +387,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -510,7 +422,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -545,7 +457,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -580,7 +492,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -615,7 +527,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -659,7 +571,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 12,
         "pendingCommit": 5,
         "pendingPush": 1,
@@ -703,7 +615,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -738,7 +650,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -773,7 +685,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -808,7 +720,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -843,7 +755,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -878,7 +790,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -913,7 +825,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -948,7 +860,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -983,7 +895,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1018,7 +930,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1053,7 +965,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1088,7 +1000,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1123,7 +1035,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1158,7 +1070,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1193,7 +1105,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1251,7 +1163,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1286,7 +1198,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1330,7 +1242,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1374,7 +1286,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1409,7 +1321,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1453,7 +1365,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1488,7 +1400,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1523,7 +1435,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1558,7 +1470,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1593,7 +1505,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1628,7 +1540,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1672,7 +1584,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1707,7 +1619,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1742,7 +1654,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1777,7 +1689,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1812,7 +1724,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1847,7 +1759,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1882,7 +1794,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1917,7 +1829,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1952,7 +1864,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1987,7 +1899,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2022,7 +1934,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2057,7 +1969,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2092,7 +2004,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2127,7 +2039,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2162,7 +2074,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2197,7 +2109,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2241,7 +2153,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2276,7 +2188,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2311,7 +2223,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2346,7 +2258,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2381,7 +2293,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2416,7 +2328,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2460,7 +2372,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T17:07:29.104232-04:00",
+        "checkedAt": "2026-09-22T17:39:24.906587-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2498,7 +2410,7 @@
     "stagingReady": false,
     "productionGo": false
   },
-  "localWorkCheckAt": "2026-09-22T17:07:29.104232-04:00",
+  "localWorkCheckAt": "2026-09-22T17:39:24.906587-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
@@ -2737,8 +2649,8 @@
         "owner": "Ralph Appolon",
         "stage": "Implemented",
         "complete": false,
-        "evidence": "Cross-repo authority correction validated read-only: preserve legacy n8n v1 compatibility aliases through 2027-06-30 by repointing them to Middleware :8095. Corrected live dry-run UPDATE=15 DELETE=5 KEEP=4 ERROR=0, apply=false.",
-        "missing": "Source PR #117 still carries the prior retirement plan and must be corrected/reviewed/CI-verified before any staging/live apply.",
+        "evidence": "Cross-repo authority correction validated read-only: preserve legacy n8n v1 compatibility aliases through 2027-06-30 by repointing them to Middleware :8095. Corrected live dry-run UPDATE=15 DELETE=5 KEEP=4 ERROR=0, apply=false. Kong PR #117 has independent APPROVED review on exact head 0435745537de6236d419f675af7af99e4795a273.",
+        "missing": "PR #117 remains Draft and source still carries the earlier 13 REPOINT / 7 RETIRE / 4 EXCEPTION authority rather than the corrected compatibility-preserving plan; exact-head hosted CI remains blocked by PAS-190. Correct source, rerun protected CI, then require governed staging apply/readback/rollback before completion.",
         "url": "https://linear.app/passion-fruit/issue/PAS-244/plat-gw-kong-deterministic-route-reconciliation-dry-runapplyrollback"
       },
       "PAS-245": {
@@ -2883,7 +2795,8 @@
         "complete": true,
         "evidence": "GitHub ruleset readback verifies promotion ruleset 22657889 excludes main and protects only development/test/staging/production; main ruleset 22138259 remains active; bypass actors are empty.",
         "missing": "",
-        "url": "https://linear.app/passion-fruit/issue/PAS-191/caddy-governance-remove-main-from-promotion-only-ruleset"
+        "url": "https://linear.app/passion-fruit/issue/PAS-191/caddy-governance-remove-main-from-promotion-only-ruleset",
+        "completedAt": "2026-09-22T16:42:02.627Z"
       },
       "PAS-166": {
         "title": "Middleware V3 \u2014 Final Completion Mission: protected main \u2192 staging \u2192 production-ready",
@@ -2894,6 +2807,56 @@
         "evidence": "Caddy runtime green; Kong JWT auth path certified; corrected PAS-244 read-only route plan validated; Middleware 0054\u21940059 upgrade/rollback rehearsals pass on isolated clones.",
         "missing": "PAS-190 real exact-head CI, corrected PAS-244 source acceptance, staging certification, explicit production migration/readback and Klyrow reconciliation gates remain open.",
         "url": "https://linear.app/passion-fruit/issue/PAS-166/middleware-v3-final-completion-mission-protected-main-staging"
+      },
+      "PAS-91": {
+        "title": "DB-14 \u2014 Create encrypted PostgreSQL backup authority and evidence model",
+        "status": "Done",
+        "owner": "Ralph Appolon",
+        "stage": "Verified / Complete",
+        "complete": true,
+        "evidence": "Fresh encrypted off-host backup records ID/type/time/size, DB inventory, PostgreSQL version, schema head, source SHA, retention=90d and verified local/remote checksums using separate backup role/transport identity.",
+        "missing": "",
+        "url": "https://linear.app/passion-fruit/issue/PAS-91/db-14-create-encrypted-postgresql-backup-authority-and-evidence-model"
+      },
+      "PAS-83": {
+        "title": "DB-06 \u2014 Create least-privilege PostgreSQL service roles and ownership model",
+        "status": "Done",
+        "owner": "Ralph Appolon",
+        "stage": "Verified / Complete",
+        "complete": true,
+        "evidence": "Distinct API/worker/reconciler/scheduler/migration/backup/exporter roles; no superuser/create-role/create-db/BYPASSRLS; exporter only pg_monitor; all application objects owned by middleware_migration.",
+        "missing": "",
+        "url": "https://linear.app/passion-fruit/issue/PAS-83/db-06-create-least-privilege-postgresql-service-roles-and-ownership"
+      },
+      "PAS-89": {
+        "title": "DB-12 \u2014 Certify command atomicity, idempotency, outbox claims, leases and fencing on real PostgreSQL",
+        "status": "Done",
+        "owner": "Ralph Appolon",
+        "stage": "Verified / Complete",
+        "complete": true,
+        "evidence": "33 focused disposable PostgreSQL17/Redis integration tests passed across idempotency, concurrency, atomicity, outbox, lease/fencing, dead-letter/replay and control mutation semantics.",
+        "missing": "",
+        "url": "https://linear.app/passion-fruit/issue/PAS-89/db-12-certify-command-atomicity-idempotency-outbox-claims-leases-and"
+      },
+      "PAS-82": {
+        "title": "DB-05 \u2014 Enforce verify-full, hostssl and certificate denial tests in staging",
+        "status": "In Progress",
+        "owner": "Ralph Appolon",
+        "stage": "Implemented",
+        "complete": false,
+        "evidence": "Staging HBA and PKI are present and fail-closed: hostssl+SCRAM+clientcert verify-full, plaintext reject, per-role client certs with matching CNs and valid server SANs.",
+        "missing": "Staging PostgreSQL runtime still has ssl=off. Secure execution blocked direct private-key wiring/restart; operator-approved secret-mount path and denial matrix remain.",
+        "url": "https://linear.app/passion-fruit/issue/PAS-82/db-05-enforce-verify-full-hostssl-and-certificate-denial-tests-in"
+      },
+      "PAS-92": {
+        "title": "DB-15 \u2014 Perform full restore rehearsal and record recovery evidence",
+        "status": "In Progress",
+        "owner": "Ralph Appolon",
+        "stage": "Implemented",
+        "complete": false,
+        "evidence": "Encrypted multi-DB restore passes; Middleware dump restores at 0054, migrates to 0059, and yields 176 public tables in isolated rehearsal.",
+        "missing": "Exact production Middleware API startup against restored DB still needs an approved isolated auth/quarantine secret mount plus TEST_SYN/no-effect API validation and residual=0 teardown evidence.",
+        "url": "https://linear.app/passion-fruit/issue/PAS-92/db-15-perform-full-restore-rehearsal-and-record-recovery-evidence"
       }
     },
     "prChecks": [
@@ -2939,7 +2902,9 @@
         "review": "APPROVED",
         "run": 35757020393,
         "url": "https://github.com/ingtrader21-spec/Kong/pull/117",
-        "merged": false
+        "merged": false,
+        "reviewer": "kazan555",
+        "reviewedAt": "2026-09-22T17:10:09Z"
       },
       {
         "repo": "ingtrader21-spec/Codestra-Grafana-",
@@ -3044,11 +3009,10 @@
       }
     ],
     "changes": [
-      "Production auth authority resolved to RS256 JWT fallback; Enterprise OIDC is not active because no license is installed.",
-      "PAS-244 compatibility-preserving production plan validated: UPDATE=15 DELETE=5 KEEP=4 ERROR=0, no apply.",
-      "Middleware isolated DB upgrade/rollback rehearsals pass; production DB remains intentionally unmigrated at 0054.",
-      "Fresh GitHub reruns still return steps=null; PAS-190 remains external hard stop.",
-      "Caddy runtime remains drift-free with zero critical alerts; aggregate runtime critical count is 3 including Klyrow."
+      "PAS-83, PAS-89 and PAS-91 are now verified complete.",
+      "PAS-82 and PAS-92 advanced to In Progress with exact residual secure-secret/TLS/runtime blockers recorded.",
+      "Ubuntu desktop self-hosted runner path is waiting for GitHub device authentication approval; required workflows still target hosted runner labels.",
+      "Production effects remain disabled and production GO remains NO."
     ],
     "refreshNote": "Production continuation advanced to the last safe pre-effect boundary. PROVIDER_EFFECTS=0, PRODUCTION_EFFECTS=0, PRODUCTION_GO=NO.",
     "roadmap": {
@@ -3093,13 +3057,13 @@
       "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
     },
     "syncMetadata": {
-      "last_linear_sync": "2026-09-22T17:07:25.891673-04:00",
-      "last_notion_sync": "2026-09-22T17:07:25.891673-04:00",
-      "last_github_sync": "2026-09-22T17:07:25.891673-04:00",
-      "last_local_sync": "2026-09-22T17:07:25.891673-04:00",
-      "last_runtime_sync": "2026-09-22T17:07:25.891673-04:00",
+      "last_linear_sync": "2026-09-22T17:39:20.540903-04:00",
+      "last_notion_sync": "2026-09-22T17:39:20.540903-04:00",
+      "last_github_sync": "2026-09-22T17:27:00.945043-04:00",
+      "last_local_sync": "2026-09-22T17:39:20.540903-04:00",
+      "last_runtime_sync": "2026-09-22T17:27:00.945043-04:00",
       "sync_state": "synced",
-      "sync_note": "Control surfaces reconciled for production continuation. Remaining gates are external CI and explicitly effectful staging/migration/reconciliation steps; no production effect bypass is authorized."
+      "sync_note": "Control surfaces reconciled after DB gate closures. Remaining blockers are PAS-190 runner/auth/workflow selection, PAS-82 staging TLS secret wiring, PAS-92 isolated API secret mount, Middleware migration/staging certification and Klyrow reconciliation."
     },
     "platformProtocol": {
       "parent": "PAS-233",
@@ -3120,9 +3084,9 @@
       ],
       "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 is Implemented, not Complete; PAS-235 remains Reviewed/Defined; PAS-236 now has partial material implementation through PAS-244 / Kong PR #117 and is Implemented, not Complete; PAS-237\u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u0153PAS-243 remain Backlog. PAS-245 is the active governed PAS-190 runner contingency; protected exact-head certification is still blocked."
     },
-    "checkedAt": "2026-09-22T17:07:25.891673-04:00",
+    "checkedAt": "2026-09-22T17:39:20.540903-04:00",
     "localWork": {
-      "checkedAt": "2026-09-22T16:23:56.811386-04:00",
+      "checkedAt": "2026-09-22T17:18:54.982487-04:00",
       "worktrees": 26,
       "repos": 13,
       "pendingCommit": 5,
@@ -3132,19 +3096,19 @@
       "scanNeedsReview": 0
     },
     "publicationDrift": {
-      "backstageSnapshot": "stale publication drift: remote blob 7908da8a77de8a54d54b4e8df3979a94b5828f7a remains older than the current full local snapshot",
+      "backstageSnapshot": "remote snapshot remains a known publication-lag item; local full snapshot is current at runtimeCheckedAt 2026-09-22T16:52:16.876480-04:00 and remote_refreshAt 2026-09-22T17:27:00.945043-04:00",
       "remoteBytes": 121962,
       "remoteBlob": "7908da8a77de8a54d54b4e8df3979a94b5828f7a",
       "lastPublishedCommit": "9021c5797a2cffbd6a1b946ee2c64576a3618a5f",
       "localBytes": 130376,
       "localGeneratedAt": "2026-09-22T13:33:55-04:00",
-      "note": "Current remote_refresh.json and all 16 management answers are published. The current full local snapshot was read through a connector response that truncated the representation before EOF, so snapshot.json was intentionally not overwritten with partial data. Preserve the prior full remote snapshot until a binary-safe complete publication path is used.",
-      "backstageRemoteRefresh": "pending publication in this reconciliation",
-      "backstageQuestionAnswers": "published: commit b5f790d2c1834d0b98189f1fb2c72c28db857309 / blob b34c4784af86c32ac4e68bc78c764b59dabb7263",
+      "note": "Current remote_refresh.json and all 16 management answers are published. The refreshed full local snapshot is complete and current, but the remote full snapshot is intentionally preserved until a complete, non-truncating publication path is available. No Appolon/user repository worktree was pushed or mutated to publish Mission Control derived data.",
+      "backstageRemoteRefresh": "published once at commit fab9edaee54c1fc0dd8ebb565858ce7d668c47dc; publishing this corrected publication-status note as a follow-up contents update",
+      "backstageQuestionAnswers": "published: commit 76dd2c0969b3b8756e28dc568413848b314cbe35 / blob a1451b462bf79065ad7cc7202c017ce78f654bea",
       "authoritativeSource": "published: Build-Question-Answers.py commit c5ece2e84cd1bf49b02ebac2b96b5e3cfe272528 / blob d822a1cc0d485ce6b6a57fffaf5648d883c33a21"
     }
   },
-  "remoteRefreshAt": "2026-09-22T17:07:25.891673-04:00",
+  "remoteRefreshAt": "2026-09-22T17:39:20.540903-04:00",
   "syncMetadata": {
     "last_linear_sync": "2026-09-22T08:45:55.316588-04:00",
     "last_notion_sync": "2026-09-22T08:45:55.316588-04:00",
@@ -3153,5 +3117,6 @@
     "last_runtime_sync": "2026-09-22T08:45:55.316588-04:00",
     "sync_state": "drift",
     "sync_note": "No material Linear execution, GitHub PR/head/CI, local-work-count, queue, or runtime transition was detected in this refresh. Fresh checks confirm Appolon 25 worktrees / 13 repos, 5 pending-commit, 2 pending-push, 10 behind, 7 synced, 0 scanner errors; Codestra Prometheus 38/38, Klyrow 2/2, Telnexa 3/3, both checked Grafana databases OK, Alertmanager 17 active / 13 critical. Persistent drift remains fail-closed: PAS-190 hosted exact-head CI execution is still zero-step/failing, independent review and required staging/readback/recovery evidence remain unproven, local dirty/unpushed/behind work remains, and 13 critical alerts remain active."
-  }
+  },
+  "runtimeCheckedAt": "2026-09-22T16:52:16.876480-04:00"
 }
