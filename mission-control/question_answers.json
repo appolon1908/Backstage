@@ -1,114 +1,24 @@
 {
-  "generatedAt": "2026-09-22T11:06:10.422532-04:00",
+  "generatedAt": "2026-09-22T11:43:53.807801-04:00",
   "questionAnswers": [
-    {
-      "question": "What needs my attention right now?",
-      "status": "red",
-      "answer": "15 critical runtime alerts. PAS-190 remains the release-wide hosted-Actions blocker (In Progress, Urgent). PAS-151 staging is NOT READY. PAS-214 is Implemented/In Review at klyrow.com PR #170 but not Verified/Complete because exact-head hosted CI is not proven, review is not proven, and staging/readback/recovery evidence is missing. PAS-234 is Implemented / In Progress and remains not Complete; PAS-235 is Reviewed / Defined / In Progress and remains not Complete. Local: 5 pending-commit and 2 pending-push worktrees."
-    },
-    {
-      "question": "What is everyone working on?",
-      "status": "yellow",
-      "answer": "PAS-214: Billing & Finance Gate B material implementation is in review at klyrow.com PR #170. PAS-151: partial implementation with staging certification incomplete. PAS-198: Webmail/Postal observability implementation in review. PAS-199: PRO-S1 Organization & Identity implementation in review at PR #167. PAS-234 Middleware is In Progress / Implemented: source/config/data implementation is present but verification, integration, observability, staging and rollback remain open. PAS-235 Caddy is In Progress / Reviewed / Defined and remains Gate-A-only. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-194/PAS-192 remain identity prerequisite/runtime lanes. PAS-190 remains the CI-capacity blocker."
-    },
-    {
-      "question": "What was completed today?",
-      "status": "gray",
-      "answer": "PAS-196 Mission Control is an evidence-backed completed control-plane task. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI/review and required staging/runtime/recovery evidence are missing. No PAS-199 or PAS-233–243 lane is newly counted complete in this refresh. Portfolio-wide exact completed-today count remains Unknown / Not Proven. 0 local worktree commit(s) are dated today, but commits alone are not completion."
-    },
-    {
-      "question": "What is blocked?",
-      "status": "red",
-      "answer": "PAS-190: hosted Actions capacity/billing. PAS-214: exact-head hosted CI startup failure/zero jobs, no submitted review, PAS-190, and missing staging/readback/recovery proof. PAS-151: exact-head CI plus governed staging apply/full-chain readback. PAS-198: exact-head hosted CI, independent review and immutable staging validation. PAS-199: exact-head hosted CI, independent review, PAS-194 staging identity readiness and PAS-192 runtime identity certification. PAS-234: exact-head zero-step CI plus missing independent review, integration, observability, immutable staging/readback and rollback evidence. Runtime also has 15 critical alerts."
-    },
-    {
-      "question": "Which PRs have conflicts?",
-      "status": "green",
-      "answer": "No confirmed Git conflicts among the 6 active-mission PRs checked (klyrow.com #165, Middleware- #309, Keycloak #124, Kong #115, Kong #116, Caddy #183); all checked PRs report mergeable=true. Portfolio-wide PR conflict state outside this set is Unknown / Not Proven."
-    },
-    {
-      "question": "Which repos are dirty locally?",
-      "status": "orange",
-      "answer": "klyrow.com. 5 worktree(s) have uncommitted changes; 2 worktree(s) have local commits pending push; 10 worktree(s) are behind. Behind repos: Breero.com, Middleware-, Odoo, klyrow.com. Local evidence is not remote verification."
-    },
-    {
-      "question": "What should happen next?",
-      "status": "red",
-      "answer": "Clear PAS-190 without weakening gates. Then rerun exact-head hosted CI for PR #170 and the other checked active PRs, obtain independent review, and complete immutable/governed staging validation and required readback/rollback. PAS-214 must remain In Review until those gates pass. PAS-234 is Implemented, not Complete: clear PAS-190, rerun exact-head CI for PR #309, obtain independent review, then complete integration/observability, immutable staging readback and rollback. PAS-235 may continue Gate A 01–05 only and must not be classified Implemented without material change evidence."
-    },
-    {
-      "question": "Are production systems healthy?",
-      "status": "red",
-      "answer": "No. Prometheus scrape health is Codestra 38/38, Klyrow 2/2, Telnexa 3/3; Grafana health is reported OK, but Alertmanager still has 19 active / 15 critical alerts."
-    },
-    {
-      "question": "Is staging ready?",
-      "status": "red",
-      "answer": "NO / NOT READY. PAS-151 has source/rehearsal evidence, but hosted exact-head CI is not executing real steps, canonical staging apply is incomplete, the Middleware application plane is not certified running, and full Caddy→Kong→Middleware readback/rollback is missing. PAS-214 also lacks exact-head hosted CI/review and staging/readback/recovery proof."
-    },
-    {
-      "question": "Is production ready?",
-      "status": "red",
-      "answer": "NO GO. Staging is not ready, required hosted CI is blocked, and 15 critical runtime alerts remain. PR #170 source/local test evidence does not authorize production or live charging."
-    },
-    {
-      "question": "Who owns each task?",
-      "status": "blue",
-      "answer": "Ralph Appolon owns the checked release blocker and current PAS-151/PAS-198/PAS-199/PAS-214/PAS-194/PAS-192/PAS-233/PAS-234/PAS-235 records. Linear remains authoritative for every mission assignee, priority, due date, blocker and execution stage; dashboard and Notion summaries follow it."
-    },
-    {
-      "question": "What changed since yesterday?",
-      "status": "yellow",
-      "answer": "klyrow.com PR #170 added material PRO-S3.B Billing & Finance Gate B implementation at exact head unknown and PAS-214 is In Review / Implemented. Its exact-head CI is not proven and review is not proven, so it is not Complete. PAS-234 advanced from Reviewed/Defined to Implemented after Linear DONE_SOURCE/DONE_CONFIG/DONE_DATA changed to YES and GitHub PR #309 material code evidence was confirmed; it is still not Complete. PAS-235 remains In Progress / Reviewed-Defined. Appolon local truth is 5 pending-commit, 2 pending-push, 10 behind and 7 synced worktrees. Runtime remains 19 active / 15 critical with all monitored Prometheus targets up."
-    },
-    {
-      "question": "What has not moved?",
-      "status": "orange",
-      "answer": "PAS-190 remains urgent but In Progress while blocking exact-head acceptance. PAS-214 remains In Review until hosted exact-head CI, review and required staging/readback/recovery evidence pass. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-234 now has material implementation proof but has not moved through verification/completion because CI/review/integration/observability/staging/rollback remain unproven. PAS-235 has started Gate A but still has no mission-specific material implementation/completion proof. 4 pending local worktree(s) have dirty/unpushed evidence older than 24 hours."
-    },
-    {
-      "question": "Did an agent finish without receiving the next task?",
-      "status": "yellow",
-      "answer": "No finished-without-successor gap is proven in the checked lanes. PAS-214 has explicit remaining verification/certification work; PAS-234 has an explicit Gate B verification/certification successor and PAS-235 has a Gate A successor, and PAS-236–243 remain defined portfolio successors. Starting, assigning or reviewing a mission is not implementation or completion."
-    },
-    {
-      "question": "Where is the evidence?",
-      "status": "blue",
-      "answer": "GitHub supplies exact-head PR/workflow evidence, including klyrow PR #170 and Middleware PR #309 plus their zero-step hosted-CI failures; Linear supplies PAS-214 and platform-lane execution truth;  SentinelX supplies the fresh Appolon worktree scan; Prometheus/Alertmanager/Grafana supply runtime truth; Notion is the durable architecture/handoff record. The dashboard is a derived read model and governed action surface."
-    },
-    {
-      "question": "Which information is unknown or unverified?",
-      "status": "gray",
-      "answer": "Portfolio-wide completed-today count and PR conflict state outside the 6 checked active PRs remain Unknown / Not Proven. PAS-214 exact-head hosted CI/review and staging/readback/recovery are unverified. PAS-234 implementation is proven but exact-head CI/review/integration/observability/staging/readback/rollback are unverified; PAS-235 implementation is not proven. Platform successors: PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-199 runtime identity completion is unverified pending PAS-194/PAS-192. Mission Control application source is semantically aligned with Backstage; remaining raw-byte differences are line-ending/final-newline normalization only. Required V2 behavior and localhost health are green. 46 repo(s) are Remote only and 35 repo(s) are unlinked in the snapshot."
-    }
+    {"question":"What needs my attention right now?","status":"red","answer":"15 critical runtime alerts. PAS-190 remains the release-wide hosted-Actions blocker (In Progress, Urgent). PAS-151 staging is NOT READY. PAS-214 is Implemented/In Review at klyrow.com PR #170 but not Verified/Complete because exact-head hosted CI is HOSTED_VERIFICATION_NOT_PROVEN, review is APPROVED, and staging/readback/recovery evidence is missing. PAS-234 is Implemented / In Progress and remains not Complete; PAS-235 is Reviewed / Defined / In Progress and remains not Complete. Local: 5 pending-commit and 2 pending-push worktrees."},
+    {"question":"What is everyone working on?","status":"yellow","answer":"PAS-214: Billing & Finance Gate B material implementation is in review at klyrow.com PR #170. PAS-151: partial implementation with staging certification incomplete. PAS-198: Webmail/Postal observability implementation in review. PAS-199: PRO-S1 Organization & Identity implementation in review at PR #167. PAS-234 Middleware is In Progress / Implemented: source/config/data implementation is present but verification, integration, observability, staging and rollback remain open. PAS-235 Caddy is In Progress / Reviewed / Defined and remains Gate-A-only. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-194/PAS-192 remain identity prerequisite/runtime lanes. PAS-190 remains the CI-capacity blocker."},
+    {"question":"What was completed today?","status":"gray","answer":"PAS-196 Mission Control is an evidence-backed completed control-plane task. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI and required staging/runtime/recovery evidence are missing, and current review evidence is evaluated separately. No PAS-199 or PAS-233–243 lane is newly counted complete in this refresh. Portfolio-wide exact completed-today count remains Unknown / Not Proven. 1 local worktree commit(s) are dated today, but commits alone are not completion."},
+    {"question":"What is blocked?","status":"red","answer":"PAS-190: hosted Actions capacity/billing. PAS-214: exact-head hosted CI startup failure/zero jobs, independent APPROVED review is proven, PAS-190, and missing staging/readback/recovery proof. PAS-151: exact-head CI plus governed staging apply/full-chain readback. PAS-198: exact-head hosted CI, independent review and immutable staging validation. PAS-199: exact-head hosted CI, independent review, PAS-194 staging identity readiness and PAS-192 runtime identity certification. PAS-234: exact-head hosted CI remains red; independent APPROVED review is proven; integration, observability, immutable staging/readback and rollback evidence remain missing. Runtime also has 15 critical alerts."},
+    {"question":"Which PRs have conflicts?","status":"green","answer":"No confirmed Git conflicts among the 8 mission PR records checked (klyrow.com #165, Middleware- #309, Keycloak #124, Kong #115, Kong #116, Caddy #183, Codestra-Grafana- #33, klyrow.com #170); all open PRs with current mergeability evidence report mergeable=true. Merged PR records are not treated as conflicts. Portfolio-wide PR conflict state outside this set is Unknown / Not Proven."},
+    {"question":"Which repos are dirty locally?","status":"orange","answer":"klyrow.com. 5 worktree(s) have uncommitted changes; 2 worktree(s) have local commits pending push; 10 worktree(s) are behind. Behind repos: Breero.com, Middleware-, Odoo, klyrow.com. Local evidence is not remote verification."},
+    {"question":"What should happen next?","status":"red","answer":"Clear PAS-190 without weakening gates. Then rerun exact-head hosted CI for PR #170 and the other checked active PRs, obtain independent review, and complete immutable/governed staging validation and required readback/rollback. PAS-214 must remain In Review until those gates pass. PAS-234 is Implemented, not Complete: clear PAS-190, rerun exact-head CI for PR #309; independent APPROVED review is proven; then complete integration/observability, immutable staging readback and rollback. PAS-235 may continue Gate A 01–05 only and must not be classified Implemented without material change evidence."},
+    {"question":"Are production systems healthy?","status":"red","answer":"No. Prometheus scrape health is Codestra 38/38, Klyrow 2/2, Telnexa 3/3; Grafana health is reported OK, but Alertmanager still has 19 active / 15 critical alerts."},
+    {"question":"Is staging ready?","status":"red","answer":"NO / NOT READY. PAS-151 has source/rehearsal evidence, but hosted exact-head CI is not executing real steps, canonical staging apply is incomplete, the Middleware application plane is not certified running, and full Caddy→Kong→Middleware readback/rollback is missing. PAS-214 also lacks exact-head hosted CI/review and staging/readback/recovery proof."},
+    {"question":"Is production ready?","status":"red","answer":"NO GO. Staging is not ready, required hosted CI is blocked, and 15 critical runtime alerts remain. PR #170 source/local test evidence does not authorize production or live charging."},
+    {"question":"Who owns each task?","status":"blue","answer":"Ralph Appolon owns the checked release blocker and current PAS-151/PAS-198/PAS-199/PAS-214/PAS-194/PAS-192/PAS-233/PAS-234/PAS-235 records. Linear remains authoritative for every mission assignee, priority, due date, blocker and execution stage; dashboard and Notion summaries follow it."},
+    {"question":"What changed since yesterday?","status":"yellow","answer":"klyrow.com PR #170 added material PRO-S3.B Billing & Finance Gate B implementation at exact head af8e052ccd73241e1fb9a1eb340bb77068abd9a2 and PAS-214 is In Review / Implemented. Its exact-head CI is HOSTED_VERIFICATION_NOT_PROVEN and review is APPROVED, so it is not Complete. PAS-234 advanced from Reviewed/Defined to Implemented after Linear DONE_SOURCE/DONE_CONFIG/DONE_DATA changed to YES and GitHub PR #309 material code evidence was confirmed; it is still not Complete. PAS-235 remains In Progress / Reviewed-Defined. Appolon local truth is 5 pending-commit, 2 pending-push, 10 behind and 8 synced worktrees. Runtime remains 19 active / 15 critical with all monitored Prometheus targets up."},
+    {"question":"What has not moved?","status":"orange","answer":"PAS-190 remains urgent but In Progress while blocking exact-head acceptance. PAS-214 remains In Review until hosted exact-head CI, review and required staging/readback/recovery evidence pass. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-234 now has material implementation proof but has not moved through verification/completion because exact-head CI/integration/observability/staging/rollback remain unproven; independent APPROVED review is proven. PAS-235 has started Gate A but still has no mission-specific material implementation/completion proof. 4 pending local worktree(s) have dirty/unpushed evidence older than 24 hours."},
+    {"question":"Did an agent finish without receiving the next task?","status":"yellow","answer":"No finished-without-successor gap is proven in the checked lanes. PAS-214 has explicit remaining verification/certification work; PAS-234 has an explicit Gate B verification/certification successor and PAS-235 has a Gate A successor, and PAS-236–243 remain defined portfolio successors. Starting, assigning or reviewing a mission is not implementation or completion."},
+    {"question":"Where is the evidence?","status":"blue","answer":"GitHub supplies exact-head PR/workflow evidence, including klyrow PR #170 and Middleware PR #309 plus their zero-step hosted-CI failures; Linear supplies PAS-214 and platform-lane execution truth; SentinelX supplies the fresh Appolon worktree scan; Prometheus/Alertmanager/Grafana supply runtime truth; Notion is the durable architecture/handoff record. The dashboard is a derived read model and governed action surface."},
+    {"question":"Which information is unknown or unverified?","status":"gray","answer":"Portfolio-wide completed-today count and PR conflict state outside the 8 checked active PRs remain Unknown / Not Proven. PAS-214 exact-head hosted CI/review and staging/readback/recovery are unverified. PAS-234 implementation is proven but exact-head CI/integration/observability/staging/readback/rollback are unverified; independent APPROVED review is proven; PAS-235 implementation is not proven. Platform successors: PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-199 runtime identity completion is unverified pending PAS-194/PAS-192. Mission Control application source is semantically aligned with Backstage; remaining raw-byte differences are line-ending/final-newline normalization only. Required V2 behavior and localhost health are green. 46 repo(s) are Remote only and 35 repo(s) are unlinked in the snapshot."}
   ],
-  "readiness": {
-    "staging": {
-      "state": "NOT READY",
-      "source": "PAS-151 current control-plane record"
-    },
-    "production": {
-      "state": "NO GO",
-      "source": "staging not ready + critical runtime alerts"
-    }
-  },
-  "syncMetadata": {
-    "last_linear_sync": "2026-09-22T11:06:10.422532-04:00",
-    "last_notion_sync": "2026-09-22T10:44:19.4823609-04:00",
-    "last_github_sync": "2026-09-22T10:44:19.4823609-04:00",
-    "last_local_sync": "2026-09-22T11:06:10.422532-04:00",
-    "last_runtime_sync": "2026-09-22T10:44:19.4823609-04:00",
-    "sync_state": "drift",
-    "sync_note": "Platform lane statuses PAS-236–243 refreshed from Linear. Derived files are being regenerated and published."
-  },
-  "summary": {
-    "activeAlerts": 19,
-    "criticalAlerts": 15,
-    "localPendingCommit": 5,
-    "localPendingPush": 2,
-    "localBehind": 10,
-    "localSynced": 7,
-    "localScanNeedsReview": 0,
-    "staleLocalPending24h": 4
-  }
+  "readiness":{"staging":{"state":"NOT READY","source":"PAS-151 current control-plane record"},"production":{"state":"NO GO","source":"staging not ready + critical runtime alerts"}},
+  "syncMetadata":{"last_linear_sync":"2026-09-22T11:39:18.583625-04:00","last_notion_sync":"2026-09-22T11:43:53.807801-04:00","last_github_sync":"2026-09-22T11:43:53.807801-04:00","last_local_sync":"2026-09-22T11:33:35.934030-04:00","last_runtime_sync":"2026-09-22T11:39:18.583625-04:00","sync_state":"drift","sync_note":"Execution state and review evidence are aligned across Linear/Notion/dashboard. Remaining drift: failed exact-head CI/validation, missing deployment-readback-recovery evidence, 15 critical alerts, and local dirty/unpushed/behind work. Behind counts use last-known tracking refs."},
+  "summary":{"activeAlerts":19,"criticalAlerts":15,"localPendingCommit":5,"localPendingPush":2,"localBehind":10,"localSynced":8,"localScanNeedsReview":0,"staleLocalPending24h":4}
 }
