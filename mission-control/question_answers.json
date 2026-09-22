@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T16:48:55.326225-04:00",
+  "generatedAt": "2026-09-22T17:07:25.891673-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
@@ -93,13 +93,13 @@
     }
   },
   "syncMetadata": {
-    "last_linear_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_notion_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_github_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_local_sync": "2026-09-22T16:48:55.326225-04:00",
-    "last_runtime_sync": "2026-09-22T16:48:55.326225-04:00",
+    "last_linear_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_notion_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_github_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_local_sync": "2026-09-22T17:07:25.891673-04:00",
+    "last_runtime_sync": "2026-09-22T17:07:25.891673-04:00",
     "sync_state": "synced",
-    "sync_note": "Control surfaces are reconciled. Remaining blockers require external GitHub Actions capacity or explicit migration/reconciliation effect authorization; no hidden drift remains."
+    "sync_note": "Control surfaces reconciled for production continuation. Remaining gates are external CI and explicitly effectful staging/migration/reconciliation steps; no production effect bypass is authorized."
   },
   "summary": {
     "activeAlerts": 6,
