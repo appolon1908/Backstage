@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-22T12:12:05.873044-04:00",
+  "generatedAt": "2026-09-22T13:33:55-04:00",
   "sources": {
     "github": "https://github.com/ingtrader21-spec",
     "backstage": "https://github.com/appolon1908-hue/Backstage",
@@ -11,14 +11,14 @@
   "summary": {
     "repositories": 59,
     "openPrsIndexed": 100,
-    "linearIssues": 148,
-    "inProgress": 34,
+    "linearIssues": 150,
+    "inProgress": 35,
     "inReview": 5,
     "blockedIssues": 3,
     "reposWithLocalState": 13,
     "reposWithDirtyWork": 1,
-    "activeAlerts": 19,
-    "criticalAlerts": 15,
+    "activeAlerts": 12,
+    "criticalAlerts": 9,
     "localPendingCommit": 5,
     "localPendingPush": 2,
     "localBehind": 10,
@@ -37,92 +37,67 @@
       },
       "alertmanager": {
         "ip": "10.253.127.3",
-        "active_alerts": 17,
+        "active_alerts": 10,
         "alerts": [
           {
             "state": "active",
             "name": "CaddyConfigurationDrift",
-            "severity": "critical"
-          },
-          {
-            "state": "active",
-            "name": "CodestraRestoreTestAgeExceededWarning",
-            "severity": "warning"
+            "severity": "critical",
+            "host": "middleware"
           },
           {
             "state": "active",
             "name": "CodestraWatchdog",
-            "severity": "informational"
-          },
-          {
-            "state": "active",
-            "name": "CodestraRestoreTestAgeExceeded",
-            "severity": "critical"
+            "severity": "informational",
+            "host": "middleware"
           },
           {
             "state": "active",
             "name": "KongDatabaseDiskWarning",
-            "severity": "warning"
-          },
-          {
-            "state": "active",
-            "name": "MiddlewareDatabaseBackupStale",
-            "severity": "critical"
-          },
-          {
-            "state": "active",
-            "name": "MiddlewareDatabaseBackupFailed",
-            "severity": "critical"
+            "severity": "warning",
+            "host": "middleware"
           },
           {
             "state": "active",
             "name": "CaddyPublicBehaviorFailure",
-            "severity": "critical"
+            "severity": "critical",
+            "host": "api.staging.internal.codestra.agency"
           },
           {
             "state": "active",
             "name": "CaddyMTLSProbeFailure",
-            "severity": "critical"
+            "severity": "critical",
+            "host": "middleware.internal.codestra.agency"
           },
           {
             "state": "active",
             "name": "MiddlewareDatabaseMigrationMismatch",
-            "severity": "critical"
+            "severity": "critical",
+            "host": "middleware"
           },
           {
             "state": "active",
             "name": "CodestraN8nRestoreRehearsalOverdue",
-            "severity": "critical"
-          },
-          {
-            "state": "active",
-            "name": "MiddlewareDatabaseRestoreOverdue",
-            "severity": "critical"
+            "severity": "critical",
+            "host": "middleware"
           },
           {
             "state": "active",
             "name": "CodestraDiskCapacityWarning",
-            "severity": "warning"
-          },
-          {
-            "state": "active",
-            "name": "CodestraDatabaseBackupStale",
-            "severity": "critical"
-          },
-          {
-            "state": "active",
-            "name": "CodestraDatabaseRestoreOverdue",
-            "severity": "critical"
+            "severity": "warning",
+            "host": "middleware"
           },
           {
             "state": "active",
             "name": "CaddyPublicBehaviorFailure",
-            "severity": "critical"
+            "severity": "critical",
+            "host": "bridge-staging.codestra.agency"
           },
           {
             "state": "active",
             "name": "CaddyMTLSProbeFailure",
-            "severity": "critical"
+            "severity": "critical",
+            "host": "middleware-staging.internal.codestra.agency"
           }
         ]
       },
@@ -141,6 +116,18 @@
         "targets_up": 2,
         "targets_down": []
       },
+      "alerts": [
+        {
+          "state": "firing",
+          "name": "KlyrowEventDeliveryStalled",
+          "severity": "critical"
+        },
+        {
+          "state": "firing",
+          "name": "KlyrowUsageDeliveryStalled",
+          "severity": "critical"
+        }
+      ],
       "grafana": {
         "ip": "172.23.0.3",
         "health": {
@@ -155,7 +142,8 @@
         "targets_total": 3,
         "targets_up": 3,
         "targets_down": []
-      }
+      },
+      "alerts": []
     }
   },
   "hosts": [
@@ -207,103 +195,71 @@
       "state": "active",
       "name": "CaddyConfigurationDrift",
       "severity": "critical",
-      "source": "Codestra Alertmanager"
-    },
-    {
-      "state": "active",
-      "name": "CodestraRestoreTestAgeExceededWarning",
-      "severity": "warning",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware"
     },
     {
       "state": "active",
       "name": "CodestraWatchdog",
       "severity": "informational",
-      "source": "Codestra Alertmanager"
-    },
-    {
-      "state": "active",
-      "name": "CodestraRestoreTestAgeExceeded",
-      "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware"
     },
     {
       "state": "active",
       "name": "KongDatabaseDiskWarning",
       "severity": "warning",
-      "source": "Codestra Alertmanager"
-    },
-    {
-      "state": "active",
-      "name": "MiddlewareDatabaseBackupStale",
-      "severity": "critical",
-      "source": "Codestra Alertmanager"
-    },
-    {
-      "state": "active",
-      "name": "MiddlewareDatabaseBackupFailed",
-      "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware"
     },
     {
       "state": "active",
       "name": "CaddyPublicBehaviorFailure",
       "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "api.staging.internal.codestra.agency"
     },
     {
       "state": "active",
       "name": "CaddyMTLSProbeFailure",
       "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware.internal.codestra.agency"
     },
     {
       "state": "active",
       "name": "MiddlewareDatabaseMigrationMismatch",
       "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware"
     },
     {
       "state": "active",
       "name": "CodestraN8nRestoreRehearsalOverdue",
       "severity": "critical",
-      "source": "Codestra Alertmanager"
-    },
-    {
-      "state": "active",
-      "name": "MiddlewareDatabaseRestoreOverdue",
-      "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware"
     },
     {
       "state": "active",
       "name": "CodestraDiskCapacityWarning",
       "severity": "warning",
-      "source": "Codestra Alertmanager"
-    },
-    {
-      "state": "active",
-      "name": "CodestraDatabaseBackupStale",
-      "severity": "critical",
-      "source": "Codestra Alertmanager"
-    },
-    {
-      "state": "active",
-      "name": "CodestraDatabaseRestoreOverdue",
-      "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware"
     },
     {
       "state": "active",
       "name": "CaddyPublicBehaviorFailure",
       "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "bridge-staging.codestra.agency"
     },
     {
       "state": "active",
       "name": "CaddyMTLSProbeFailure",
       "severity": "critical",
-      "source": "Codestra Alertmanager"
+      "source": "Codestra Alertmanager",
+      "host": "middleware-staging.internal.codestra.agency"
     },
     {
       "state": "firing",
@@ -325,12 +281,12 @@
       "visibility": "public",
       "group": "core",
       "github": "https://github.com/ingtrader21-spec/Caddy",
-      "goal": "KONG-05 \u00e2\u20ac\u201d Certify live Caddy \u00e2\u2020\u2019 Kong \u00e2\u2020\u2019 Middleware staging chain",
-      "linearStatus": "In Progress",
+      "goal": "KONG-05 \u2014 Certify live Caddy \u2192 Kong \u2192 Middleware staging chain",
+      "linearStatus": "Done",
       "linearIssue": "PAS-151",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "blocked": true,
-      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u00e2\u2020\u2019Kong\u00e2\u2020\u2019Middleware readback/rollback. Production GO remains NO.",
+      "blocker": "Fail-closed completion evidence: protected exact-head CI execution/pass, accepted source candidate(s), immutable live staging deployment, full Caddy\u2192Kong\u2192Middleware readback, observability acceptance and rollback/recovery proof. Linear owns status, so Mission Control preserves Done but marks completion truth CONFLICT/not complete.",
       "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "openPrs": 3,
       "local": {
@@ -352,7 +308,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -369,7 +325,7 @@
       "visibility": "public",
       "group": "core",
       "github": "https://github.com/ingtrader21-spec/Keycloak",
-      "goal": "Identity prerequisite \u00e2\u20ac\u201d provision Klyrow staging OIDC client, host and controlled test identities",
+      "goal": "Identity prerequisite \u2014 provision Klyrow staging OIDC client, host and controlled test identities",
       "linearStatus": "In Progress",
       "linearIssue": "PAS-194",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-194/identity-prerequisite-provision-klyrow-staging-oidc-client-host-and",
@@ -396,7 +352,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 2,
         "pendingCommit": 0,
         "pendingPush": 1,
@@ -431,7 +387,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -475,7 +431,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -519,7 +475,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -554,7 +510,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -589,7 +545,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -624,7 +580,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -659,7 +615,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -676,7 +632,7 @@
       "visibility": "public",
       "group": "saas",
       "github": "https://github.com/ingtrader21-spec/klyrow.com",
-      "goal": "M1E-O11 \u00e2\u20ac\u201d Webmail / Postal production observability suite",
+      "goal": "M1E-O11 \u2014 Webmail / Postal production observability suite",
       "linearStatus": "In Review",
       "linearIssue": "PAS-198",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite",
@@ -703,7 +659,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 12,
         "pendingCommit": 5,
         "pendingPush": 1,
@@ -720,12 +676,12 @@
       "visibility": "public",
       "group": "core",
       "github": "https://github.com/ingtrader21-spec/Middleware-",
-      "goal": "KONG-05 \u00e2\u20ac\u201d Certify live Caddy \u00e2\u2020\u2019 Kong \u00e2\u2020\u2019 Middleware staging chain",
-      "linearStatus": "In Progress",
+      "goal": "KONG-05 \u2014 Certify live Caddy \u2192 Kong \u2192 Middleware staging chain",
+      "linearStatus": "Done",
       "linearIssue": "PAS-151",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "blocked": true,
-      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u00e2\u2020\u2019Kong\u00e2\u2020\u2019Middleware readback/rollback. Production GO remains NO.",
+      "blocker": "Fail-closed completion evidence: protected exact-head CI execution/pass, accepted source candidate(s), immutable live staging deployment, full Caddy\u2192Kong\u2192Middleware readback, observability acceptance and rollback/recovery proof. Linear owns status, so Mission Control preserves Done but marks completion truth CONFLICT/not complete.",
       "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "openPrs": 4,
       "local": {
@@ -747,7 +703,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -782,7 +738,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -817,7 +773,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -852,7 +808,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -887,7 +843,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -922,7 +878,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -957,7 +913,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -992,7 +948,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1027,7 +983,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1062,7 +1018,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1097,7 +1053,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1132,7 +1088,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1167,7 +1123,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1202,7 +1158,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1237,7 +1193,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1254,12 +1210,12 @@
       "visibility": "public",
       "group": "core",
       "github": "https://github.com/ingtrader21-spec/Kong",
-      "goal": "KONG-05 \u00e2\u20ac\u201d Certify live Caddy \u00e2\u2020\u2019 Kong \u00e2\u2020\u2019 Middleware staging chain",
-      "linearStatus": "In Progress",
+      "goal": "KONG-05 \u2014 Certify live Caddy \u2192 Kong \u2192 Middleware staging chain",
+      "linearStatus": "Done",
       "linearIssue": "PAS-151",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "blocked": true,
-      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u00e2\u2020\u2019Kong\u00e2\u2020\u2019Middleware readback/rollback. Production GO remains NO.",
+      "blocker": "Fail-closed completion evidence: protected exact-head CI execution/pass, accepted source candidate(s), immutable live staging deployment, full Caddy\u2192Kong\u2192Middleware readback, observability acceptance and rollback/recovery proof. Linear owns status, so Mission Control preserves Done but marks completion truth CONFLICT/not complete.",
       "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "openPrs": 2,
       "local": {
@@ -1280,9 +1236,9 @@
       "prs": [
         {
           "repo": "ingtrader21-spec/Kong",
-          "number": 116,
-          "title": "feat(staging): add PAS-151 JWT/JWKS fallback for unlicensed OIDC runtime",
-          "url": "https://github.com/ingtrader21-spec/Kong/pull/116"
+          "number": 117,
+          "title": "feat(staging): deterministic route reconciliation dry-run/apply/rollback",
+          "url": "https://github.com/ingtrader21-spec/Kong/pull/117"
         },
         {
           "repo": "ingtrader21-spec/Kong",
@@ -1295,7 +1251,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1330,7 +1286,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1374,7 +1330,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1418,7 +1374,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1453,7 +1409,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1497,7 +1453,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1532,7 +1488,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1567,7 +1523,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1602,7 +1558,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1637,7 +1593,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1672,7 +1628,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1716,7 +1672,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1751,7 +1707,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1786,7 +1742,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1821,7 +1777,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1856,7 +1812,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1891,7 +1847,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1926,7 +1882,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1961,7 +1917,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1996,7 +1952,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2031,7 +1987,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2066,7 +2022,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2101,7 +2057,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2136,7 +2092,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2171,7 +2127,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2206,7 +2162,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2241,7 +2197,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2285,7 +2241,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2320,7 +2276,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2355,7 +2311,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2390,7 +2346,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2425,7 +2381,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2460,7 +2416,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2504,7 +2460,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-22T12:32:05.419646-04:00",
+        "checkedAt": "2026-09-22T15:25:36.199231-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -2542,32 +2498,32 @@
     "stagingReady": false,
     "productionGo": false
   },
-  "localWorkCheckAt": "2026-09-22T12:32:05.419646-04:00",
+  "localWorkCheckAt": "2026-09-22T15:25:36.199231-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
       "status": "red",
-      "answer": "15 critical runtime alerts. PAS-190 remains the release-wide hosted-Actions blocker (In Progress, Urgent). PAS-151 staging is NOT READY. PAS-214 is Implemented/In Review at klyrow.com PR #170 but not Verified/Complete because exact-head hosted CI is HOSTED_VERIFICATION_NOT_PROVEN, review is APPROVED, and staging/readback/recovery evidence is missing. PAS-234 is Implemented / In Progress and remains not Complete; PAS-235 is Reviewed / Defined / In Progress and remains not Complete. Local: 5 pending-commit and 2 pending-push worktrees."
+      "answer": "9 critical runtime alerts. PAS-190 remains the release-wide hosted-Actions blocker (In Progress, Urgent). PAS-151 staging is NOT READY. PAS-61 is Implemented / In Review at Middleware PR #310; exact-head CI is RED \u2014 exact-head GitHub Actions failures, review is NONE, and the PR is Draft=True. PAS-214 is Implemented/In Review at klyrow.com PR #170 but not Verified/Complete because exact-head hosted CI is HOSTED_VERIFICATION_NOT_PROVEN, review is APPROVED, and staging/readback/recovery evidence is missing. PAS-234 is Implemented / In Progress and remains not Complete; PAS-235 is Implemented / In Progress and remains not Complete. Local: 5 pending-commit and 2 pending-push worktrees."
     },
     {
       "question": "What is everyone working on?",
       "status": "yellow",
-      "answer": "PAS-214: Billing & Finance Gate B material implementation is in review at klyrow.com PR #170. PAS-151: partial implementation with staging certification incomplete. PAS-198: Webmail/Postal observability implementation in review. PAS-199: PRO-S1 Organization & Identity implementation in review at PR #167. PAS-234 Middleware is In Progress / Implemented: source/config/data implementation is present but verification, integration, observability, staging and rollback remain open. PAS-235 Caddy is In Progress / Reviewed / Defined and remains Gate-A-only. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-194/PAS-192 remain identity prerequisite/runtime lanes. PAS-190 remains the CI-capacity blocker."
+      "answer": "PAS-61: Middleware OpenAPI/Postman authority has material implementation in review at PR #310 but is not Verified/Complete. PAS-214: Billing & Finance Gate B material implementation is in review at klyrow.com PR #170. PAS-151: partial implementation with staging certification incomplete. PAS-198: Webmail/Postal observability implementation in review. PAS-199: PRO-S1 Organization & Identity implementation in review at PR #167. PAS-234 Middleware is In Progress / Implemented: source/config/data implementation is present but verification, integration, observability, staging and rollback remain open. PAS-235 Caddy is In Progress / Implemented and remains Gate-A-only. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 In Progress / Implemented, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-194/PAS-192 remain identity prerequisite/runtime lanes. PAS-190 remains the CI-capacity blocker."
     },
     {
       "question": "What was completed today?",
       "status": "gray",
-      "answer": "PAS-196 Mission Control is an evidence-backed completed control-plane task. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI and required staging/runtime/recovery evidence are missing, and current review evidence is evaluated separately. No PAS-199 or PAS-233\u2013243 lane is newly counted complete in this refresh. Portfolio-wide exact completed-today count remains Unknown / Not Proven. 1 local worktree commit(s) are dated today, but commits alone are not completion."
+      "answer": "PAS-196 Mission Control is an evidence-backed completed control-plane task. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI and required staging/runtime/recovery evidence are missing, and current review evidence is evaluated separately. PAS-61 has material implementation evidence but is not complete because PR #310 is Draft with red exact-head hosted CI and no independent review. No PAS-199 or PAS-233\u2013243 lane is newly counted complete in this refresh. Portfolio-wide exact completed-today count remains Unknown / Not Proven. 1 local worktree commit(s) are dated today, but commits alone are not completion."
     },
     {
       "question": "What is blocked?",
       "status": "red",
-      "answer": "PAS-190: hosted Actions capacity/billing. PAS-214: exact-head hosted CI startup failure/zero jobs, independent APPROVED review is proven, PAS-190, and missing staging/readback/recovery proof. PAS-151: exact-head CI plus governed staging apply/full-chain readback. PAS-198: exact-head hosted CI, independent review and immutable staging validation. PAS-199: exact-head hosted CI, independent review, PAS-194 staging identity readiness and PAS-192 runtime identity certification. PAS-234: exact-head hosted CI remains red; independent APPROVED review is proven; integration, observability, immutable staging/readback and rollback evidence remain missing. Runtime also has 15 critical alerts."
+      "answer": "PAS-190: hosted Actions capacity/billing. PAS-61: PR #310 exact-head hosted CI is red, the PR remains Draft, and independent review is not proven. PAS-214: exact-head hosted CI startup failure/zero jobs, independent APPROVED review is proven, PAS-190, and missing staging/readback/recovery proof. PAS-151: exact-head CI plus governed staging apply/full-chain readback. PAS-198: exact-head hosted CI, independent review and immutable staging validation. PAS-199: exact-head hosted CI, independent review, PAS-194 staging identity readiness and PAS-192 runtime identity certification. PAS-234: exact-head hosted CI remains red; review evidence is APPROVED_NOT_SUFFICIENT; integration, observability, immutable staging/readback and rollback evidence remain missing. Runtime also has 9 critical alerts."
     },
     {
       "question": "Which PRs have conflicts?",
       "status": "green",
-      "answer": "No confirmed Git conflicts among the 8 mission PR records checked (klyrow.com #165, Middleware- #309, Keycloak #124, Kong #115, Kong #116, Caddy #183, Codestra-Grafana- #33, klyrow.com #170); all open PRs with current mergeability evidence report mergeable=true. Merged PR records are not treated as conflicts. Portfolio-wide PR conflict state outside this set is Unknown / Not Proven."
+      "answer": "No confirmed Git conflicts among the 10 mission PR records checked (klyrow.com #165, Keycloak #124, Kong #116, Kong #117, Codestra-Grafana- #33, klyrow.com #170, Middleware- #310, Middleware- #309, Caddy #183, Kong #115); all open PRs with current mergeability evidence report mergeable=true. Merged PR records are not treated as conflicts. Portfolio-wide PR conflict state outside this set is Unknown / Not Proven."
     },
     {
       "question": "Which repos are dirty locally?",
@@ -2577,12 +2533,12 @@
     {
       "question": "What should happen next?",
       "status": "red",
-      "answer": "Clear PAS-190 without weakening gates. Then rerun exact-head hosted CI for PR #170 and the other checked active PRs, obtain independent review, and complete immutable/governed staging validation and required readback/rollback. PAS-214 must remain In Review until those gates pass. PAS-234 is Implemented, not Complete: clear PAS-190, rerun exact-head CI for PR #309; independent APPROVED review is proven; then complete integration/observability, immutable staging readback and rollback. PAS-235 may continue Gate A 01\u201305 only and must not be classified Implemented without material change evidence."
+      "answer": "Clear PAS-190 without weakening gates. Rerun exact-head hosted CI for Middleware PR #310, obtain independent review, accept PAS-61 only when the protected path is green, then advance PAS-62. Then rerun exact-head hosted CI for PR #170 and the other checked active PRs, obtain independent review, and complete immutable/governed staging validation and required readback/rollback. PAS-214 must remain In Review until those gates pass. PAS-234 is Implemented, not Complete: clear PAS-190, rerun exact-head CI for PR #309; review evidence is APPROVED_NOT_SUFFICIENT; then complete integration/observability, immutable staging readback and rollback. PAS-235 may continue Gate A 01\u201305 only and must not be classified Implemented without material change evidence."
     },
     {
       "question": "Are production systems healthy?",
       "status": "red",
-      "answer": "No. Prometheus scrape health is Codestra 38/38, Klyrow 2/2, Telnexa 3/3; Grafana health is reported OK, but Alertmanager still has 19 active / 15 critical alerts."
+      "answer": "No. Prometheus scrape health is Codestra 38/38, Klyrow 2/2, Telnexa 3/3; Grafana health is reported OK, but Alertmanager still has 12 active / 9 critical alerts."
     },
     {
       "question": "Is staging ready?",
@@ -2592,7 +2548,7 @@
     {
       "question": "Is production ready?",
       "status": "red",
-      "answer": "NO GO. Staging is not ready, required hosted CI is blocked, and 15 critical runtime alerts remain. PR #170 source/local test evidence does not authorize production or live charging."
+      "answer": "NO GO. Staging is not ready, required hosted CI is blocked, and 9 critical runtime alerts remain. PR #170 source/local test evidence does not authorize production or live charging."
     },
     {
       "question": "Who owns each task?",
@@ -2602,12 +2558,12 @@
     {
       "question": "What changed since yesterday?",
       "status": "yellow",
-      "answer": "klyrow.com PR #170 added material PRO-S3.B Billing & Finance Gate B implementation at exact head af8e052ccd73241e1fb9a1eb340bb77068abd9a2 and PAS-214 is In Review / Implemented. Its exact-head CI is HOSTED_VERIFICATION_NOT_PROVEN and review is APPROVED, so it is not Complete. PAS-234 advanced from Reviewed/Defined to Implemented after Linear DONE_SOURCE/DONE_CONFIG/DONE_DATA changed to YES and GitHub PR #309 material code evidence was confirmed; it is still not Complete. PAS-235 remains In Progress / Reviewed-Defined. Appolon local truth is 5 pending-commit, 2 pending-push, 10 behind and 8 synced worktrees. Runtime remains 19 active / 15 critical with all monitored Prometheus targets up."
+      "answer": "Middleware PR #310 added material PAS-61 deterministic OpenAPI/Postman authority implementation at exact head 43a7fe96010f8c77dc9e1081b2f04e4330451e39; PAS-61 is In Review / Implemented but not Complete because CI is RED \u2014 exact-head GitHub Actions failures, review is NONE, and Draft=True. klyrow.com PR #170 added material PRO-S3.B Billing & Finance Gate B implementation at exact head af8e052ccd73241e1fb9a1eb340bb77068abd9a2 and PAS-214 is In Review / Implemented. Its exact-head CI is HOSTED_VERIFICATION_NOT_PROVEN and review is APPROVED, so it is not Complete. PAS-234 advanced from Reviewed/Defined to Implemented after Linear DONE_SOURCE/DONE_CONFIG/DONE_DATA changed to YES and GitHub PR #309 material code evidence was confirmed; it is still not Complete. PAS-235 remains In Progress / Reviewed-Defined. Appolon local truth is 5 pending-commit, 2 pending-push, 10 behind and 8 synced worktrees. Runtime remains 12 active / 9 critical with all monitored Prometheus targets up."
     },
     {
       "question": "What has not moved?",
       "status": "orange",
-      "answer": "PAS-190 remains urgent but In Progress while blocking exact-head acceptance. PAS-214 remains In Review until hosted exact-head CI, review and required staging/readback/recovery evidence pass. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-234 now has material implementation proof but has not moved through verification/completion because exact-head CI/integration/observability/staging/rollback remain unproven; independent APPROVED review is proven. PAS-235 has started Gate A but still has no mission-specific material implementation/completion proof. 4 pending local worktree(s) have dirty/unpushed evidence older than 24 hours."
+      "answer": "PAS-190 remains urgent but In Progress while blocking exact-head acceptance. PAS-61 remains In Review / Implemented until PR #310 is non-Draft, independently reviewed, and exact-head required CI passes. PAS-214 remains In Review until hosted exact-head CI, review and required staging/readback/recovery evidence pass. PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 In Progress / Implemented, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-234 now has material implementation proof but has not moved through verification/completion because exact-head CI/integration/observability/staging/rollback remain unproven; review evidence is APPROVED_NOT_SUFFICIENT. PAS-235 has started Gate A but still has no mission-specific material implementation/completion proof. 4 pending local worktree(s) have dirty/unpushed evidence older than 24 hours."
     },
     {
       "question": "Did an agent finish without receiving the next task?",
@@ -2617,12 +2573,12 @@
     {
       "question": "Where is the evidence?",
       "status": "blue",
-      "answer": "GitHub supplies exact-head PR/workflow evidence, including klyrow PR #170 and Middleware PR #309 plus their zero-step hosted-CI failures; Linear supplies PAS-214 and platform-lane execution truth;  SentinelX supplies the fresh Appolon worktree scan; Prometheus/Alertmanager/Grafana supply runtime truth; Notion is the durable architecture/handoff record. The dashboard is a derived read model and governed action surface."
+      "answer": "GitHub supplies exact-head PR/workflow evidence, including Middleware PR #310 for PAS-61, klyrow PR #170 and Middleware PR #309 plus their zero-step hosted-CI failures; Linear supplies PAS-214 and platform-lane execution truth;  SentinelX supplies the fresh Appolon worktree scan; Prometheus/Alertmanager/Grafana supply runtime truth; Notion is the durable architecture/handoff record. The dashboard is a derived read model and governed action surface."
     },
     {
       "question": "Which information is unknown or unverified?",
       "status": "gray",
-      "answer": "Portfolio-wide completed-today count and PR conflict state outside the 8 checked active PRs remain Unknown / Not Proven. PAS-214 exact-head hosted CI/review and staging/readback/recovery are unverified. PAS-234 implementation is proven but exact-head CI/integration/observability/staging/readback/rollback are unverified; independent APPROVED review is proven; PAS-235 implementation is not proven. Platform successors: PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 Backlog / Reviewed / Defined, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-199 runtime identity completion is unverified pending PAS-194/PAS-192. Mission Control application source is semantically aligned with Backstage; remaining raw-byte differences are line-ending/final-newline normalization only. Required V2 behavior and localhost health are green. 46 repo(s) are Remote only and 35 repo(s) are unlinked in the snapshot."
+      "answer": "Portfolio-wide completed-today count and PR conflict state outside the 10 checked active PRs remain Unknown / Not Proven. PAS-61 protected-path acceptance is unverified: PR #310 is Draft, review is not proven, and exact-head CI is red. PAS-214 exact-head hosted CI/review and staging/readback/recovery are unverified. PAS-234 implementation is proven but exact-head CI/integration/observability/staging/readback/rollback are unverified; review evidence is APPROVED_NOT_SUFFICIENT; PAS-235 implementation is not proven. Platform successors: PAS-236 In Progress / Reviewed / Defined, PAS-237 Backlog / Reviewed / Defined, PAS-238 Backlog / Reviewed / Defined, PAS-239 Backlog / Reviewed / Defined, PAS-240 In Progress / Implemented, PAS-241 Backlog / Reviewed / Defined, PAS-242 Backlog / Reviewed / Defined, PAS-243 Backlog / Reviewed / Defined. PAS-199 runtime identity completion is unverified pending PAS-194/PAS-192. Mission Control application source is semantically aligned with Backstage; remaining raw-byte differences are line-ending/final-newline normalization only. Required V2 behavior and localhost health are green. 46 repo(s) are Remote only and 35 repo(s) are unlinked in the snapshot."
     }
   ],
   "readiness": {
@@ -2640,19 +2596,20 @@
       "codestraPrometheus": "38/38",
       "klyrowPrometheus": "2/2",
       "telnexaPrometheus": "3/3",
-      "activeAlerts": 19,
-      "criticalAlerts": 15,
+      "codestraActiveAlerts": 10,
+      "codestraCriticalAlerts": 7,
+      "klyrowActiveAlerts": 2,
+      "klyrowCriticalAlerts": 2,
+      "activeAlerts": 12,
+      "criticalAlerts": 9,
       "grafanaCodestra": "ok",
       "grafanaKlyrow": "ok",
-      "newCriticalAlerts": [
-        "KlyrowEventDeliveryStalled",
-        "KlyrowUsageDeliveryStalled"
-      ],
-      "codestraAlertmanagerActive": 17,
-      "codestraCriticalAlerts": 13,
-      "klyrowPrometheusFiring": 2,
-      "klyrowCriticalAlerts": 2,
-      "klyrowCriticalAlertNames": [
+      "criticalNames": [
+        "CaddyConfigurationDrift",
+        "CaddyPublicBehaviorFailure",
+        "CaddyMTLSProbeFailure",
+        "MiddlewareDatabaseMigrationMismatch",
+        "CodestraN8nRestoreRehearsalOverdue",
         "KlyrowEventDeliveryStalled",
         "KlyrowUsageDeliveryStalled"
       ]
@@ -2662,22 +2619,23 @@
       "status": "In Progress",
       "priority": "Urgent",
       "owner": "Ralph Appolon",
-      "evidence": "GitHub hosted Actions remain unable to execute required exact-head jobs. Middleware PR #309 workflows are still failing; klyrow merged heads #170/#166/#167 have startup-failure or failing hosted runs.",
-      "missing": "Restore hosted Actions execution/capacity or an approved isolated runner path, then rerun exact-head required workflows without weakening gates."
+      "cause": "ingtrader21-spec used 100% of included Actions minutes and GitHub separately reported a billing problem; required jobs remain blocked at the hosted execution layer.",
+      "exit": "Restore real hosted runner execution or complete the governed repo-scoped self-hosted contingency without weakening required checks."
     },
     "missions": {
       "PAS-151": {
-        "title": "KONG-05 \u00e2\u20ac\u201d Certify live Caddy \u00e2\u2020\u2019 Kong \u00e2\u2020\u2019 Middleware staging chain",
-        "status": "In Progress",
+        "title": "KONG-05 \u2014 Certify live Caddy \u2192 Kong \u2192 Middleware staging chain",
+        "status": "Done",
         "owner": "Ralph Appolon",
         "stage": "Implemented",
         "complete": false,
-        "evidence": "Middleware PR #309 is open Draft and mergeable at 16afd468; untouched-backup PostgreSQL 17 rehearsal, migrations, four-constraint reconciler, RUNTIME_SCHEMA_VERIFIED and 2/2 focused tests pass. Kong PR #115 is open non-draft and mergeable at f824a653; stacked draft #116 is mergeable at 5e2e316 with JWT/JWKS render/config-parse evidence.",
-        "missing": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u00e2\u2020\u2019Kong\u00e2\u2020\u2019Middleware readback/rollback. Production GO remains NO.",
+        "syncState": "conflict",
+        "evidence": "Linear moved PAS-151 to Done at 2026-09-22T17:09:36Z immediately after Kong PR #116 merged into still-open PR #115. PR #116 merged as 21b724baec44ab11f60da639cb0a813199c3fbea; PR #115 remains open at that exact head. Validate Kong configuration run 35758857221 failed with runner_id=0 and steps=[]. Middleware PR #309 remains open Draft. No fresh full staging deployment/readback/rollback proof is recorded.",
+        "missing": "Fail-closed completion evidence: protected exact-head CI execution/pass, accepted source candidate(s), immutable live staging deployment, full Caddy\u2192Kong\u2192Middleware readback, observability acceptance and rollback/recovery proof. Linear owns status, so Mission Control preserves Done but marks completion truth CONFLICT/not complete.",
         "url": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain"
       },
       "PAS-195": {
-        "title": "M1E \u00e2\u20ac\u201d Client Email Suite / Webmail completion and staging certification",
+        "title": "M1E \u2014 Client Email Suite / Webmail completion and staging certification",
         "status": "In Review",
         "owner": "Ralph Appolon",
         "stage": "Implemented",
@@ -2687,7 +2645,7 @@
         "url": "https://linear.app/passion-fruit/issue/PAS-195/m1e-client-email-suite-webmail-completion-and-staging-certification"
       },
       "PAS-194": {
-        "title": "Identity prerequisite \u00e2\u20ac\u201d provision Klyrow staging OIDC client, host and controlled test identities",
+        "title": "Identity prerequisite \u2014 provision Klyrow staging OIDC client, host and controlled test identities",
         "status": "In Progress / Blocked",
         "owner": "Ralph Appolon",
         "stage": "Implemented",
@@ -2697,7 +2655,7 @@
         "url": "https://linear.app/passion-fruit/issue/PAS-194/identity-prerequisite-provision-klyrow-staging-oidc-client-host-and"
       },
       "PAS-192": {
-        "title": "Keycloak Runtime Certification \u00e2\u20ac\u201d Klyrow identity/session boundary",
+        "title": "Keycloak Runtime Certification \u2014 Klyrow identity/session boundary",
         "status": "In Progress / Blocked",
         "owner": "Ralph Appolon",
         "stage": "Reviewed / Defined",
@@ -2707,7 +2665,7 @@
         "url": "https://linear.app/passion-fruit/issue/PAS-192/keycloak-runtime-certification-klyrow-identitysession-boundary"
       },
       "PAS-198": {
-        "title": "M1E-O11 \u00e2\u20ac\u201d Webmail / Postal production observability suite",
+        "title": "M1E-O11 \u2014 Webmail / Postal production observability suite",
         "status": "In Review",
         "owner": "Ralph Appolon",
         "stage": "Implemented",
@@ -2717,7 +2675,7 @@
         "url": "https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite"
       },
       "PAS-197": {
-        "title": "M1F \u00e2\u20ac\u201d Platform Admin Suite completion and staging certification",
+        "title": "M1F \u2014 Platform Admin Suite completion and staging certification",
         "status": "In Progress",
         "owner": "Ralph Appolon",
         "stage": "Reviewed / Defined",
@@ -2727,7 +2685,7 @@
         "url": "https://linear.app/passion-fruit/issue/PAS-197/m1f-platform-admin-suite-completion-and-staging-certification"
       },
       "PAS-199": {
-        "title": "PRO-S1 \u00e2\u20ac\u201d Organization & Identity suite contract",
+        "title": "PRO-S1 \u2014 Organization & Identity suite contract",
         "status": "In Review",
         "owner": "Ralph Appolon",
         "stage": "Implemented",
@@ -2737,23 +2695,23 @@
         "url": "https://linear.app/passion-fruit/issue/PAS-199/pro-s1-organization-and-identity-suite-contract"
       },
       "PAS-234": {
-        "title": "PLAT-MW \u00e2\u20ac\u201d Middleware V3 clean staging rebuild & certification",
+        "title": "PLAT-MW \u2014 Middleware V3 clean staging rebuild & certification",
         "status": "In Progress",
         "owner": "Ralph Appolon",
         "stage": "Implemented",
         "complete": false,
-        "evidence": "GitHub PR #309 remains open Draft + mergeable at exact head 16afd4688680cbe8738d657a1e0d7e62b8956835 with material staging reconciler implementation. An independent APPROVED review is now present. Isolated PostgreSQL 17 restore/reconcile/verify-only rehearsal and 2/2 focused source tests are recorded; no canonical staging DDL was executed.",
-        "missing": "Exact-head hosted checks remain failed, including required exact-SHA status and validation/security/orchestrator checks. PR #309 is still Draft. Integration/observability acceptance, immutable staging deployment/readback and rollback/recovery evidence remain unproven; PAS-190 continues to block protected-path certification.",
+        "evidence": "Source/config/data implementation exists. Runtime recovery improved: fresh encrypted Middleware off-host backup succeeded; full database backup and isolated restore rehearsal succeeded; recovery exporter reports the backup timer healthy.",
+        "missing": "PAS-190 hosted exact-head CI, migration-head mismatch, integration/observability acceptance, immutable staging readback and rollback/recovery certification remain open.",
         "url": "https://linear.app/passion-fruit/issue/PAS-234/plat-mw-middleware-v3-clean-staging-rebuild-and-certification"
       },
       "PAS-235": {
-        "title": "PLAT-EDGE-CADDY \u00e2\u20ac\u201d Caddy V3 staging & edge certification",
+        "title": "PLAT-EDGE-CADDY \u2014 Caddy V3 staging & edge certification",
         "status": "In Progress",
         "owner": "Ralph Appolon",
-        "stage": "Reviewed / Defined",
+        "stage": "Implemented",
         "complete": false,
-        "evidence": "Linear moved PAS-235 from Backlog to In Progress at 2026-09-22T05:53:08.569Z. All completion fields remain NO, so only Gate A 01\u00e2\u20ac\u201c05 read-only inventory/authority/contract/evidence-freeze work is authorized.",
-        "missing": "PAS-235-specific implementation, tests/CI, immutable staging, readback and rollback are not proven. PAS-190 hosted Actions capacity and PAS-191 Caddy main promotion-ruleset deadlock remain explicit blockers.",
+        "evidence": "Caddy state backup now uses the dedicated restricted SFTP transfer identity and passes remote checksum readback. DONE_SOURCE/DONE_CONFIG/DONE_DATA are YES in Linear.",
+        "missing": "PAS-190/PAS-191 plus configuration drift, two public-behavior failures, two mTLS probe failures, exact-head tests, immutable staging/readback and rollback remain open.",
         "url": "https://linear.app/passion-fruit/issue/PAS-235/plat-edge-caddy-caddy-v3-staging-and-edge-certification"
       },
       "PAS-214": {
@@ -2772,9 +2730,29 @@
         "owner": "Ralph Appolon",
         "stage": "Reviewed / Defined",
         "complete": false,
-        "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
-        "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
-        "url": "https://linear.app/passion-fruit/issue/pas-236"
+        "evidence": "Linear is In Progress. Kong PR #115 advanced to exact head 21b724baec44ab11f60da639cb0a813199c3fbea and remains open/mergeable.",
+        "missing": "All current exact-head workflow runs are failing; mission-specific implementation/staging/readback/rollback certification is not proven.",
+        "url": "https://linear.app/passion-fruit/issue/PAS-236/plat-gw-kong-kong-v3-authrouting-staging-certification"
+      },
+      "PAS-244": {
+        "title": "PLAT-GW-KONG \u2014 deterministic route reconciliation dry-run/apply/rollback",
+        "status": "In Progress",
+        "owner": "Ralph Appolon",
+        "stage": "Implemented",
+        "complete": false,
+        "evidence": "Kong PR #117 is open Draft + mergeable at 0435745537de6236d419f675af7af99e4795a273 with 291 additions across 3 files. It materially implements the read-only deterministic 24-route planner: 13 REPOINT / 7 RETIRE / 4 EXCEPTION, with live apply disabled.",
+        "missing": "Independent review and protected exact-head CI. Run 35757020393 failed before steps with runner_id=0. No live apply is authorized for this phase.",
+        "url": "https://linear.app/passion-fruit/issue/PAS-244/plat-gw-kong-deterministic-route-reconciliation-dry-runapplyrollback"
+      },
+      "PAS-245": {
+        "title": "CI-CONTINGENCY \u2014 repo-scoped self-hosted runner on Ubuntu desktop",
+        "status": "In Progress",
+        "owner": "Ralph Appolon",
+        "stage": "Reviewed / Defined",
+        "complete": false,
+        "evidence": "Fresh SentinelX desktop readback at 14:00 AST confirms gh is installed but unauthenticated; no actions.runner/github runner/codestra-ci service or runner installation is registered. Linear remains In Progress and no repository gate was weakened.",
+        "missing": "One-time governed gh auth login, repo-scoped runner registration, codestra-ci label proof, broader/kong-runtime label absence, and unchanged required-check proof.",
+        "url": "https://linear.app/passion-fruit/issue/PAS-245/ci-contingency-repo-scoped-self-hosted-runner-on-ubuntu-desktop"
       },
       "PAS-237": {
         "title": "PLAT-ID-KEYCLOAK \u2014 Keycloak identity runtime certification",
@@ -2808,13 +2786,13 @@
       },
       "PAS-240": {
         "title": "PLAT-OBS \u2014 Full monitoring/observability stack certification",
-        "status": "Backlog",
+        "status": "In Progress",
         "owner": "Ralph Appolon",
-        "stage": "Reviewed / Defined",
+        "stage": "Implemented",
         "complete": false,
-        "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
-        "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
-        "url": "https://linear.app/passion-fruit/issue/pas-240"
+        "evidence": "Material runtime/config repair completed: dedicated restricted backup SFTP identity activated; Middleware backup, all-database backup, isolated restore, and Caddy state backup pass. Codestra critical alerts fell from 13 to 7.",
+        "missing": "Middleware migration mismatch, n8n isolated restore authority, Caddy drift/public/mTLS failures, Klyrow DEAD_LETTER alerts, full observability test matrix and rollback certification remain open.",
+        "url": "https://linear.app/passion-fruit/issue/PAS-240/plat-obs-full-monitoringobservability-stack-certification"
       },
       "PAS-241": {
         "title": "PLAT-AUTO \u2014 n8n governed automation staging certification",
@@ -2845,6 +2823,39 @@
         "evidence": "Linear execution status is authoritative. No mission-specific implementation evidence is proven in this refresh.",
         "missing": "Material implementation plus required tests/CI and, where applicable, staging/readback/recovery evidence remain unproven.",
         "url": "https://linear.app/passion-fruit/issue/pas-243"
+      },
+      "PAS-61": {
+        "title": "API-M1 \u2014 Freeze Middleware OpenAPI, route authority and Postman generator",
+        "status": "In Review",
+        "owner": "Ralph Appolon",
+        "priority": "Urgent",
+        "stage": "Implemented",
+        "complete": false,
+        "url": "https://linear.app/passion-fruit/issue/PAS-61/api-m1-freeze-middleware-openapi-route-authority-and-postman-generator",
+        "evidence": "Middleware PR #310 is open Draft + mergeable at exact head 43a7fe96010f8c77dc9e1081b2f04e4330451e39 with 127 additions across 3 changed files. PR body records deterministic OpenAPI/Postman/route-authority generation checks passing locally, 331 OpenAPI routes, 320 route-authority operations, 117 edge contract rows, DIRECT_EFFECT_BYPASSES=0, and no runtime/provider effect.",
+        "missing": "PR #310 exact-head GitHub Actions are red at the hosted execution layer; PR is Draft; independent reviews list is empty; protected-path acceptance is not proven. No deployment/runtime/recovery evidence is claimed by this source-only mission."
+      },
+      "PAS-60": {
+        "title": "Middleware API Program \u2014 OpenAPI & Postman Certification Control",
+        "status": "In Progress",
+        "owner": "Ralph Appolon",
+        "priority": "Urgent",
+        "stage": "Implemented",
+        "complete": false,
+        "url": "https://linear.app/passion-fruit/issue/PAS-60/middleware-api-program-openapi-and-postman-certification-control",
+        "evidence": "Program has material child implementation through PAS-61 / Middleware PR #310.",
+        "missing": "PAS-61 protected-path acceptance is incomplete; PAS-62 through PAS-66 certification lanes remain open."
+      },
+      "PAS-62": {
+        "title": "API-M2 \u2014 Certify command and operation lifecycle in Postman",
+        "status": "Todo",
+        "owner": "Ralph Appolon",
+        "priority": "Urgent",
+        "stage": "Reviewed / Defined",
+        "complete": false,
+        "url": "https://linear.app/passion-fruit/issue/PAS-62/api-m2-certify-command-and-operation-lifecycle-in-postman",
+        "evidence": "Linear execution item exists with defined lifecycle assertions and acceptance gates.",
+        "missing": "No mission-specific material implementation or exact-head verification is proven yet."
       }
     },
     "prChecks": [
@@ -2859,17 +2870,6 @@
         "url": "https://github.com/ingtrader21-spec/klyrow.com/pull/165"
       },
       {
-        "repo": "ingtrader21-spec/Middleware-",
-        "number": 309,
-        "head": "16afd4688680cbe8738d657a1e0d7e62b8956835",
-        "mergeable": true,
-        "draft": true,
-        "ci": "RED_EXACT_HEAD",
-        "review": "APPROVED",
-        "url": "https://github.com/ingtrader21-spec/Middleware-/pull/309",
-        "reviewedAt": "2026-09-22T13:33:28Z"
-      },
-      {
         "repo": "ingtrader21-spec/Keycloak",
         "number": 124,
         "head": "a49390e1320d508bd68304f8d2cbfda724fcb7cb",
@@ -2881,33 +2881,24 @@
       },
       {
         "repo": "ingtrader21-spec/Kong",
-        "number": 115,
-        "head": "f824a653609aa13d0e06931264fe008c375cb8d2",
-        "mergeable": true,
-        "draft": false,
-        "ci": "RED_ZERO_STEP",
-        "review": "REQUESTED_NOT_PROVEN",
-        "url": "https://github.com/ingtrader21-spec/Kong/pull/115"
-      },
-      {
-        "repo": "ingtrader21-spec/Kong",
         "number": 116,
         "head": "5e2e31621f74357671893c56494b915830277e44",
-        "mergeable": true,
-        "draft": true,
-        "ci": "NOT_PROVEN_CURRENT_HEAD",
-        "review": "NONE_SUBMITTED",
+        "merged": true,
+        "mergeCommit": "21b724baec44ab11f60da639cb0a813199c3fbea",
+        "ci": "MERGED_INTO_PR115_NOT_PROTECTED_MAIN",
+        "review": "NOT_COMPLETION_PROOF",
         "url": "https://github.com/ingtrader21-spec/Kong/pull/116"
       },
       {
-        "repo": "ingtrader21-spec/Caddy",
-        "number": 183,
-        "head": "f06d86a4bdb4a175e70a32a32a735f191f4cd58d",
+        "repo": "ingtrader21-spec/Kong",
+        "number": 117,
+        "head": "0435745537de6236d419f675af7af99e4795a273",
         "mergeable": true,
-        "draft": false,
-        "ci": "RED",
-        "review": "REQUESTED_NOT_PROVEN",
-        "url": "https://github.com/ingtrader21-spec/Caddy/pull/183"
+        "draft": true,
+        "ci": "RED_ZERO_STEP",
+        "review": "NOT_PROVEN",
+        "run": 35757020393,
+        "url": "https://github.com/ingtrader21-spec/Kong/pull/117"
       },
       {
         "repo": "ingtrader21-spec/Codestra-Grafana-",
@@ -2931,17 +2922,65 @@
         "review": "APPROVED",
         "url": "https://github.com/ingtrader21-spec/klyrow.com/pull/170",
         "reviewedAt": "2026-09-22T13:33:01Z"
+      },
+      {
+        "repo": "ingtrader21-spec/Middleware-",
+        "number": 310,
+        "title": "feat(api): certify deterministic OpenAPI and Postman authority",
+        "url": "https://github.com/ingtrader21-spec/Middleware-/pull/310",
+        "head": "43a7fe96010f8c77dc9e1081b2f04e4330451e39",
+        "base": "0606b0db9ff59802f8da3824d209d2effc13f87d",
+        "draft": true,
+        "merged": false,
+        "mergeable": true,
+        "mergeableState": "blocked",
+        "review": "NONE",
+        "ci": "RED \u2014 exact-head GitHub Actions failures",
+        "checkRunCount": 31,
+        "changedFiles": 3,
+        "additions": 127,
+        "deletions": 2,
+        "stage": "Implemented / Not Verified"
+      },
+      {
+        "repo": "ingtrader21-spec/Middleware-",
+        "number": 309,
+        "head": "16afd4688680cbe8738d657a1e0d7e62b8956835",
+        "mergeable": true,
+        "draft": true,
+        "ci": "RED",
+        "review": "APPROVED_NOT_SUFFICIENT",
+        "url": "https://github.com/ingtrader21-spec/Middleware-/pull/309"
+      },
+      {
+        "repo": "ingtrader21-spec/Caddy",
+        "number": 183,
+        "head": "f06d86a4bdb4a175e70a32a32a735f191f4cd58d",
+        "mergeable": true,
+        "draft": false,
+        "ci": "RED",
+        "review": "REQUESTED_NOT_PROVEN",
+        "url": "https://github.com/ingtrader21-spec/Caddy/pull/183"
+      },
+      {
+        "repo": "ingtrader21-spec/Kong",
+        "number": 115,
+        "head": "21b724baec44ab11f60da639cb0a813199c3fbea",
+        "mergeable": true,
+        "draft": false,
+        "ci": "RED",
+        "review": "REQUESTED_NOT_PROVEN",
+        "url": "https://github.com/ingtrader21-spec/Kong/pull/115"
       }
     ],
     "changes": [
-      "Appolon Mission Control application source was reconciled from Backstage; source changes required a safe local server restart and localhost health is green.",
-      "Fresh Appolon scan: 25 worktrees / 13 repos, 5 pending-commit, 2 pending-push, 10 behind, 8 synced, 0 scanner errors.",
-      "Middleware PR #309 remains Draft + mergeable and exact-head CI remains red; an APPROVED review is now proven, advancing review evidence but not completion.",
-      "Codestra-Grafana PR #33 remains open + mergeable with its declared validation gate red.",
-      "Fresh runtime readback: Codestra 38/38, Klyrow 2/2, Telnexa 3/3 targets up; aggregate alerts are 19 active/firing / 15 critical.",
-      "Klyrow PR #170 is merged and has an independent APPROVED review; deployment/live-charging/provider activation/production GO remain unproven, so PAS-214 is still Implemented rather than Verified/Complete."
+      "Runtime backup/recovery repair reduced Codestra Alertmanager from 17 active / 13 critical to 10 active / 7 critical.",
+      "Middleware encrypted off-host backup, full all-database backup, isolated database restore, and Caddy state backup now pass using a dedicated restricted SFTP identity.",
+      "PAS-240 moved Backlog to In Progress with material runtime/config implementation evidence; completion remains fail-closed.",
+      "Kong PR #115 advanced to exact head 21b724baec44ab11f60da639cb0a813199c3fbea but all current workflows remain red.",
+      "Appolon local scan remains 25 worktrees / 13 repos, 5 pending-commit, 2 pending-push, 10 behind, 8 synced, 0 scan errors."
     ],
-    "refreshNote": "Refresh complete. Full snapshot publication verified; action queue empty; fail-closed readiness preserved.",
+    "refreshNote": "Fresh GitHub/Linear/Notion/local/runtime reconciliation. New material change: PAS-61/Pull Request #310 is Implemented/In Review but not Verified/Complete. Dashboard source remains semantically aligned to Backstage; no application-source restart required. Action queue is empty. Runtime targets are all up, but 9 critical alerts remain. Staging NOT READY; production NO GO.",
     "roadmap": {
       "repo": "klyrow.com",
       "parent": "PAS-31",
@@ -2984,13 +3023,13 @@
       "note": "Linear now has ten PRO suite parents (S1-S10) and paired structure/authority plus logic/API/UI/tests/certification children. Treat creation/definition as Reviewed/Defined only until material implementation evidence exists."
     },
     "syncMetadata": {
-      "last_linear_sync": "2026-09-22T12:33:40.166336-04:00",
-      "last_notion_sync": "2026-09-22T12:33:40.166336-04:00",
-      "last_github_sync": "2026-09-22T12:33:40.166336-04:00",
-      "last_local_sync": "2026-09-22T12:33:40.166336-04:00",
-      "last_runtime_sync": "2026-09-22T12:33:40.166336-04:00",
+      "last_linear_sync": "2026-09-22T15:28:16.614307-04:00",
+      "last_notion_sync": "2026-09-22T15:28:16.614307-04:00",
+      "last_github_sync": "2026-09-22T15:28:16.614307-04:00",
+      "last_local_sync": "2026-09-22T15:28:16.614307-04:00",
+      "last_runtime_sync": "2026-09-22T15:28:16.614307-04:00",
       "sync_state": "synced",
-      "sync_note": "Mission Control reconciled across GitHub, Linear execution state, Notion durable context, Appolon local scan/action queue, and Prometheus/Alertmanager/Grafana. Full Backstage snapshot publication is confirmed through the Git data path; no application repository mutation was performed."
+      "sync_note": "Control surfaces reconciled after runtime recovery repair. Operational blockers remain fail-closed but are not synchronization drift."
     },
     "platformProtocol": {
       "parent": "PAS-233",
@@ -3009,11 +3048,11 @@
         "PAS-242",
         "PAS-243"
       ],
-      "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 has material source/config/data implementation evidence and is Implemented, not Complete; PAS-235 and PAS-236 are In Progress but remain Reviewed/Defined until mission-specific material implementation exists; PAS-237\u2013PAS-243 remain Backlog. PAS-190 continues to block hosted exact-head certification."
+      "note": "Portfolio-wide governed mission/test protocol remains defined. PAS-234 is Implemented, not Complete; PAS-235 remains Reviewed/Defined; PAS-236 now has partial material implementation through PAS-244 / Kong PR #117 and is Implemented, not Complete; PAS-237\u2013PAS-243 remain Backlog. PAS-245 is the active governed PAS-190 runner contingency; protected exact-head certification is still blocked."
     },
-    "checkedAt": "2026-09-22T12:33:40.166336-04:00",
+    "checkedAt": "2026-09-22T15:28:16.614307-04:00",
     "localWork": {
-      "checkedAt": "2026-09-22T12:04:13.423273-04:00",
+      "checkedAt": "2026-09-22T14:19:35.114169-04:00",
       "worktrees": 25,
       "repos": 13,
       "pendingCommit": 5,
@@ -3179,13 +3218,19 @@
       ]
     },
     "publicationDrift": {
-      "backstageSnapshot": "incomplete",
-      "remoteBytes": 65536,
-      "localBytes": 122009,
-      "note": "Do not treat remote mission-control/snapshot.json as complete until a whole-file publication path is proven. remote_refresh.json and question_answers.json are current."
+      "backstageSnapshot": "stale publication drift: remote blob 7908da8a77de8a54d54b4e8df3979a94b5828f7a remains older than the current full local snapshot",
+      "remoteBytes": 121962,
+      "remoteBlob": "7908da8a77de8a54d54b4e8df3979a94b5828f7a",
+      "lastPublishedCommit": "9021c5797a2cffbd6a1b946ee2c64576a3618a5f",
+      "localBytes": 130376,
+      "localGeneratedAt": "2026-09-22T13:33:55-04:00",
+      "note": "Current remote_refresh.json and all 16 management answers are published. The current full local snapshot was read through a connector response that truncated the representation before EOF, so snapshot.json was intentionally not overwritten with partial data. Preserve the prior full remote snapshot until a binary-safe complete publication path is used.",
+      "backstageRemoteRefresh": "published in this reconciliation; final metadata refresh will republish this file",
+      "backstageQuestionAnswers": "published: commit 1891921d16ec08d9ec6c8d5d70e0b8c6545fcf39 / blob 9e171f6fb2b1d460cdbbc98c98c35a632d83b576",
+      "authoritativeSource": "published: Build-Question-Answers.py commit 3b4839b5559c52d63553a87c02470dcda0ec0f07"
     }
   },
-  "remoteRefreshAt": "2026-09-22T12:33:40.166336-04:00",
+  "remoteRefreshAt": "2026-09-22T15:28:16.614307-04:00",
   "syncMetadata": {
     "last_linear_sync": "2026-09-22T08:45:55.316588-04:00",
     "last_notion_sync": "2026-09-22T08:45:55.316588-04:00",
