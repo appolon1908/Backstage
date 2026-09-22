@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T17:27:00.945043-04:00",
+  "generatedAt": "2026-09-22T17:39:20.540903-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
@@ -13,8 +13,8 @@
     },
     {
       "question": "What was completed today?",
-      "status": "green",
-      "answer": "Verified/Complete today: PAS-191, PAS-91, PAS-83. Each is counted only because independent implementation/runtime evidence is recorded; Linear Done alone is not completion. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI and required staging/runtime/recovery evidence are missing. PAS-61 has material implementation evidence but is not complete because PR #310 is Draft with red exact-head hosted CI; independent APPROVED review is proven. Portfolio-wide completion outside the refreshed evidence set remains Unknown / Not Proven. 1 local worktree commit(s) are dated today, but commits alone are not completion."
+      "status": "gray",
+      "answer": "PAS-196 Mission Control is an evidence-backed completed control-plane task. PAS-214 has material implementation evidence but is not complete; exact-head hosted CI and required staging/runtime/recovery evidence are missing, and current review evidence is evaluated separately. PAS-61 has material implementation evidence but is not complete because PR #310 is Draft with red exact-head hosted CI; independent APPROVED review is proven. No PAS-199 or PAS-233–243 lane is newly counted complete in this refresh. Portfolio-wide exact completed-today count remains Unknown / Not Proven. 1 local worktree commit(s) are dated today, but commits alone are not completion."
     },
     {
       "question": "What is blocked?",
@@ -74,7 +74,7 @@
     {
       "question": "Where is the evidence?",
       "status": "blue",
-      "answer": "GitHub supplies exact-head PR/workflow evidence, including Middleware PR #310 for PAS-61, klyrow PR #170 and Middleware PR #309 plus their zero-step hosted-CI failures; Linear supplies PAS-214 and platform-lane execution truth; SentinelX supplies the fresh Appolon worktree scan; Prometheus/Alertmanager/Grafana supply runtime truth; Notion is the durable architecture/handoff record. The dashboard is a derived read model and governed action surface."
+      "answer": "GitHub supplies exact-head PR/workflow evidence, including Middleware PR #310 for PAS-61, klyrow PR #170 and Middleware PR #309 plus their zero-step hosted-CI failures; Linear supplies PAS-214 and platform-lane execution truth;  SentinelX supplies the fresh Appolon worktree scan; Prometheus/Alertmanager/Grafana supply runtime truth; Notion is the durable architecture/handoff record. The dashboard is a derived read model and governed action surface."
     },
     {
       "question": "Which information is unknown or unverified?",
@@ -93,13 +93,13 @@
     }
   },
   "syncMetadata": {
-    "last_linear_sync": "2026-09-22T17:27:00.945043-04:00",
-    "last_notion_sync": "2026-09-22T17:27:00.945043-04:00",
+    "last_linear_sync": "2026-09-22T17:39:20.540903-04:00",
+    "last_notion_sync": "2026-09-22T17:39:20.540903-04:00",
     "last_github_sync": "2026-09-22T17:27:00.945043-04:00",
-    "last_local_sync": "2026-09-22T17:18:54.982487-04:00",
+    "last_local_sync": "2026-09-22T17:39:20.540903-04:00",
     "last_runtime_sync": "2026-09-22T17:27:00.945043-04:00",
     "sync_state": "synced",
-    "sync_note": "PAS-83 and PAS-91 were independently runtime-verified after their Linear Done transitions and reconciled into Notion/Mission Control. Existing Kong PR #117 source-vs-corrected-plan drift and Backstage full-snapshot publication lag remain explicit; no production gate was bypassed."
+    "sync_note": "Control surfaces reconciled after DB gate closures. Remaining blockers are PAS-190 runner/auth/workflow selection, PAS-82 staging TLS secret wiring, PAS-92 isolated API secret mount, Middleware migration/staging certification and Klyrow reconciliation."
   },
   "summary": {
     "activeAlerts": 6,
