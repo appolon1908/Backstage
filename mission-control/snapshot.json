@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T21:52:02.9640350Z",
+  "generatedAt": "2026-09-22T05:23:08.360599-04:00",
   "sources": {
     "github": "https://github.com/ingtrader21-spec",
     "backstage": "https://github.com/appolon1908-hue/Backstage",
@@ -11,14 +11,14 @@
   "summary": {
     "repositories": 59,
     "openPrsIndexed": 100,
-    "linearIssues": 137,
-    "inProgress": 33,
+    "linearIssues": 148,
+    "inProgress": 34,
     "inReview": 5,
     "blockedIssues": 3,
     "reposWithLocalState": 13,
     "reposWithDirtyWork": 1,
-    "activeAlerts": 15,
-    "criticalAlerts": 11,
+    "activeAlerts": 17,
+    "criticalAlerts": 13,
     "localPendingCommit": 5,
     "localPendingPush": 2,
     "localBehind": 10,
@@ -38,82 +38,92 @@
       },
       "alertmanager": {
         "ip": "10.253.127.3",
-        "active_alerts": 15,
+        "active_alerts": 17,
         "alerts": [
           {
+            "state": "active",
             "name": "CaddyConfigurationDrift",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "CodestraRestoreTestAgeExceededWarning",
-            "severity": "warning",
-            "state": "active"
+            "severity": "warning"
           },
           {
+            "state": "active",
             "name": "CodestraWatchdog",
-            "severity": "informational",
-            "state": "active"
+            "severity": "informational"
           },
           {
+            "state": "active",
+            "name": "CodestraRestoreTestAgeExceeded",
+            "severity": "critical"
+          },
+          {
+            "state": "active",
             "name": "KongDatabaseDiskWarning",
-            "severity": "warning",
-            "state": "active"
+            "severity": "warning"
           },
           {
+            "state": "active",
             "name": "MiddlewareDatabaseBackupStale",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "MiddlewareDatabaseBackupFailed",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "CaddyPublicBehaviorFailure",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "CaddyMTLSProbeFailure",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "MiddlewareDatabaseMigrationMismatch",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "CodestraN8nRestoreRehearsalOverdue",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
+            "name": "MiddlewareDatabaseRestoreOverdue",
+            "severity": "critical"
+          },
+          {
+            "state": "active",
             "name": "CodestraDiskCapacityWarning",
-            "severity": "warning",
-            "state": "active"
+            "severity": "warning"
           },
           {
+            "state": "active",
             "name": "CodestraDatabaseBackupStale",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "CodestraDatabaseRestoreOverdue",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "CaddyPublicBehaviorFailure",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           },
           {
+            "state": "active",
             "name": "CaddyMTLSProbeFailure",
-            "severity": "critical",
-            "state": "active"
+            "severity": "critical"
           }
         ]
       },
@@ -197,79 +207,89 @@
   ],
   "alerts": [
     {
+      "state": "active",
       "name": "CaddyConfigurationDrift",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "CodestraRestoreTestAgeExceededWarning",
-      "severity": "warning",
-      "state": "active"
+      "severity": "warning"
     },
     {
+      "state": "active",
       "name": "CodestraWatchdog",
-      "severity": "informational",
-      "state": "active"
+      "severity": "informational"
     },
     {
+      "state": "active",
+      "name": "CodestraRestoreTestAgeExceeded",
+      "severity": "critical"
+    },
+    {
+      "state": "active",
       "name": "KongDatabaseDiskWarning",
-      "severity": "warning",
-      "state": "active"
+      "severity": "warning"
     },
     {
+      "state": "active",
       "name": "MiddlewareDatabaseBackupStale",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "MiddlewareDatabaseBackupFailed",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "CaddyPublicBehaviorFailure",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "CaddyMTLSProbeFailure",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "MiddlewareDatabaseMigrationMismatch",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "CodestraN8nRestoreRehearsalOverdue",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
+      "name": "MiddlewareDatabaseRestoreOverdue",
+      "severity": "critical"
+    },
+    {
+      "state": "active",
       "name": "CodestraDiskCapacityWarning",
-      "severity": "warning",
-      "state": "active"
+      "severity": "warning"
     },
     {
+      "state": "active",
       "name": "CodestraDatabaseBackupStale",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "CodestraDatabaseRestoreOverdue",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "CaddyPublicBehaviorFailure",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     },
     {
+      "state": "active",
       "name": "CaddyMTLSProbeFailure",
-      "severity": "critical",
-      "state": "active"
+      "severity": "critical"
     }
   ],
   "repositories": [
@@ -284,7 +304,7 @@
       "linearIssue": "PAS-151",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "blocked": true,
-      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; current immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u2192Kong\u2192Middleware readback/rollback. Production GO remains NO.",
+      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u2192Kong\u2192Middleware readback/rollback. Production GO remains NO.",
       "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "openPrs": 3,
       "local": {
@@ -306,7 +326,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -328,7 +348,7 @@
       "linearIssue": "PAS-194",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-194/identity-prerequisite-provision-klyrow-staging-oidc-client-host-and",
       "blocked": true,
-      "blocker": "Required hosted Keycloak checks remain zero-step RED; no submitted independent review is recorded; live realm apply has not occurred; staging.klyrow.com DNS/TLS, controlled test identities and staging runtime readiness are not proven.",
+      "blocker": "PAS-190 hosted CI recovery; independent review; live realm apply; staging.klyrow.com DNS/TLS; controlled test identities; staging runtime readiness.",
       "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-194/identity-prerequisite-provision-klyrow-staging-oidc-client-host-and",
       "openPrs": 3,
       "local": {
@@ -350,7 +370,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 2,
         "pendingCommit": 0,
         "pendingPush": 1,
@@ -385,7 +405,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -429,7 +449,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -473,7 +493,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -508,7 +528,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -543,7 +563,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -578,7 +598,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -613,7 +633,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -630,13 +650,13 @@
       "visibility": "public",
       "group": "saas",
       "github": "https://github.com/ingtrader21-spec/klyrow.com",
-      "goal": "M1E \u2014 Client Email Suite / Webmail completion and staging certification",
+      "goal": "M1E-O11 \u2014 Webmail / Postal production observability suite",
       "linearStatus": "In Review",
-      "linearIssue": "PAS-195",
-      "linearUrl": "https://linear.app/passion-fruit/issue/PAS-195/m1e-client-email-suite-webmail-completion-and-staging-certification",
+      "linearIssue": "PAS-198",
+      "linearUrl": "https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite",
       "blocked": true,
-      "blocker": "Required hosted CI at exact head remains RED with zero-step jobs; no submitted independent review is recorded. Do not merge or count as Verified/Complete.",
-      "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-195/m1e-client-email-suite-webmail-completion-and-staging-certification",
+      "blocker": "Hosted workflows on the exact source head remain failed; immutable staging validation/readback and release certification remain unproven. Production effects remain disabled.",
+      "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-198/m1e-o11-webmail-postal-production-observability-suite",
       "openPrs": 4,
       "local": {
         "repo": "klyrow.com",
@@ -657,7 +677,7 @@
         "state": "Committed Local / pending push",
         "color": "red",
         "pending": true,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 12,
         "pendingCommit": 5,
         "pendingPush": 1,
@@ -679,7 +699,7 @@
       "linearIssue": "PAS-151",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "blocked": true,
-      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; current immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u2192Kong\u2192Middleware readback/rollback. Production GO remains NO.",
+      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u2192Kong\u2192Middleware readback/rollback. Production GO remains NO.",
       "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "openPrs": 4,
       "local": {
@@ -701,7 +721,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -736,7 +756,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -771,7 +791,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -806,7 +826,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -841,7 +861,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -876,7 +896,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -911,7 +931,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -946,7 +966,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -981,7 +1001,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1016,7 +1036,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1051,7 +1071,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1086,7 +1106,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1121,7 +1141,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1156,7 +1176,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1191,7 +1211,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1213,7 +1233,7 @@
       "linearIssue": "PAS-151",
       "linearUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "blocked": true,
-      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; current immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u2192Kong\u2192Middleware readback/rollback. Production GO remains NO.",
+      "blocker": "PAS-190 exact-head hosted CI recovery; independent acceptance; canonical staging DB reconciliation/apply; immutable Middleware staging application plane; governed Kong runtime apply; full live Caddy\u2192Kong\u2192Middleware readback/rollback. Production GO remains NO.",
       "blockerUrl": "https://linear.app/passion-fruit/issue/PAS-151/kong-05-certify-live-caddy-kong-middleware-staging-chain",
       "openPrs": 2,
       "local": {
@@ -1249,7 +1269,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1284,7 +1304,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1328,7 +1348,7 @@
         "state": "Pushed / local behind",
         "color": "orange",
         "pending": true,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1372,7 +1392,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1407,7 +1427,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1451,7 +1471,7 @@
         "state": "Pushed / synced",
         "color": "green",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1486,7 +1506,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1521,7 +1541,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1556,7 +1576,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1591,7 +1611,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1626,7 +1646,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1670,7 +1690,7 @@
         "state": "Local shell / pending clone",
         "color": "gray",
         "pending": true,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 1,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1705,7 +1725,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1740,7 +1760,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1775,7 +1795,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1810,7 +1830,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1845,7 +1865,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1880,7 +1900,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1915,7 +1935,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1950,7 +1970,7 @@
         "state": "Remote only",
         "color": "gray",
         "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-04:00",
+        "checkedAt": "2026-09-22T09:34:41.077238-04:00",
         "worktrees": 0,
         "pendingCommit": 0,
         "pendingPush": 0,
@@ -1970,19 +1990,4 @@
       "goal": "No active Linear mission linked",
       "linearStatus": "Unlinked",
       "linearIssue": "",
-      "linearUrl": "https://linear.app/passion-fruit/project/codestra-mission-control",
-      "blocked": false,
-      "blocker": "",
-      "blockerUrl": "",
-      "openPrs": 0,
-      "local": null,
-      "worktreeCount": 0,
-      "dirtyFiles": 0,
-      "maxBehind": 0,
-      "maxAhead": 0,
-      "assignee": "Unassigned",
-      "localWork": {
-        "state": "Remote only",
-        "color": "gray",
-        "pending": false,
-        "checkedAt": "2026-09-21T21:33:47.750662-0
+      "linearUrl": "https://linear.app/passion-fruit/project/codestra-missio
