@@ -99,6 +99,31 @@ if remote_fresh:
       {"question":"Where is the evidence?","status":"blue","answer":"GitHub supplies exact-head PR/workflow evidence, including Middleware PR #310 for PAS-61, klyrow PR #170 and Middleware PR #309 plus their zero-step hosted-CI failures; Linear supplies PAS-214 and platform-lane execution truth;  SentinelX supplies the fresh Appolon worktree scan; Prometheus/Alertmanager/Grafana supply runtime truth; Notion is the durable architecture/handoff record. The dashboard is a derived read model and governed action surface."},
       {"question":"Which information is unknown or unverified?","status":"gray","answer":f'Portfolio-wide completed-today count and PR conflict state outside the {len(prs)} checked active PRs remain Unknown / Not Proven. PAS-61 protected-path acceptance is unverified: PR #310 is Draft and exact-head CI is red; {p61_review_gap}. PAS-214 exact-head hosted CI/review and staging/readback/recovery are unverified. PAS-234 implementation is proven but exact-head CI/integration/observability/staging/readback/rollback are unverified; {p234_review_gap}; PAS-235 implementation is proven, but verification/staging/readback/rollback remain unproven. Platform successors: {platform_lane_summary}. PAS-199 runtime identity completion is unverified pending PAS-194/PAS-192. Mission Control application files byte-match the authoritative Backstage blobs after source-first reconciliation. Required V2 behavior and localhost health are green. {len(remote_only)} repo(s) are Remote only and {len(unlinked)} repo(s) are unlinked in the snapshot.'}
     ]
+    # Keep newly governed repository lanes visible in all management answers after the 15-minute rebuild.
+    # Linear remains execution authority; this only enriches the derived read model from remote_refresh evidence.
+    p252=missions.get("PAS-252") or {}
+    if p252 and not p252.get("complete",False):
+        p252_gh=p252.get("github") or {}
+        p252_head=p252_gh.get("head","unknown")
+        p252_run=p252_gh.get("runId","unknown")
+        p252_ci=p252_gh.get("ci","not proven")
+        p252_stage=p252.get("stage","Unknown")
+        p252_status=p252.get("status","Unknown")
+        p252_owner=p252.get("owner") or "unassigned"
+        def qa_prepend(question,text):
+            for item in q:
+                if item.get("question")==question:
+                    item["answer"]=text+" "+item.get("answer","")
+                    return
+        qa_prepend("What needs my attention right now?",f"DJONE PAS-252 is {p252_stage} / {p252_status}: exact HEAD {p252_head}; exact-head CI run {p252_run} is {p252_ci}, so verification is not proven.")
+        qa_prepend("What is everyone working on?",f"PAS-252 governs DJONE and is {p252_stage} / {p252_status}; owner is {p252_owner} in Linear.")
+        qa_prepend("What is blocked?",f"PAS-252/DJONE: {p252.get('missing') or 'required verification evidence is missing.'}")
+        qa_prepend("What should happen next?","Include PAS-252 in the PAS-190 CI-capacity recovery, rerun exact-head DJONE CI with real executed steps, then satisfy governed release/staging/readback/recovery evidence before closure.")
+        qa_prepend("Who owns each task?",f"PAS-252 is {p252_owner} in Linear; do not infer an owner from repository activity.")
+        qa_prepend("What changed since yesterday?",f"DJONE materially advanced to exact HEAD {p252_head}; PAS-252 now governs it and exact-head CI run {p252_run} is {p252_ci}.")
+        qa_prepend("Did an agent finish without receiving the next task?","DJONE now has PAS-252 as its explicit governed successor lane; the mission itself is not complete.")
+        qa_prepend("Where is the evidence?",f"DJONE evidence: GitHub exact HEAD {p252_head} + workflow run {p252_run}, Linear PAS-252, and the durable Notion handoff.")
+        qa_prepend("Which information is unknown or unverified?",f"DJONE verification is unproven: exact-head CI is {p252_ci}; applicable staging/readback/observability/recovery evidence remains unproven.")
 else:
     q=[
       {"question":"What needs my attention right now?","status":"red" if (summ.get("criticalAlerts",0) or summ.get("blockedIssues",0) or summ.get("localPendingPush",0) or summ.get("localPendingCommit",0)) else "green","answer":f'{summ.get("criticalAlerts",0)} critical alerts; {summ.get("blockedIssues",0)} blocked/conflict mission signals; {summ.get("localPendingCommit",0)} pending-commit worktrees; {summ.get("localPendingPush",0)} pending-push worktrees.'},
