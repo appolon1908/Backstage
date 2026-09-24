@@ -1,85 +1,85 @@
 {
-  "generatedAt": "2026-09-23T12:04:30-04:00",
+  "generatedAt": "2026-09-24T11:16:41-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
       "status": "red",
-      "answer": "PAS-190 remains Urgent / In Progress. Kong self-hosted recovery materially advanced under PAS-245, but PR #120 current exact head bc4d2aaa5d9087a4987b2fadb75289d2c995c1f0 is still In Review: required validate/kong-config/security workflows are queued and no submitted independent review is recorded. PAS-255 PR #119 remains a separate Appolon contingency at e7d30808fed524dd9c42bf5c8588991c2064d90b; its seven PR-triggered protected workflows are hosted zero-step failures and its manual smoke workflow is still not dispatchable from the PR branch. Appolon and desktop-ubuntu-codestra are currently absent from SentinelX, so local Git/worktree truth, the dashboard action queue and localhost dashboard health are STALE. Runtime has 3 critical alerts despite all monitored Prometheus targets being up."
+      "answer": "Mission Control is fail-closed because SentinelX currently reports zero connected hosts. Appolon local Git/worktree truth, actions_queue.json, localhost dashboard health and Prometheus/Alertmanager/Grafana runtime truth are therefore STALE. GitHub and Linear remain reachable. Middleware PR #318 is still open/non-draft/mergeable at 719942789bcd44985d2a5cb7a44710bdc80d440a with red exact-head CI, and DJONE PR #2 is still open/non-draft/mergeable at 9315570cc7df27875755a743b6191b4c7271beb9 with hosted verification blocked."
     },
     {
       "question": "What is everyone working on?",
       "status": "yellow",
-      "answer": "Linear execution truth shows PAS-190 In Progress; PAS-245 and PAS-255 In Review; PAS-250 and PAS-258 In Progress. PAS-249, PAS-253, PAS-188, PAS-187, PAS-181, PAS-26, PAS-29 and PAS-154 also remain active in the Codestra-Mission-Control project. PAS-245 is the active Kong CI recovery lane; PAS-255 remains the separate Appolon smoke lane. Staging/production successor missions PAS-14, PAS-15, PAS-47, PAS-53, PAS-55, PAS-57, PAS-58 and PAS-59 remain Todo/Queued."
+      "answer": "Linear execution truth keeps PAS-250, PAS-258, PAS-27, PAS-154, PAS-181, PAS-26, PAS-188, PAS-249, PAS-253, PAS-187, PAS-5 and PAS-29 active in Codestra-Mission-Control, with PAS-47 in review. PAS-268 remains In Progress in DJONE for native Mixxx production certification. Local worker activity cannot be freshly read while SentinelX has no connected hosts."
     },
     {
       "question": "What was completed today?",
       "status": "green",
-      "answer": "No new mission is promoted to Verified / Complete by this refresh. PAS-248 and PAS-257 remain previously evidence-backed Done/Complete in Linear and prior Mission Control evidence. PAS-245 produced material implementation and earlier real self-hosted runner execution, but the current PR #120 SHA still lacks completed exact-head required CI and accepted review, so it is not Complete. PAS-255 likewise remains Implemented / In Review, not Complete."
+      "answer": "No new mission is promoted to Verified / Complete by this refresh. No open ingtrader21-spec PR was updated after the previous 10:22 AST checkpoint. Previously completed Linear items remain historical completion evidence only; this run adds no new verified completion because local/runtime readback is unavailable."
     },
     {
       "question": "What is blocked?",
       "status": "red",
-      "answer": "PAS-190 is still blocked portfolio-wide by hosted Actions capacity/billing and incomplete governed self-hosted migration. PAS-245 current head is blocked on queued exact-head required jobs, independent review, and fresh runner-scope readback while the Ubuntu host is unavailable to SentinelX. PAS-255 is blocked because its exact-head hosted PR jobs fail with steps=null and the workflow_dispatch smoke workflow is absent from default branch main. The Appolon dashboard/local reconciliation lane is blocked by Appolon being offline to SentinelX. Runtime readiness is blocked by MiddlewareDatabaseMigrationMismatch, KlyrowEventDeliveryStalled and KlyrowUsageDeliveryStalled."
+      "answer": "Appolon-dependent local reconciliation, the dashboard action queue, dashboard regeneration/localhost verification and all runtime monitoring are blocked by the current empty SentinelX host inventory. Middleware PR #318 and DJONE PR #2 remain implementation-complete enough for review but not Verified/Complete because hosted exact-head CI is red and current deployment/readback/recovery evidence cannot be refreshed."
     },
     {
       "question": "Which PRs have conflicts?",
       "status": "yellow",
-      "answer": "No Git conflict is confirmed for the two freshly checked Kong recovery PRs: #119 and #120 both report mergeable=true. PR #120 has no submitted review yet and current required CI is queued, so mergeability must not be confused with merge readiness. Portfolio-wide conflict state outside the freshly checked PR set is Unknown / Not Proven in this pass."
+      "answer": "No Git merge conflict is confirmed for the freshly checked active DJONE lane: Middleware PR #318 and DJONE PR #2 both report mergeable=true. Neither is merge-ready because verification gates remain red. No open ingtrader21-spec PR has updated since the prior checkpoint, so no new conflict transition is observed."
     },
     {
       "question": "Which repos are dirty locally?",
       "status": "gray",
-      "answer": "Current Appolon local dirty/unpushed/behind state is STALE / NOT VERIFIED because Appolon is not connected to SentinelX. Do not promote the prior scan counts as current truth. The last known scan remains historical evidence only until the 15-minute scanner runs again on Appolon."
+      "answer": "Current Appolon dirty/unpushed/behind state is STALE / NOT VERIFIED because SentinelX reports zero connected hosts. The last known 10:18 AST scan was 42 worktrees / 18 repos with 6 pending-commit, 4 pending-push and 6 behind; those values are historical and must not be promoted as current truth."
     },
     {
       "question": "What should happen next?",
       "status": "red",
-      "answer": "First, let the current PR #120 required self-hosted jobs execute on exact head bc4d2aaa5d9087a4987b2fadb75289d2c995c1f0 and require green validate, kong-config and security evidence plus independent review without weakening checks. Re-read the Ubuntu runner scope/labels when its host reconnects. Keep PAS-255 separate unless it is explicitly superseded or its own Appolon smoke acceptance evidence passes. Reconnect Appolon, then source-first reconcile Backstage Mission Control files, run the 15-minute scan, process only pending dashboard actions, regenerate the dashboard and verify localhost health. After CI recovery, resume PAS-151 staging certification. Do not merge or deploy while these gates remain open."
+      "answer": "Reconnect Appolon and the runtime hosts to SentinelX, then source-first compare the five governed Mission Control files, read and process only pending dashboard actions, rescan Git/worktrees, regenerate all 16 answers and dashboard.html, verify localhost /api/health, and refresh Prometheus/Alertmanager/Grafana. After source freshness is restored, keep Middleware #318 and DJONE #2 at Implemented / verification-blocked until exact-head CI plus required runtime/readback/recovery evidence pass."
     },
     {
       "question": "Are production systems healthy?",
-      "status": "red",
-      "answer": "Not release-healthy. Prometheus scrape health is Codestra 38/38 UP, Klyrow 2/2 UP and Telnexa 3/3 UP. Codestra Alertmanager is ready, but six active alerts remain across Codestra and Klyrow, including three critical: MiddlewareDatabaseMigrationMismatch, KlyrowEventDeliveryStalled and KlyrowUsageDeliveryStalled. Codestra Grafana 13.2.0 and Klyrow Grafana 12.4.9 both report database ok."
+      "status": "gray",
+      "answer": "Current production health is UNKNOWN / STALE because no runtime host is connected to SentinelX. The last successful runtime evidence retained by Mission Control showed 43/43 Prometheus targets up but 5 critical alerts, so it was not release-healthy even then. Those values are historical only until direct Prometheus/Alertmanager/Grafana readback returns."
     },
     {
       "question": "Is staging ready?",
       "status": "red",
-      "answer": "NO / NOT READY. Current Kong recovery is not exact-head verified, PAS-190 remains open, Appolon/local dashboard evidence is stale, and required staging apply/readback/rollback evidence is not complete. Three critical runtime alerts also remain active."
+      "answer": "NO / NOT READY. Current local/dashboard/runtime evidence is stale, and the active DJONE/Middleware exact-head verification gates remain red. Required current deployment/readback/recovery evidence is not available."
     },
     {
       "question": "Is production ready?",
       "status": "red",
-      "answer": "NO GO. Staging is not ready, current-head protected CI and independent review are incomplete, Appolon/local reconciliation is stale, and three critical runtime alerts remain. No current source or CI evidence authorizes production activation."
+      "answer": "NO GO. Staging is not ready; local and runtime authorities are stale; current-head CI is red for the active DJONE/Middleware lane; and no fresh operational evidence authorizes production activation."
     },
     {
       "question": "Who owns each task?",
       "status": "blue",
-      "answer": "Linear remains authoritative for ownership. Ralph Appolon owns PAS-190, PAS-245, PAS-255 and PAS-258 in the refreshed records. PAS-250 returned without an assignee in the current Codestra-Mission-Control project listing, so Mission Control must not infer one. Other issue ownership must continue to follow Linear rather than repository activity or Notion prose."
+      "answer": "Linear remains authoritative for ownership. PAS-250 currently has no assignee in the fetched record. PAS-258, PAS-27, PAS-154, PAS-181, PAS-26, PAS-188, PAS-187, PAS-5 and PAS-29 are assigned to Ralph Appolon. PAS-249 and PAS-253 also returned without an assignee in the current project listing."
     },
     {
       "question": "What changed since yesterday?",
       "status": "yellow",
-      "answer": "Kong CI recovery materially advanced: PAS-245 PR #120 proved real self-hosted step execution at an earlier head, then advanced to current head bc4d2aaa5d9087a4987b2fadb75289d2c995c1f0 with four narrow exact historical gitleaks fingerprint exemptions after proving the findings were pre-existing and the detector still catches a synthetic credential. Current-head required jobs are now queued, so that earlier proof is not transferred across SHAs. PAS-255 workflow evidence was corrected: its exact commit has seven PR-triggered failed workflows even though a branch-filtered query returned zero; the manual smoke workflow remains undispatchable. Appolon and the Ubuntu desktop are currently absent from SentinelX, making local/dashboard truth stale. Runtime remains 43/43 targets UP with 6 active / 3 critical alerts."
+      "answer": "The meaningful change in this checkpoint is freshness regression: SentinelX now reports zero connected hosts, so Appolon local truth and all runtime monitoring became stale again after being reachable at the prior 10:18 AST checkpoint. GitHub reports zero open ingtrader21-spec PR updates after that prior checkpoint, so there is no newer code/PR transition to reconcile."
     },
     {
       "question": "What has not moved?",
       "status": "orange",
-      "answer": "PAS-190 remains In Progress and portfolio-wide recovery is not complete. PAS-245 and PAS-255 remain In Review rather than Verified/Complete. PAS-250 and PAS-258 remain In Progress. The Appolon local/dashboard lane has not refreshed because the host is unavailable. Production/staging successor missions PAS-14, PAS-15, PAS-47, PAS-53, PAS-55, PAS-57, PAS-58 and PAS-59 remain Todo/Queued."
+      "answer": "PAS-250 remains In Progress; PAS-258 remains In Progress; PAS-268 remains In Progress. Middleware PR #318 remains at 719942789bcd44985d2a5cb7a44710bdc80d440a and DJONE PR #2 remains at 9315570cc7df27875755a743b6191b4c7271beb9. No open ingtrader21-spec PR updated after the prior checkpoint."
     },
     {
       "question": "Did an agent finish without receiving the next task?",
       "status": "yellow",
-      "answer": "No finished-without-successor condition is proven in the refreshed lanes. PAS-245 has explicit next gates: current exact-head required CI, independent review and fresh runner readback. PAS-255 has explicit acceptance/supersession work. PAS-190 retains the portfolio recovery successor. A new Linear child issue could not be created because the workspace has reached its free issue limit, so successor evidence is retained on the existing PAS-190/PAS-245/PAS-255 records rather than duplicated."
+      "answer": "No finished-without-successor condition is proven by reachable authorities. PAS-250 still has an explicit blocker/successor chain in Linear, and PAS-268 has explicit next certification gates. Local agent/session state cannot be freshly proven while SentinelX has no connected hosts."
     },
     {
       "question": "Where is the evidence?",
       "status": "blue",
-      "answer": "GitHub is the code/CI authority: Kong PR #120 at bc4d2aaa5d9087a4987b2fadb75289d2c995c1f0, its workflow patch and current run IDs; Kong PR #119 at e7d30808fed524dd9c42bf5c8588991c2064d90b and zero-step run 35858504772. Linear provides current execution state for PAS-190, PAS-245, PAS-255, PAS-250 and PAS-258. Notion Codestra Development Command Center contains the durable 12:02 AST reconciliation. SentinelX plus Prometheus/Alertmanager/Grafana provide runtime evidence: 38/38 Codestra, 2/2 Klyrow and 3/3 Telnexa targets UP, six active alerts and three critical. Appolon-local evidence is intentionally marked stale until the host reconnects."
+      "answer": "GitHub is current for code truth: Backstage main remains at 896c5d197d939c01cb182fb9d4b9b36a36c5084b; Middleware PR #318 is at 719942789bcd44985d2a5cb7a44710bdc80d440a; DJONE PR #2 is at 9315570cc7df27875755a743b6191b4c7271beb9. Linear provides current execution truth for PAS-250 and PAS-268. Notion holds the durable Mission Control reconciliation history. SentinelX currently provides the negative freshness evidence: zero connected hosts."
     },
     {
       "question": "Which information is unknown or unverified?",
       "status": "gray",
-      "answer": "Unknown / unverified now: current Appolon worktree dirty/ahead/behind/pending-push state; the local 15-minute scan result; dashboard action queue contents; whether local Mission Control application files still byte-match Backstage; regenerated dashboard/V2 localhost health; current Appolon and Ubuntu runner service/label readback; final conclusions of PR #120 queued required jobs; independent PR #120 review; portfolio-wide PR conflict state outside the freshly checked Kong PRs. sync_state=stale/conflict. last_github_sync≈12:01 AST; last_linear_sync≈12:04 AST; last_notion_sync≈12:02 AST; last_runtime_sync≈12:00 AST; last_local_sync=stale from the prior Appolon reconciliation."
+      "answer": "Unknown / unverified now: current Appolon local file parity, Git worktree dirty/ahead/behind/pending-push state, actions_queue.json contents, regenerated dashboard/V2 localhost health, all Prometheus target state, Alertmanager alerts, Grafana health, runtime readback, and current local agent execution. sync_state=stale. GitHub/Linear/Notion are reachable; last_local_sync and last_runtime_sync remain stale until SentinelX hosts reconnect."
     }
   ]
 }
