@@ -14,6 +14,10 @@ mon=s.get("monitoring") or {}
 prom=(mon.get("codestra") or {}).get("prometheus") or {}
 kp=(mon.get("klyrow") or {}).get("prometheus") or {}
 tp=(mon.get("telnexa") or {}).get("prometheus") or {}
+runtime_source=(s.get("sources") or {}).get("runtime") or {}
+runtime_stale=bool(mon.get("stale") or mon.get("state")=="stale" or runtime_source.get("stale"))
+runtime_last=mon.get("lastSuccessfulAt") or runtime_source.get("lastSuccessfulAt") or mon.get("checkedAt") or "unknown"
+runtime_errors=mon.get("staleErrors") or runtime_source.get("staleErrors") or []
 
 def e(v):return html.escape(str(v if v is not None else ""),quote=True)
 
@@ -120,8 +124,16 @@ parts.append('<section class="view" id="view-pipeline"><div class="view-header">
 
 # Runtime
 parts.append('<section class="view" id="view-runtime"><div class="view-header"><div><h2>Runtime & Monitoring</h2><p>Prometheus, Alertmanager and operational readiness—separate from code review status.</p></div></div>')
-parts.append('<div class="grid three"><div class="card"><h3>Codestra Prometheus</h3><b class="green">'+e(prom.get("targets_up",0))+'/'+e(prom.get("targets_total",0))+' targets up</b></div><div class="card"><h3>Klyrow Prometheus</h3><b class="green">'+e(kp.get("targets_up",0))+'/'+e(kp.get("targets_total",0))+' targets up</b></div><div class="card"><h3>Telnexa Prometheus</h3><b class="green">'+e(tp.get("targets_up",0))+'/'+e(tp.get("targets_total",0))+' targets up</b></div></div>')
-parts.append('<div class="section"><div class="section-title"><h3>Active alerts</h3><span class="badge red">'+e(summ.get("activeAlerts",len(alerts)))+' active · '+e(summ.get("criticalAlerts",0))+' critical</span></div><div class="alert-list" id="runtimeAlerts"></div></div></section>')
+if runtime_stale:
+    err='; '.join(f"{x.get('source','runtime')}: {x.get('error','unavailable')}" for x in runtime_errors[:5]) or 'runtime source unavailable'
+    parts.append('<div class="card yellow"><h3>Runtime evidence is stale</h3><p><b>Fail-closed:</b> current Prometheus/Alertmanager health is not proven. Last successful runtime read: '+e(runtime_last)+'.</p><div class="tiny">'+e(err)+'</div></div>')
+def runtime_card(title,data):
+    up=e(data.get("targets_up",0)); total=e(data.get("targets_total",0))
+    if runtime_stale:return '<div class="card"><h3>'+e(title)+'</h3><b class="yellow">STALE · last-known '+up+'/'+total+' targets up</b></div>'
+    return '<div class="card"><h3>'+e(title)+'</h3><b class="green">'+up+'/'+total+' targets up</b></div>'
+parts.append('<div class="grid three">'+runtime_card('Codestra Prometheus',prom)+runtime_card('Klyrow Prometheus',kp)+runtime_card('Telnexa Prometheus',tp)+'</div>')
+alert_prefix='last-known ' if runtime_stale else ''
+parts.append('<div class="section"><div class="section-title"><h3>Active alerts</h3><span class="badge red">'+e(alert_prefix)+e(summ.get("activeAlerts",len(alerts)))+' active · '+e(summ.get("criticalAlerts",0))+' critical</span></div><div class="alert-list" id="runtimeAlerts"></div></div></section>')
 
 # Incomplete
 parts.append('<section class="view" id="view-incomplete"><div class="view-header"><div><h2>Incomplete Work</h2><p>Review-only, blocked, dirty, unpushed, behind, stale or otherwise not proven complete.</p></div></div><div class="toolbar"><select class="select" id="incompleteFilter" style="max-width:280px"><option value="">All incomplete</option><option value="review">Review/defined only</option><option value="blocked">Blocked</option><option value="dirty">Pending commit</option><option value="push">Pending push</option><option value="behind">Behind</option><option value="unknown">Unknown/unlinked</option></select></div><div class="incomplete-list" id="incompleteList"></div></section>')
