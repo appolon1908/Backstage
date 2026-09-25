@@ -10,6 +10,8 @@ alerts=s.get("alerts",[])
 questions=s.get("questionAnswers") or []
 remote=s.get("remoteRefresh") or {}
 missions=remote.get("missions") or {}
+sync_meta=s.get("syncMetadata") or {}
+source_states=sync_meta.get("sourceStates") or {}
 mon=s.get("monitoring") or {}
 prom=(mon.get("codestra") or {}).get("prometheus") or {}
 kp=(mon.get("klyrow") or {}).get("prometheus") or {}
@@ -112,6 +114,42 @@ parts.append('<div class="topbar"><button class="btn small" id="backExec">Overvi
 parts.append('<section class="view active" id="view-executive"><div class="view-header"><div><h2>Executive Overview</h2><p>What needs attention, what is moving, and whether staging/production are truly ready.</p></div></div>')
 cards=[("Repos",summ.get("repositories",len(repos)),"blue"),("In progress",summ.get("inProgress",0),"yellow"),("Verified complete",verified_complete,"green"),("Review/defined only",review_only,"red" if review_only else "green"),("Pending push",pending_push,"red" if pending_push else "green"),("Critical alerts",summ.get("criticalAlerts",0),"red" if summ.get("criticalAlerts",0) else "green"),("Staging",(s.get("readiness") or {}).get("staging",{}).get("state","Unknown"),"red"),("Production",(s.get("readiness") or {}).get("production",{}).get("state","Unknown"),"red")]
 parts.append('<div class="grid kpis">'+''.join(f'<div class="card kpi"><b class="{col}">{e(val)}</b><span>{e(label)}</span></div>' for label,val,col in cards)+'</div>')
+
+# Authority freshness panel: fresh control-plane evidence must be visually distinct
+# from historical runtime evidence.
+source_order=[
+    ("appolon","Appolon local Git"),
+    ("github","GitHub / Backstage"),
+    ("linear","Linear execution"),
+    ("notion","Notion context"),
+    ("desktop-ubuntu-codestra","Ubuntu worker"),
+    ("runtime","Runtime monitoring"),
+]
+source_cards=[]
+for key,label in source_order:
+    st=source_states.get(key) or {}
+    state=str(st.get("state") or "unknown").lower()
+    color="green" if state=="synced" else ("yellow" if state=="stale" else ("red" if state in ("conflict","failed","error") else "gray"))
+    checked=st.get("checkedAt") or "not recorded"
+    method=st.get("method") or ""
+    errs=st.get("errors") or []
+    err_text=""
+    if errs:
+        first=errs[0] if isinstance(errs,list) else errs
+        if isinstance(first,dict):
+            err_text=str(first.get("error") or first)
+        else:
+            err_text=str(first)
+    detail=method or err_text or ("Current authoritative evidence" if state=="synced" else "Fresh evidence not proven")
+    source_cards.append(
+        '<div class="card"><h3>'+e(label)+'</h3>'
+        '<div>'+('<span class="badge '+color+'">'+e(state.upper())+'</span>')+'</div>'
+        '<div class="tiny" style="margin-top:8px">Checked: '+e(checked)+'</div>'
+        '<div class="tiny">'+e(detail)+'</div></div>'
+    )
+sync_state=str(sync_meta.get("sync_state") or "unknown").lower()
+sync_color="green" if sync_state=="synced" else ("yellow" if sync_state=="stale" else ("red" if sync_state in ("conflict","failed","error") else "gray"))
+parts.append('<div class="section"><div class="section-title"><h3>Authority freshness</h3><span class="badge '+sync_color+'">OVERALL '+e(sync_state.upper())+'</span></div><div class="grid three">'+''.join(source_cards)+'</div><div class="tiny" style="margin-top:8px">'+e(sync_meta.get("sync_note") or "")+'</div></div>')
 parts.append('<div class="section"><div class="section-title"><h3>Answers you need first</h3><button class="btn small" onclick="showAllQuestions()">All 16 questions</button></div><div class="grid four" id="priorityQuestions"></div></div>')
 parts.append('<div class="section"><div class="section-title"><h3>Highest attention repositories</h3><span class="tiny">Click any card to focus on one repository.</span></div><div class="repo-list" id="attentionRepos"></div></div>')
 parts.append('<div class="section" id="allQuestionsSection" style="display:none"><div class="section-title"><h3>All management questions</h3><button class="btn small" onclick="document.getElementById(\'allQuestionsSection\').style.display=\'none\'">Collapse</button></div><div class="grid qa-grid" id="allQuestions"></div></div></section>')
