@@ -19,6 +19,11 @@ runtime_stale=bool(mon.get("stale") or mon.get("state")=="stale" or runtime_sour
 runtime_last=mon.get("lastSuccessfulAt") or runtime_source.get("lastSuccessfulAt") or mon.get("checkedAt") or "unknown"
 runtime_errors=mon.get("staleErrors") or runtime_source.get("staleErrors") or []
 
+def runtime_error_text(x):
+    if isinstance(x,dict):
+        return f"{x.get('source','runtime')}: {x.get('error','unavailable')}"
+    return str(x)
+
 def e(v):return html.escape(str(v if v is not None else ""),quote=True)
 
 def active_mission(r):
@@ -125,7 +130,7 @@ parts.append('<section class="view" id="view-pipeline"><div class="view-header">
 # Runtime
 parts.append('<section class="view" id="view-runtime"><div class="view-header"><div><h2>Runtime & Monitoring</h2><p>Prometheus, Alertmanager and operational readiness—separate from code review status.</p></div></div>')
 if runtime_stale:
-    err='; '.join(f"{x.get('source','runtime')}: {x.get('error','unavailable')}" for x in runtime_errors[:5]) or 'runtime source unavailable'
+    err='; '.join(runtime_error_text(x) for x in runtime_errors[:5]) or 'runtime source unavailable'
     parts.append('<div class="card yellow"><h3>Runtime evidence is stale</h3><p><b>Fail-closed:</b> current Prometheus/Alertmanager health is not proven. Last successful runtime read: '+e(runtime_last)+'.</p><div class="tiny">'+e(err)+'</div></div>')
 def runtime_card(title,data):
     up=e(data.get("targets_up",0)); total=e(data.get("targets_total",0))
