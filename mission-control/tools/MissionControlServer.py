@@ -31,6 +31,21 @@ class Handler(SimpleHTTPRequestHandler):
     def log_message(self,fmt,*args):
         return
 
+    def guess_type(self,path):
+        ctype=super().guess_type(path)
+        if ctype.startswith("text/") and "charset=" not in ctype:
+            return ctype+"; charset=utf-8"
+        if ctype=="application/json":
+            return "application/json; charset=utf-8"
+        return ctype
+
+    def end_headers(self):
+        self.send_header("Cache-Control","no-store, no-cache, must-revalidate, max-age=0")
+        self.send_header("Pragma","no-cache")
+        self.send_header("Expires","0")
+        self.send_header("X-Content-Type-Options","nosniff")
+        super().end_headers()
+
     def send_json(self,obj,status=200):
         raw=json.dumps(obj,ensure_ascii=False).encode("utf-8")
         self.send_response(status)
