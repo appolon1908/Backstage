@@ -1,0 +1,58 @@
+name: Mission Control Postman Review
+
+on:
+  pull_request:
+    paths:
+      - "mission-control/postman/**"
+      - ".github/workflows/mission-control-postman-review.yml"
+  push:
+    branches: [main]
+    paths:
+      - "mission-control/postman/**"
+      - ".github/workflows/mission-control-postman-review.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  static-contract:
+    name: Validate safe Postman workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate Postman review contract
+        run: python mission-control/postman/validate_postman_review.py
+
+      - name: Verify JSON parses
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for p in [
+              Path("mission-control/postman/Codestra-API-Review.postman_collection.json"),
+              Path("mission-control/postman/Codestra-API-Review.postman_environment.json"),
+          ]:
+              json.loads(p.read_text(encoding="utf-8"))
+              print(f"PASS {p}")
+          PY
+
+      - name: Assert safe defaults
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          env=json.loads(Path("mission-control/postman/Codestra-API-Review.postman_environment.json").read_text())
+          values={x["key"]:x.get("value") for x in env["values"]}
+          assert values["RUN_EFFECTFUL"]=="false"
+          assert values["bearer_token"]==""
+          assert values["wrong_audience_token"]==""
+          assert "api.codestra.co" not in "\n".join(str(v) for v in values.values())
+          print("SAFE_DEFAULTS=PASS")
+          PY
