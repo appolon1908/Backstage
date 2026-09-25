@@ -1,0 +1,205 @@
+{
+  "generatedAt": "2026-09-25T10:10:35-04:00",
+  "sync_state": "stale",
+  "sourceStates": {
+    "github": {
+      "state": "synced",
+      "note": "Critical Middleware/Kong PR heads and workflow jobs refreshed."
+    },
+    "linear": {
+      "state": "synced",
+      "note": "Codestra-Mission-Control: 11 In Progress, 3 In Review, 27 Done, 4 Todo, 10 Backlog."
+    },
+    "notion": {
+      "state": "synced",
+      "note": "Mission Control Dashboard durable context fetched; last edit 2026-09-25T14:09:11.180Z."
+    },
+    "appolon": {
+      "state": "stale",
+      "error": "SentinelX sentinel_list_hosts failed internally on two consecutive attempts."
+    },
+    "action_queue": {
+      "state": "stale",
+      "error": "Authoritative local actions_queue.json could not be read because SentinelX host enumeration failed."
+    },
+    "runtime": {
+      "state": "stale",
+      "lastSuccessfulAt": "2026-09-24T01:17:30.526144-04:00",
+      "error": "Fresh Prometheus/Alertmanager/Grafana readback unavailable because SentinelX host enumeration failed."
+    }
+  },
+  "linear": {
+    "counts": {
+      "inProgress": 11,
+      "inReview": 3,
+      "done": 27,
+      "todo": 4,
+      "backlog": 10
+    },
+    "activeUnassigned": [
+      "PAS-250",
+      "PAS-253",
+      "PAS-249"
+    ]
+  },
+  "criticalGitHub": [
+    {
+      "repo": "ingtrader21-spec/Middleware-",
+      "pr": 312,
+      "head": "cce11e38c3067bc7a55af5fe241c0263dfeaddc1",
+      "mergeable": true,
+      "gate": "FAIL_REAL_STEPS",
+      "detail": "Required exact-SHA CI passes exact checkout, dependency install, lint/type checks and Docker test build; migration/database tests fail; rollback/startup/readiness/evidence steps are skipped."
+    },
+    {
+      "repo": "ingtrader21-spec/Middleware-",
+      "pr": 343,
+      "head": "c9c3226bae7ec13584895d56279e93645c1f1f6e",
+      "mergeable": true,
+      "gate": "FAIL",
+      "detail": "Required exact-SHA CI is confirmed zero-step on the inspected run."
+    },
+    {
+      "repo": "ingtrader21-spec/Middleware-",
+      "pr": 347,
+      "head": "8cda802d86e814a4d566197a1cde3ac89057bb86",
+      "mergeable": true,
+      "gate": "FAIL"
+    },
+    {
+      "repo": "ingtrader21-spec/Middleware-",
+      "pr": 348,
+      "head": "780e567b1871aa81671c14a75fc0960ad70ce363",
+      "mergeable": true,
+      "gate": "FAIL"
+    },
+    {
+      "repo": "ingtrader21-spec/Middleware-",
+      "pr": 349,
+      "head": "729ef2948531c6fcbf523042f25ebd620f444506",
+      "mergeable": true,
+      "gate": "FAIL"
+    },
+    {
+      "repo": "ingtrader21-spec/Middleware-",
+      "pr": 350,
+      "head": "b26c5a1b27ab2f29edb478cc7276be46231d9f21",
+      "mergeable": true,
+      "gate": "FAIL"
+    },
+    {
+      "repo": "ingtrader21-spec/Kong",
+      "pr": 120,
+      "head": "f0f310f9a0af8ae47934ae368af56f59cfb84140",
+      "mergeable": true,
+      "gate": "PARTIAL_GREEN_REAL_STEPS",
+      "detail": "Configuration, security/supply-chain and release-preflight pass. Source authority fails in Kong authority tests; merge-result calling-policy/manifest validation fails; candidate certification fails governed route/manifest authority. Current approval not proven; recent reviews are dismissed."
+    },
+    {
+      "repo": "ingtrader21-spec/Kong",
+      "pr": 122,
+      "head": "c80cdfea493c6b9c79d2b2c0a78153dfa14806dc",
+      "mergeable": true,
+      "gate": "FAIL_ALL_REFRESHED_WORKFLOWS"
+    }
+  ],
+  "completionTruth": [
+    {
+      "issue": "PAS-64",
+      "linear": "Done",
+      "truth": "Implemented / Verification Failed",
+      "complete": false,
+      "note": "Material API implementation exists, but current exact-head required CI fails at migration/database tests and current-head independent approval is not proven."
+    },
+    {
+      "issue": "PAS-245",
+      "linear": "Done",
+      "truth": "Verified / Scope Complete",
+      "complete": true,
+      "note": "Runner-contingency objective is proven by real governed workflow execution. This does not imply broader Kong production readiness."
+    },
+    {
+      "issue": "PAS-154",
+      "linear": "Done",
+      "truth": "Reviewed / Defined",
+      "complete": false,
+      "note": "Protocol/specification/documentation lane; documentation is not implementation proof."
+    }
+  ],
+  "readiness": {
+    "staging": "NOT READY",
+    "production": "NO GO"
+  },
+  "pendingSourceRepair": {
+    "path": "mission-control/remote_refresh.json",
+    "state": "pending",
+    "finding": "Current main file is truncated/invalid JSON at the platformProtocol tail (Unterminated string around line 1199).",
+    "reason": "Existing-file replacement action was blocked by connector safety checks in this run. No unsafe delete/recreate workaround was attempted."
+  },
+  "managementAnswers": [
+    [
+      "What needs my attention right now?",
+      "Middleware #312 real migration/database failure; Kong #120 real authority/candidate/static failures; Appolon/action queue/runtime stale."
+    ],
+    [
+      "What is everyone working on?",
+      "11 In Progress and 3 In Review in Codestra-Mission-Control."
+    ],
+    [
+      "What was completed today?",
+      "PAS-154/PAS-64/PAS-245 are Linear Done, but only PAS-245 runner-contingency scope is independently scope-complete in this refresh."
+    ],
+    [
+      "What is blocked?",
+      "Middleware/Kong gates plus stale SentinelX-dependent local/runtime authority."
+    ],
+    [
+      "Which PRs have conflicts?",
+      "No confirmed merge conflicts in the refreshed critical set; selected PRs report mergeable=true."
+    ],
+    [
+      "Which repos are dirty locally?",
+      "Unknown / Not Proven in this refresh; SentinelX local scan unavailable."
+    ],
+    [
+      "What should happen next?",
+      "Fix Middleware #312 migration/database tests, Kong #120 authority failures, then restore SentinelX and rerun safe Postman certification."
+    ],
+    [
+      "Are production systems healthy?",
+      "Not proven; fresh runtime telemetry is unavailable."
+    ],
+    [
+      "Is staging ready?",
+      "NO / NOT READY."
+    ],
+    [
+      "Is production ready?",
+      "NO GO."
+    ],
+    [
+      "Who owns each task?",
+      "Linear is authoritative; PAS-250, PAS-253 and PAS-249 are active and unassigned."
+    ],
+    [
+      "What changed since yesterday?",
+      "Middleware #312 reached real test execution; Kong #120 has partial green real execution; remote_refresh.json truncation was discovered."
+    ],
+    [
+      "What has not moved?",
+      "Fresh runtime evidence since 2026-09-24; current local/action-queue/dashboard-health evidence."
+    ],
+    [
+      "Did an agent finish without receiving the next task?",
+      "No confirmed orphan in examined lanes; portfolio-wide successor completeness remains unverified while local scan is stale."
+    ],
+    [
+      "Where is the evidence?",
+      "GitHub exact heads/jobs, Linear execution state, Notion durable context; local/runtime await SentinelX recovery."
+    ],
+    [
+      "Which information is unknown or unverified?",
+      "Current Appolon parity, action queue, local Git lifecycle, localhost health, fresh Prometheus/Alertmanager/Grafana, staging readback/recovery, and portfolio-wide conflict state outside the refreshed critical set."
+    ]
+  ]
+}
