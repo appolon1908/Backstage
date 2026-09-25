@@ -1,85 +1,148 @@
 {
-  "generatedAt": "2026-09-24T11:16:41-04:00",
+  "generatedAt": "2026-09-25T09:10:20.373052-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
       "status": "red",
-      "answer": "Mission Control is fail-closed because SentinelX currently reports zero connected hosts. Appolon local Git/worktree truth, actions_queue.json, localhost dashboard health and Prometheus/Alertmanager/Grafana runtime truth are therefore STALE. GitHub and Linear remain reachable. Middleware PR #318 is still open/non-draft/mergeable at 719942789bcd44985d2a5cb7a44710bdc80d440a with red exact-head CI, and DJONE PR #2 is still open/non-draft/mergeable at 9315570cc7df27875755a743b6191b4c7271beb9 with hosted verification blocked."
+      "answer": "5 critical alerts; 3 blocked/conflict mission signals; 11 pending-commit worktrees; 6 pending-push worktrees."
     },
     {
       "question": "What is everyone working on?",
       "status": "yellow",
-      "answer": "Linear execution truth keeps PAS-250, PAS-258, PAS-27, PAS-154, PAS-181, PAS-26, PAS-188, PAS-249, PAS-253, PAS-187, PAS-5 and PAS-29 active in Codestra-Mission-Control, with PAS-47 in review. PAS-268 remains In Progress in DJONE for native Mixxx production certification. Local worker activity cannot be freshly read while SentinelX has no connected hosts."
+      "answer": "75 Linear issues are In Progress and 42 are In Review. Remote mission refresh is stale/unavailable."
     },
     {
       "question": "What was completed today?",
-      "status": "green",
-      "answer": "No new mission is promoted to Verified / Complete by this refresh. No open ingtrader21-spec PR was updated after the previous 10:22 AST checkpoint. Previously completed Linear items remain historical completion evidence only; this run adds no new verified completion because local/runtime readback is unavailable."
+      "status": "gray",
+      "answer": "Unknown / Not Proven portfolio-wide. 15 local worktree commit(s) are dated today, but commits/reviews do not prove completion."
     },
     {
       "question": "What is blocked?",
       "status": "red",
-      "answer": "Appolon-dependent local reconciliation, the dashboard action queue, dashboard regeneration/localhost verification and all runtime monitoring are blocked by the current empty SentinelX host inventory. Middleware PR #318 and DJONE PR #2 remain implementation-complete enough for review but not Verified/Complete because hosted exact-head CI is red and current deployment/readback/recovery evidence cannot be refreshed."
+      "answer": "Caddy, Codestra-AI, Codestra-Device-Forge, Keycloak, Kong, Middleware-, klyrow.com. Snapshot blocked/conflict issue signals: 3."
     },
     {
       "question": "Which PRs have conflicts?",
-      "status": "yellow",
-      "answer": "No Git merge conflict is confirmed for the freshly checked active DJONE lane: Middleware PR #318 and DJONE PR #2 both report mergeable=true. Neither is merge-ready because verification gates remain red. No open ingtrader21-spec PR has updated since the prior checkpoint, so no new conflict transition is observed."
+      "status": "gray",
+      "answer": "Unknown / Not Proven — the remote GitHub mergeability refresh is stale or unavailable."
     },
     {
       "question": "Which repos are dirty locally?",
-      "status": "gray",
-      "answer": "Current Appolon dirty/unpushed/behind state is STALE / NOT VERIFIED because SentinelX reports zero connected hosts. The last known 10:18 AST scan was 42 worktrees / 18 repos with 6 pending-commit, 4 pending-push and 6 behind; those values are historical and must not be promoted as current truth."
+      "status": "orange",
+      "answer": "Codestra-OpenBao, Kong, Middleware-, klyrow.com. 11 worktree(s) have uncommitted changes."
     },
     {
       "question": "What should happen next?",
       "status": "red",
-      "answer": "Reconnect Appolon and the runtime hosts to SentinelX, then source-first compare the five governed Mission Control files, read and process only pending dashboard actions, rescan Git/worktrees, regenerate all 16 answers and dashboard.html, verify localhost /api/health, and refresh Prometheus/Alertmanager/Grafana. After source freshness is restored, keep Middleware #318 and DJONE #2 at Implemented / verification-blocked until exact-head CI plus required runtime/readback/recovery evidence pass."
+      "answer": "Refresh remote GitHub/Linear/Notion authority, then clear critical runtime blockers and local unpushed work without bypassing gates."
     },
     {
       "question": "Are production systems healthy?",
-      "status": "gray",
-      "answer": "Current production health is UNKNOWN / STALE because no runtime host is connected to SentinelX. The last successful runtime evidence retained by Mission Control showed 43/43 Prometheus targets up but 5 critical alerts, so it was not release-healthy even then. Those values are historical only until direct Prometheus/Alertmanager/Grafana readback returns."
+      "status": "red",
+      "answer": "No — not fully healthy."
     },
     {
       "question": "Is staging ready?",
       "status": "red",
-      "answer": "NO / NOT READY. Current local/dashboard/runtime evidence is stale, and the active DJONE/Middleware exact-head verification gates remain red. Required current deployment/readback/recovery evidence is not available."
+      "answer": "NO / NOT READY based on PAS-151 until fresh remote/runtime certification proves otherwise."
     },
     {
       "question": "Is production ready?",
       "status": "red",
-      "answer": "NO GO. Staging is not ready; local and runtime authorities are stale; current-head CI is red for the active DJONE/Middleware lane; and no fresh operational evidence authorizes production activation."
+      "answer": "NO GO while staging is not ready and 5 critical runtime alert(s) remain."
     },
     {
       "question": "Who owns each task?",
       "status": "blue",
-      "answer": "Linear remains authoritative for ownership. PAS-250 currently has no assignee in the fetched record. PAS-258, PAS-27, PAS-154, PAS-181, PAS-26, PAS-188, PAS-187, PAS-5 and PAS-29 are assigned to Ralph Appolon. PAS-249 and PAS-253 also returned without an assignee in the current project listing."
+      "answer": "Ownership is shown per repository from Linear. 1 linked repository mission(s) are unassigned."
     },
     {
       "question": "What changed since yesterday?",
-      "status": "yellow",
-      "answer": "The meaningful change in this checkpoint is freshness regression: SentinelX now reports zero connected hosts, so Appolon local truth and all runtime monitoring became stale again after being reachable at the prior 10:18 AST checkpoint. GitHub reports zero open ingtrader21-spec PR updates after that prior checkpoint, so there is no newer code/PR transition to reconcile."
+      "status": "gray",
+      "answer": "Unknown / Not Proven — remote/history comparison is stale or unavailable."
     },
     {
       "question": "What has not moved?",
       "status": "orange",
-      "answer": "PAS-250 remains In Progress; PAS-258 remains In Progress; PAS-268 remains In Progress. Middleware PR #318 remains at 719942789bcd44985d2a5cb7a44710bdc80d440a and DJONE PR #2 remains at 9315570cc7df27875755a743b6191b4c7271beb9. No open ingtrader21-spec PR updated after the prior checkpoint."
+      "answer": "9 local pending worktree(s) have evidence older than 24 hours."
     },
     {
       "question": "Did an agent finish without receiving the next task?",
-      "status": "yellow",
-      "answer": "No finished-without-successor condition is proven by reachable authorities. PAS-250 still has an explicit blocker/successor chain in Linear, and PAS-268 has explicit next certification gates. Local agent/session state cannot be freshly proven while SentinelX has no connected hosts."
+      "status": "gray",
+      "answer": "Unknown / Not Proven — successor graph check is stale or unavailable."
     },
     {
       "question": "Where is the evidence?",
       "status": "blue",
-      "answer": "GitHub is current for code truth: Backstage main remains at 896c5d197d939c01cb182fb9d4b9b36a36c5084b; Middleware PR #318 is at 719942789bcd44985d2a5cb7a44710bdc80d440a; DJONE PR #2 is at 9315570cc7df27875755a743b6191b4c7271beb9. Linear provides current execution truth for PAS-250 and PAS-268. Notion holds the durable Mission Control reconciliation history. SentinelX currently provides the negative freshness evidence: zero connected hosts."
+      "answer": "Local evidence is in SentinelX/Appolon worktree scan; remote GitHub/Linear/Notion evidence requires the cloud refresh."
     },
     {
       "question": "Which information is unknown or unverified?",
       "status": "gray",
-      "answer": "Unknown / unverified now: current Appolon local file parity, Git worktree dirty/ahead/behind/pending-push state, actions_queue.json contents, regenerated dashboard/V2 localhost health, all Prometheus target state, Alertmanager alerts, Grafana health, runtime readback, and current local agent execution. sync_state=stale. GitHub/Linear/Notion are reachable; last_local_sync and last_runtime_sync remain stale until SentinelX hosts reconnect."
+      "answer": "Remote refresh is stale/unavailable; PR conflicts, completed-today and successor gaps are Unknown / Not Proven. 45 repo(s) are Remote only; 37 repo(s) unlinked."
     }
-  ]
+  ],
+  "readiness": {
+    "staging": {
+      "state": "NOT READY",
+      "source": "PAS-151 current control-plane record"
+    },
+    "production": {
+      "state": "NO GO",
+      "source": "staging not ready + critical runtime alerts"
+    }
+  },
+  "syncMetadata": {
+    "last_linear_sync": "2026-09-25T13:03:31.762Z",
+    "last_notion_sync": "2026-09-25T13:03:36.263Z",
+    "last_github_sync": "2026-09-25T09:09:36.672039-04:00",
+    "last_local_sync": "2026-09-25T09:07:54.386825-04:00",
+    "last_runtime_sync": "2026-09-24T01:17:30.526144-04:00",
+    "sync_state": "stale",
+    "sync_note": "Linear, Notion, Backstage source and Appolon local truth refreshed; runtime/hosted verification remains stale or failing.",
+    "sourceStates": {
+      "github": {
+        "state": "synced",
+        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+      },
+      "linear": {
+        "state": "synced",
+        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+      },
+      "notion": {
+        "state": "synced",
+        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+      },
+      "appolon": {
+        "state": "synced",
+        "checkedAt": "2026-09-24T10:27:04.443939-04:00",
+        "method": "SentinelX local scan + raw-byte parity + localhost health"
+      },
+      "runtime": {
+        "state": "stale",
+        "checkedAt": "2026-09-24T10:27:04.443939-04:00",
+        "lastSuccessfulAt": "2026-09-24T01:17:30.526144-04:00",
+        "errors": [
+          "agent_offline: host with label 'server-1-middleware-core' (host_id=host_ef1c793cbb0d43c7) is not connected",
+          "agent_offline: host with label 'server-4-klyrow-telnexa-obs' (host_id=host_5f3a900d3cd34688) is not connected"
+        ],
+        "method": "SentinelX host reachability; telemetry hosts unavailable"
+      },
+      "desktop-ubuntu-codestra": {
+        "state": "synced",
+        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+      }
+    },
+    "runtime_last_attempt_at": "2026-09-24T10:27:04.443939-04:00"
+  },
+  "summary": {
+    "activeAlerts": 8,
+    "criticalAlerts": 5,
+    "localPendingCommit": 11,
+    "localPendingPush": 6,
+    "localBehind": 8,
+    "localSynced": 58,
+    "localScanNeedsReview": 0,
+    "staleLocalPending24h": 9
+  }
 }
