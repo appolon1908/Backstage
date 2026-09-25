@@ -1,0 +1,715 @@
+{
+  "info": {
+    "_postman_id": "codestra-api-review-safe-certification-v1",
+    "name": "Codestra API Review - Safe Certification",
+    "description": "Safe-by-default API review orchestrator. Source authority remains in Middleware, Kong, and Caddy collections. Non-effectful folders use GET-only probes. Folder 90 Effectful Negative Tests is disabled unless RUN_EFFECTFUL=true. No production effect is authorized by this collection.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "mission_control_url",
+      "value": "http://127.0.0.1:8765"
+    },
+    {
+      "key": "middleware_url",
+      "value": "http://127.0.0.1:8095"
+    },
+    {
+      "key": "kong_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "caddy_url",
+      "value": "https://127.0.0.1:9443"
+    },
+    {
+      "key": "bearer_token",
+      "value": ""
+    },
+    {
+      "key": "wrong_audience_token",
+      "value": ""
+    },
+    {
+      "key": "tenant_id",
+      "value": "TEST_SYN"
+    },
+    {
+      "key": "correlation_id",
+      "value": "TEST_SYN-postman-review"
+    },
+    {
+      "key": "RUN_EFFECTFUL",
+      "value": "false"
+    },
+    {
+      "key": "middleware_source_sha",
+      "value": "2862af0aa97367b18cb360af69212abe4243a1ac"
+    },
+    {
+      "key": "kong_source_sha",
+      "value": "3e68cb2a4955bd71ddb3e839f4d9e3770465fc08"
+    },
+    {
+      "key": "middleware_contract_sha256",
+      "value": "9c32daecd4a15104c6f9ff60ce19c8f7e78707fb31d9fd9fcb55b1b8dfa3512b"
+    }
+  ],
+  "item": [
+    {
+      "name": "00 Preflight",
+      "item": [
+        {
+          "name": "Mission Control health",
+          "request": {
+            "method": "GET",
+            "url": "{{mission_control_url}}/api/health"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Mission Control health is 200',()=>pm.response.to.have.status(200));",
+                  "pm.test('Mission Control reports ok=true',()=>pm.expect(pm.response.json().ok).to.eql(true));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Middleware kernel describe",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/platform/v1/kernel/describe"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Middleware does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "if(pm.variables.replaceIn('{{bearer_token}}')){pm.test('Authenticated Middleware succeeds',()=>pm.expect(pm.response.code).to.be.within(200,299));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Kong kernel describe",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{kong_url}}/platform/v1/kernel/describe"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Kong does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "if(pm.variables.replaceIn('{{bearer_token}}')){pm.test('Authenticated Kong succeeds',()=>pm.expect(pm.response.code).to.be.within(200,299));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Caddy kernel describe",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{caddy_url}}/platform/v1/kernel/describe"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Caddy edge does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "if(pm.variables.replaceIn('{{bearer_token}}')){pm.test('Authenticated Caddy edge succeeds',()=>pm.expect(pm.response.code).to.be.within(200,299));}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "01 Security Denials",
+      "item": [
+        {
+          "name": "Caddy denies /internal",
+          "request": {
+            "method": "GET",
+            "url": "{{caddy_url}}/internal/v1/authorization/check"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('internal is private',()=>pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Caddy denies /metrics",
+          "request": {
+            "method": "GET",
+            "url": "{{caddy_url}}/metrics"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('metrics is private',()=>pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Caddy denies DB health",
+          "request": {
+            "method": "GET",
+            "url": "{{caddy_url}}/internal/v1/database/health"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('database health is private',()=>pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Kong denies /internal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{kong_url}}/internal/health"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Kong internal route denied',()=>pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Kong denies /metrics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{kong_url}}/metrics"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Kong metrics route denied',()=>pm.response.to.have.status(404));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02 Read-only Middleware Contracts",
+      "item": [
+        {
+          "name": "List services",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/platform/v1/services"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('services does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "if(pm.variables.replaceIn('{{bearer_token}}')){pm.test('services authenticated read succeeds',()=>pm.expect(pm.response.code).to.be.within(200,299));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List connectors",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/platform/v1/connectors"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('connectors does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "if(pm.variables.replaceIn('{{bearer_token}}')){pm.test('connectors authenticated read succeeds',()=>pm.expect(pm.response.code).to.be.within(200,299));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List activity",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/platform/v1/activity?tenant_id={{tenant_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('activity does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List email identities",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/platform/v1/email/identities?tenant_id={{tenant_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('email identities does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List SMS identities",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/platform/v1/sms/identities?tenant_id={{tenant_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('SMS identities does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List telephony assignments",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/platform/v1/telephony/assignments?tenant_id={{tenant_id}}"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('telephony assignments does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "03 Edge Parity",
+      "item": [
+        {
+          "name": "Kong services read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{kong_url}}/platform/v1/services"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Kong services does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "pm.collectionVariables.set('kong_services_status',String(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Caddy services read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{caddy_url}}/platform/v1/services"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Caddy services does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "pm.collectionVariables.set('caddy_services_status',String(pm.response.code));",
+                  "const k=pm.collectionVariables.get('kong_services_status'); if(k){pm.test('Kong and Caddy services status match',()=>pm.expect(String(pm.response.code)).to.eql(k));}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Kong connectors read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{kong_url}}/platform/v1/connectors"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Kong connectors does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "pm.collectionVariables.set('kong_connectors_status',String(pm.response.code));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Caddy connectors read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{caddy_url}}/platform/v1/connectors"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Caddy connectors does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));",
+                  "const k=pm.collectionVariables.get('kong_connectors_status'); if(k){pm.test('Kong and Caddy connectors status match',()=>pm.expect(String(pm.response.code)).to.eql(k));}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "04 Runtime Readback",
+      "item": [
+        {
+          "name": "Mission Control folder sync",
+          "request": {
+            "method": "GET",
+            "url": "{{mission_control_url}}/api/folder-sync"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('folder sync is 200',()=>pm.response.to.have.status(200));",
+                  "pm.test('folder sync has folders object',()=>pm.expect(pm.response.json().folders).to.be.an('object'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mission Control action queue",
+          "request": {
+            "method": "GET",
+            "url": "{{mission_control_url}}/api/actions"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('action queue is 200',()=>pm.response.to.have.status(200));",
+                  "pm.test('action queue has items array',()=>pm.expect(pm.response.json().items).to.be.an('array'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Middleware database health direct-private",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bearer_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              }
+            ],
+            "url": "{{middleware_url}}/internal/v1/database/health"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('direct private DB health does not return 5xx',()=>pm.expect(pm.response.code).to.be.below(500));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "90 Effectful Negative Tests - Disabled by Default",
+      "item": [
+        {
+          "name": "Caddy automation wrong-audience denial",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "if(pm.variables.replaceIn('{{RUN_EFFECTFUL}}')!=='true'){pm.execution.skipRequest();}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('wrong audience denied',()=>pm.expect(pm.response.code).to.be.oneOf([401,403,404]));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{wrong_audience_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "{{caddy_url}}/v2/automation/commands"
+          }
+        },
+        {
+          "name": "Kong automation wrong-audience denial",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "if(pm.variables.replaceIn('{{RUN_EFFECTFUL}}')!=='true'){pm.execution.skipRequest();}"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('wrong audience denied',()=>pm.expect(pm.response.code).to.be.oneOf([401,403,404]));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{wrong_audience_token}}"
+              },
+              {
+                "key": "X-Correlation-ID",
+                "value": "{{correlation_id}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": "{{kong_url}}/v2/automation/commands"
+          }
+        }
+      ]
+    }
+  ]
+}
