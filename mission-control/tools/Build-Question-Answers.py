@@ -10,6 +10,31 @@ except: l={"rows":[],"summary":{}}
 try:
     with open(REMOTE,encoding="utf-8-sig") as f:r=json.load(f)
 except: r={}
+
+# remote_refresh.json is a derived cache. Corrupted mojibake text must never
+# be promoted into the snapshot/dashboard. Replace damaged derived prose
+# fail-closed; current Linear execution fields are overlaid separately below.
+_mojibake_markers=("Ã","Â","â€","â‚","ƒ","†","™","�")
+def _corrupted_text(v):
+    if not isinstance(v,str): return False
+    hits=sum(v.count(m) for m in _mojibake_markers)
+    return hits>=4 or (len(v)>200 and hits/max(1,len(v))>.01)
+def _sanitize_derived(v):
+    if isinstance(v,dict): return {k:_sanitize_derived(x) for k,x in v.items()}
+    if isinstance(v,list): return [_sanitize_derived(x) for x in v]
+    if _corrupted_text(v):
+        return "[stale derived text removed: encoding corruption; refresh from authoritative source required]"
+    return v
+r=_sanitize_derived(r)
+s=_sanitize_derived(s)
+
+# Always replace the snapshot's embedded derived cache with the sanitized
+# standalone remote_refresh document. Freshness is carried separately in
+# syncMetadata; stale cache data must never stay embedded merely because a
+# source is currently unavailable.
+s["remoteRefresh"]=r
+s["remoteRefreshAt"]=r.get("checkedAt")
+
 repos=s.get("repositories",[]); summ=s.get("summary",{}); now=datetime.datetime.now(datetime.timezone.utc)
 def dt(v):
     if not v:return None
