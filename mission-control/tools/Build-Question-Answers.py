@@ -52,6 +52,24 @@ if remote_fresh:
     runtime_health=(f"No current runtime health certification is available. Telemetry is STALE; last successful read was {runtime_last}. Last-known scrape state: Codestra {mon.get('codestraPrometheus','Unknown')}, Klyrow {mon.get('klyrowPrometheus','Unknown')}, Telnexa {mon.get('telnexaPrometheus','Unknown')}; last-known alerts {mon.get('activeAlerts',summ.get('activeAlerts',0))} active / {mon.get('criticalAlerts',summ.get('criticalAlerts',0))} critical. Fail-closed until fresh Prometheus/Alertmanager readback succeeds." if runtime_stale else f"No. Prometheus scrape health is Codestra {mon.get('codestraPrometheus','Unknown')}, Klyrow {mon.get('klyrowPrometheus','Unknown')}, Telnexa {mon.get('telnexaPrometheus','Unknown')}; Alertmanager has {mon.get('activeAlerts',summ.get('activeAlerts',0))} active / {mon.get('criticalAlerts',summ.get('criticalAlerts',0))} critical alerts.")
     runtime_change=(f"Runtime telemetry is STALE; last successful read was {runtime_last}. Last-known {mon.get('activeAlerts',summ.get('activeAlerts',0))} active / {mon.get('criticalAlerts',summ.get('criticalAlerts',0))} critical alerts are historical, not current certification." if runtime_stale else f"Runtime remains {mon.get('activeAlerts',summ.get('activeAlerts',0))} active / {mon.get('criticalAlerts',summ.get('criticalAlerts',0))} critical with current monitoring evidence.")
     summ["activeAlerts"]=mon.get("activeAlerts",summ.get("activeAlerts",0)); summ["criticalAlerts"]=mon.get("criticalAlerts",summ.get("criticalAlerts",0))
+# Linear owns execution fields. Apply the current Linear overlay even when
+# broader remote GitHub/runtime evidence is stale; never let stale prose overwrite it.
+linear_current=r.get("linearCurrent") or {}
+if linear_current:
+    for repo in repos:
+        mid=repo.get("linearIssue") or ""
+        current=linear_current.get(mid)
+        if not current:
+            continue
+        repo["linearStatus"]=current.get("status") or repo.get("linearStatus")
+        repo["assignee"]=current.get("owner") or repo.get("assignee")
+        repo["goal"]=current.get("title") or repo.get("goal")
+        repo["linearUrl"]=current.get("url") or repo.get("linearUrl")
+    statuses=[x.get("status") for x in linear_current.values()]
+    summ["linearInProgress"]=sum(x=="In Progress" for x in statuses)
+    summ["linearInReview"]=sum(x=="In Review" for x in statuses)
+    summ["linearDone"]=sum(x=="Done" for x in statuses)
+
 blocked_names=sorted({x.get("name") for x in repos if x.get("blocked") and x.get("name")})
 if remote_fresh:
     a=r.get("actionsCapacity") or {}; missions=r.get("missions") or {}; prs=r.get("prChecks") or []
@@ -187,12 +205,20 @@ else:
 s["questionAnswers"]=q
 s["readiness"]={"staging":{"state":"NOT READY","source":"PAS-151 current control-plane record"},"production":{"state":"NO GO","source":"staging not ready + critical runtime alerts"}}
 s.setdefault("summary",{})["staleLocalPending24h"]=len(stale); s["summary"]["remoteOnlyRepos"]=len(remote_only); s["summary"]["unlinkedRepos"]=len(unlinked)
+generated_now=datetime.datetime.now().astimezone().isoformat()
+sync_metadata=dict(r.get("syncMetadata") or {})
+sync_metadata["last_local_sync"]=l.get("checkedAt") or sync_metadata.get("last_local_sync")
+sync_metadata["sync_state"]=sync_metadata.get("sync_state") or ("synced" if remote_fresh else "stale")
+if not remote_fresh and not sync_metadata.get("sync_note"):
+    sync_metadata["sync_note"]="Remote GitHub/runtime refresh is stale; current Linear/local evidence was reconciled independently."
+s["generatedAt"]=generated_now
+s["syncMetadata"]=sync_metadata
 with open(SNAP,"w",encoding="utf-8") as f:json.dump(s,f,indent=2)
 qa_payload={
-    "generatedAt":r.get("checkedAt") or s.get("generatedAt") or datetime.datetime.now().astimezone().isoformat(),
+    "generatedAt":generated_now,
     "questionAnswers":q,
     "readiness":s.get("readiness",{}),
-    "syncMetadata":r.get("syncMetadata") or {},
+    "syncMetadata":sync_metadata,
     "summary":{
         "activeAlerts":summ.get("activeAlerts",0),"criticalAlerts":summ.get("criticalAlerts",0),
         "localPendingCommit":summ.get("localPendingCommit",0),"localPendingPush":summ.get("localPendingPush",0),
