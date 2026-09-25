@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T09:10:20.373052-04:00",
+  "generatedAt": "2026-09-25T09:15:36.690800-04:00",
   "questionAnswers": [
     {
       "question": "What needs my attention right now?",
@@ -103,24 +103,24 @@
     "sourceStates": {
       "github": {
         "state": "synced",
-        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+        "checkedAt": "2026-09-25T09:09:36.672039-04:00"
       },
       "linear": {
         "state": "synced",
-        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+        "checkedAt": "2026-09-25T13:03:31.762Z"
       },
       "notion": {
         "state": "synced",
-        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+        "checkedAt": "2026-09-25T13:03:36.263Z"
       },
       "appolon": {
         "state": "synced",
-        "checkedAt": "2026-09-24T10:27:04.443939-04:00",
-        "method": "SentinelX local scan + raw-byte parity + localhost health"
+        "checkedAt": "2026-09-25T09:07:54.386825-04:00",
+        "method": "SentinelX local scan + raw-byte source parity + localhost health"
       },
       "runtime": {
         "state": "stale",
-        "checkedAt": "2026-09-24T10:27:04.443939-04:00",
+        "checkedAt": "2026-09-25T09:15:03.946622-04:00",
         "lastSuccessfulAt": "2026-09-24T01:17:30.526144-04:00",
         "errors": [
           "agent_offline: host with label 'server-1-middleware-core' (host_id=host_ef1c793cbb0d43c7) is not connected",
@@ -130,10 +130,10 @@
       },
       "desktop-ubuntu-codestra": {
         "state": "synced",
-        "checkedAt": "2026-09-24T10:27:04.443939-04:00"
+        "checkedAt": "2026-09-25T09:10:36.481991-04:00"
       }
     },
-    "runtime_last_attempt_at": "2026-09-24T10:27:04.443939-04:00"
+    "runtime_last_attempt_at": "2026-09-25T09:15:03.946622-04:00"
   },
   "summary": {
     "activeAlerts": 8,
