@@ -124,8 +124,15 @@ parts.append('<section class="view" id="view-pipeline"><div class="view-header">
 
 # Runtime
 parts.append('<section class="view" id="view-runtime"><div class="view-header"><div><h2>Runtime & Monitoring</h2><p>Prometheus, Alertmanager and operational readiness—separate from code review status.</p></div></div>')
+def format_runtime_error(item):
+    if isinstance(item, dict):
+        return f"{item.get('source','runtime')}: {item.get('error','unavailable')}"
+    if item is None:
+        return "runtime: unavailable"
+    return f"runtime: {item}"
+
 if runtime_stale:
-    err='; '.join(f"{x.get('source','runtime')}: {x.get('error','unavailable')}" for x in runtime_errors[:5]) or 'runtime source unavailable'
+    err='; '.join(format_runtime_error(x) for x in runtime_errors[:5]) or 'runtime source unavailable'
     parts.append('<div class="card yellow"><h3>Runtime evidence is stale</h3><p><b>Fail-closed:</b> current Prometheus/Alertmanager health is not proven. Last successful runtime read: '+e(runtime_last)+'.</p><div class="tiny">'+e(err)+'</div></div>')
 def runtime_card(title,data):
     up=e(data.get("targets_up",0)); total=e(data.get("targets_total",0))
