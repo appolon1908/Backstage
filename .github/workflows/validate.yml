@@ -27,6 +27,18 @@ jobs:
         run: |
           python3 -c "from pathlib import Path; s=Path('mission-control/index.html').read_text(); Path('/tmp/codestra-dashboard.js').write_text(s.split('<script>',1)[1].split('</script>',1)[0])"
           node --check /tmp/codestra-dashboard.js
+      - name: Interactive dashboard browser smoke
+        working-directory: mission-control
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          chrome_bin="$(command -v google-chrome || command -v chromium || true)"
+          if [[ -z "$chrome_bin" ]]; then
+            echo "::error::Headless Chromium is required for interactive dashboard certification"
+            exit 1
+          fi
+          npm ci --ignore-scripts --no-audit --no-fund
+          CHROME_BIN="$chrome_bin" npm run test:browser
 
   required-control-plane:
     name: codestra-control-plane
