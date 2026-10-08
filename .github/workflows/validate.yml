@@ -20,3 +20,10 @@ jobs:
         run: |
           test ! -f .env
           ! git grep -nE '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|ghp_[A-Za-z0-9]{20,})'
+
+      - name: Test Mission Control API contract
+        run: python3 -m unittest discover -s mission-control/tests -v
+      - name: Validate Mission Control browser JS syntax
+        run: |
+          python3 -c "from pathlib import Path; s=Path('mission-control/index.html').read_text(); Path('/tmp/codestra-dashboard.js').write_text(s.split('<script>',1)[1].split('</script>',1)[0])"
+          node --check /tmp/codestra-dashboard.js
