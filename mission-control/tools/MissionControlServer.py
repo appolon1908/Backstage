@@ -1,4 +1,4 @@
-import os, json, datetime, threading, urllib.parse, urllib.request
+import os, json, datetime, threading, urllib.parse, urllib.request, urllib.error, stat
 from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 
@@ -49,6 +49,71 @@ def health_probe(name, env_var, default_url):
             return {"name":name,"status":"HEALTHY" if ok else "UNAVAILABLE","httpStatus":response.status}
     except (OSError,ValueError,TimeoutError) as exc:
         return {"name":name,"status":"UNAVAILABLE","reason":type(exc).__name__}
+
+
+
+def live_mission_feed():
+    """Local-only readback from authenticated Mission Control; never expose a token."""
+    token_file = os.environ.get("MC_MISSIONS_TOKEN_FILE", "").strip()
+    if not token_file or not os.path.isabs(token_file):
+        return {"state": "NOT_CONFIGURED", "reason": "server-side token file required"}, 503
+    target = os.environ.get(
+        "MC_MISSIONS_API_URL", "http://127.0.0.1:8790/api/v1/missions?limit=20"
+    )
+    parsed = urllib.parse.urlsplit(target)
+    allowed_host = parsed.hostname in {"127.0.0.1", "localhost"}
+    if (
+        parsed.scheme != "http" or not allowed_host or parsed.username or
+        parsed.password or parsed.fragment or parsed.path != "/api/v1/missions"
+    ):
+        return {"state": "NOT_CONFIGURED", "reason": "only loopback missions API is permitted"}, 503
+    try:
+        if os.path.islink(token_file):
+            raise ValueError("symlinked token file denied")
+        flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+        fd = os.open(token_file, flags)
+        with os.fdopen(fd, "r", encoding="utf-8") as handle:
+            info = os.fstat(handle.fileno())
+            if not stat.S_ISREG(info.st_mode) or stat.S_IMODE(info.st_mode) & 0o077:
+                raise ValueError("service-token permissions are not private")
+            token = handle.read(4097).strip()
+        if not token or len(token) > 4096 or "\n" in token or "\r" in token:
+            raise ValueError("invalid service-token payload")
+    except (OSError, ValueError, UnicodeError):
+        return {"state": "NOT_CONFIGURED", "reason": "private service-token file unavailable"}, 503
+    request = urllib.request.Request(
+        target, headers={"Accept": "application/json", "Authorization": "Bearer " + token},
+        method="GET",
+    )
+    try:
+        class NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, req, fp, code, msg, headers, newurl):
+                return None
+
+        opener = urllib.request.build_opener(NoRedirect)
+        with opener.open(request, timeout=3) as response:
+            if not 200 <= response.status < 300:
+                raise ValueError("non-success response")
+            body = response.read(262145)
+            if len(body) > 262144:
+                raise ValueError("missions payload too large")
+        result = json.loads(body)
+        if not isinstance(result, dict) or not isinstance(result.get("items"), list):
+            raise ValueError("invalid upstream missions schema")
+        total = result.get("total")
+        if not isinstance(total, int) or isinstance(total, bool):
+            total = len(result["items"])
+        return {
+            "state": "CONNECTED", "source": "mission-control-api",
+            "checkedAt": now(), "total": total, "items": result["items"][:50],
+        }, 200
+    except urllib.error.HTTPError as exc:
+        return {
+            "state": "AUTH_DENIED" if exc.code in (401, 403) else "UNAVAILABLE",
+            "httpStatus": exc.code,
+        }, 503
+    except (urllib.error.URLError, OSError, ValueError, TimeoutError, UnicodeError):
+        return {"state": "UNAVAILABLE", "reason": "upstream missions readback failed"}, 503
 
 
 def write_queue(doc):
@@ -103,6 +168,15 @@ class Handler(SimpleHTTPRequestHandler):
                 health_probe("mission-control-api","MC_BACKEND_HEALTH_URL","http://127.0.0.1:8790/healthz"),
                 health_probe("middleware-api","MC_MIDDLEWARE_HEALTH_URL","http://127.0.0.1:8095/healthz"),
             ],"actions":"local-only"})
+        if parsed.path=="/api/live/missions":
+            host=self.headers.get("Host","")
+            port=self.server.server_address[1]
+            if self.client_address[0] not in {"127.0.0.1","::1"} or host not in {
+                f"127.0.0.1:{port}",f"localhost:{port}"
+            }:
+                return self.send_json({"state":"FORBIDDEN","reason":"local operator only"},403)
+            data,status=live_mission_feed()
+            return self.send_json(data,status)
         if parsed.path=="/api/actions":
             return self.send_json(read_json(QUEUE,{"items":[]}))
         return super().do_GET()

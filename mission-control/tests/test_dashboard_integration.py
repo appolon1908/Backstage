@@ -9,7 +9,8 @@ import unittest
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
-from http.server import ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -122,6 +123,99 @@ class DashboardAPITest(unittest.TestCase):
         }, headers={"Origin": "https://evil.example"})
         self.assertEqual(status, 403)
         self.assertEqual(data["error"], "cross-origin actions forbidden")
+
+
+
+    def test_live_missions_require_private_server_side_auth(self):
+        with patch.dict(os.environ, {}, clear=False):
+            os.environ.pop("MC_MISSIONS_TOKEN_FILE", None)
+            status, result = self.request("/api/live/missions")
+        self.assertEqual(status, 503)
+        self.assertEqual(result["state"], "NOT_CONFIGURED")
+        status, result = self.request("/api/live/missions", headers={"Host": "malicious.example"})
+        self.assertEqual(status, 403)
+        self.assertEqual(result["state"], "FORBIDDEN")
+
+    def test_live_missions_proxy_only_authorized_loopback_upstream(self):
+        token_file = self.directory / "mission-service-token"
+        token_file.write_text("ephemeral-test-bearer", encoding="utf-8")
+        token_file.chmod(0o600)
+
+        class Upstream(BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                return
+
+            def do_GET(self):
+                redirect = getattr(self.server, "redirect_to", None)
+                if redirect:
+                    self.send_response(302)
+                    self.send_header("Location", redirect)
+                    self.end_headers()
+                    return
+                if self.headers.get("Authorization") != "Bearer ephemeral-test-bearer":
+                    self.send_response(401)
+                    self.end_headers()
+                    return
+                data = json.dumps({
+                    "total": 1,
+                    "items": [{"mission_id": "PAS-447", "product_goal": "CI trust review", "status": "IN_REVIEW"}],
+                }).encode()
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(data)))
+                self.end_headers()
+                self.wfile.write(data)
+
+        upstream = ThreadingHTTPServer(("127.0.0.1", 0), Upstream)
+        threading.Thread(target=upstream.serve_forever, daemon=True).start()
+        self.addCleanup(upstream.server_close)
+        self.addCleanup(upstream.shutdown)
+        env = {
+            "MC_MISSIONS_TOKEN_FILE": str(token_file),
+            "MC_MISSIONS_API_URL": f"http://127.0.0.1:{upstream.server_address[1]}/api/v1/missions?limit=20",
+        }
+        with patch.dict(os.environ, env):
+            status, data = self.request("/api/live/missions")
+            self.assertEqual(status, 200)
+            self.assertEqual(data["state"], "CONNECTED")
+            self.assertEqual(data["items"][0]["mission_id"], "PAS-447")
+            self.assertEqual(data["total"], 1)
+            self.assertNotIn("ephemeral-test-bearer", json.dumps(data))
+
+            redirected_tokens = []
+
+            class RedirectTrap(BaseHTTPRequestHandler):
+                def log_message(self, *args):
+                    return
+
+                def do_GET(self):
+                    redirected_tokens.append(self.headers.get("Authorization"))
+                    self.send_response(200)
+                    self.end_headers()
+
+            trap = ThreadingHTTPServer(("127.0.0.1", 0), RedirectTrap)
+            threading.Thread(target=trap.serve_forever, daemon=True).start()
+            self.addCleanup(trap.server_close)
+            self.addCleanup(trap.shutdown)
+            upstream.redirect_to = f"http://127.0.0.1:{trap.server_address[1]}/secret-leak"
+            status, data = self.request("/api/live/missions")
+            self.assertEqual(status, 503)
+            self.assertEqual(data["state"], "UNAVAILABLE")
+            self.assertEqual(redirected_tokens, [], "Bearer token must never cross a redirect")
+            upstream.redirect_to = None
+
+            token_file.chmod(0o644)
+            status, data = self.request("/api/live/missions")
+            self.assertEqual(status, 503)
+            self.assertEqual(data["state"], "NOT_CONFIGURED")
+            token_file.chmod(0o600)
+
+            with patch.dict(os.environ, {
+                "MC_MISSIONS_API_URL": "http://169.254.169.254/latest/meta-data/"
+            }):
+                status, data = self.request("/api/live/missions")
+                self.assertEqual(status, 503)
+                self.assertEqual(data["state"], "NOT_CONFIGURED")
 
 
 if __name__ == "__main__":

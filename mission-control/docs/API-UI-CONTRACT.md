@@ -37,3 +37,17 @@ The public Backstage deployment, actual authenticated Middleware API credentials
 ### Required interactive browser CI
 
 The same-origin dashboard flow is exercised in a disposable local server and headless Chrome by `cd mission-control && npm ci --ignore-scripts && npm run test:browser`. The test verifies all six navigation views, four board views, keyboard navigation, fail-closed stale completion, queue/cancel readback, refresh, and mobile-width layout. It uses a one-repository synthetic fixture and never calls live Linear or provider endpoints. In developer environments with an already running Chrome DevTools server, set `CODESTRA_CDP_PORT` to reuse it without spawning a second Chrome instance. GitHub CI must run this as a required step, not silently skip it.
+
+### Authenticated live mission data adapter
+
+The local operator UI has a **separate, authenticated, read-only** feed:
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/live/missions` | Fetch current missions from the protected Mission Control backend; returns `CONNECTED` only after upstream authenticated readback |
+
+The server requires `MC_MISSIONS_TOKEN_FILE` to name an **absolute, regular, non-symlink, owner-only (`0600`) service-token file** and uses `MC_MISSIONS_API_URL` (default `http://127.0.0.1:8790/api/v1/missions?limit=20`). Only a loopback HTTP upstream is supported in this version. The token is sent by the local server as a Bearer token and **never** sent to the browser or printed in its responses. A missing token, unsafe URL, wrong permissions, authentication rejection or unavailable upstream returns an explicit 503/403 state—not a synthetic green mission list.
+
+The frontend shows up to 20 read-only missions from the authoritative API when `CONNECTED`. For static public Backstage or missing auth it shows an unavailable state. This feature is not an OIDC web login and must not be exposed through unauthenticated public ingress.
+
+HTTP tests cover real upstream header enforcement, permission checks, safe loopback URL limits, missing credentials and untrusted Host rejection. The real Chrome smoke asserts missing service authorization stays disconnected.
