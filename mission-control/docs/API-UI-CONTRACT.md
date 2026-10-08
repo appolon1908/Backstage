@@ -33,3 +33,7 @@ Health checks default to loopback `http://127.0.0.1:8790/healthz` (Mission Contr
 ### Not yet certified
 
 The public Backstage deployment, actual authenticated Middleware API credentials and data endpoints, Keycloak OIDC policy, Caddy/Kong route wiring, fresh monitoring data, and full end-to-end browser interaction are **not covered** by the local contract tests. Preserve production NO GO until they have fresh independently verified evidence.
+
+### Required interactive browser CI
+
+The same-origin dashboard flow is exercised in a disposable local server and headless Chrome by `cd mission-control && npm ci --ignore-scripts && npm run test:browser`. The test verifies all six navigation views, four board views, keyboard navigation, fail-closed stale completion, queue/cancel readback, refresh, and mobile-width layout. It uses a one-repository synthetic fixture and never calls live Linear or provider endpoints. In developer environments with an already running Chrome DevTools server, set `CODESTRA_CDP_PORT` to reuse it without spawning a second Chrome instance. GitHub CI must run this as a required step, not silently skip it.
