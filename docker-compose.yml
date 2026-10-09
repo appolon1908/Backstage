@@ -25,10 +25,11 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       GITHUB_TOKEN: ${GITHUB_TOKEN:-}
     ports:
-      - "10.40.0.4:17007:7007"
+      - "${BACKSTAGE_BIND_IP:-10.0.0.218}:17007:7007"
     volumes:
       - ./app-config.production.yaml:/app/app-config.production.yaml:ro
       - ./catalog:/app/catalog:ro
+      - ./monitoring-catalog.yaml:/app/monitoring-catalog.yaml:ro
     networks: [backstage_private]
     security_opt: [no-new-privileges:true]
     cap_drop: [ALL]
