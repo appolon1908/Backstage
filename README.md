@@ -23,3 +23,8 @@ Run `sudo ./scripts/deploy.sh` on the target host. Application secrets are gener
 - Appolon local dashboard: `C:\Users\Usuario\01_DEVELOPMENT\Mission-Control\dashboard.html`
 
 The dashboard joins GitHub, Linear, Notion, Appolon local Git, SentinelX, Prometheus, Alertmanager and Grafana. Runtime alerts remain fail-closed and are shown above repository status.
+
+
+### Local dashboard API/UI integration (2026-10-08)
+
+The interactive dashboard and its loopback API share one same-origin server. See [API/UI contract](mission-control/docs/API-UI-CONTRACT.md) for endpoint coverage, accessibility flow, local-only action controls, stale-data handling, and certification boundaries. Public Backstage is read-only until OIDC/API-gateway authorization is independently certified.

@@ -1,3 +1,7 @@
 .env
 *.local.yaml
 data/
+
+# Local browser smoke dependencies and temporary operator state
+node_modules/
+mission-control/actions_queue.json

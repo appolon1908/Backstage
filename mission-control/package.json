@@ -1,0 +1,12 @@
+{
+  "name": "codestra-mission-control-browser-smoke",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Isolated CI browser verification for the Codestra Mission Control local operator UI",
+  "scripts": {
+    "test:browser": "node tests/browser_smoke.cjs"
+  },
+  "devDependencies": {
+    "ws": "8.18.3"
+  }
+}

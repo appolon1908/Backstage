@@ -20,3 +20,60 @@ jobs:
         run: |
           test ! -f .env
           ! git grep -nE '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|ghp_[A-Za-z0-9]{20,})'
+
+      - name: Test Mission Control API contract
+        run: python3 -m unittest discover -s mission-control/tests -v
+      - name: Validate Mission Control browser JS syntax
+        run: |
+          python3 -c "from pathlib import Path; s=Path('mission-control/index.html').read_text(); Path('/tmp/codestra-dashboard.js').write_text(s.split('<script>',1)[1].split('</script>',1)[0])"
+          node --check /tmp/codestra-dashboard.js
+      - name: Interactive dashboard browser smoke
+        working-directory: mission-control
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          chrome_bin="$(command -v google-chrome || command -v chromium || true)"
+          if [[ -z "$chrome_bin" ]]; then
+            echo "::error::Headless Chromium is required for interactive dashboard certification"
+            exit 1
+          fi
+          npm ci --ignore-scripts --no-audit --no-fund
+          CHROME_BIN="$chrome_bin" npm run test:browser
+
+  required-control-plane:
+    name: codestra-control-plane
+    needs: [validate]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Require full Backstage validation
+        shell: bash
+        env:
+          VALIDATION_RESULT: ${{ needs.validate.result }}
+        run: |
+          if [[ "$VALIDATION_RESULT" != "success" ]]; then
+            echo "::error::Backstage validation failed: $VALIDATION_RESULT"
+            exit 1
+          fi
+          echo "Validation, API contract and JavaScript syntax passed"
+
+  legacy-control-plane:
+    name: codestra/control-plane
+    needs: [required-control-plane]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Require protected control-plane gate
+        shell: bash
+        env:
+          CONTROL_RESULT: ${{ needs.required-control-plane.result }}
+        run: |
+          if [[ "$CONTROL_RESULT" != "success" ]]; then
+            echo "::error::Control-plane gate failed: $CONTROL_RESULT"
+            exit 1
+          fi
+          echo "Protected control-plane gate passed"
