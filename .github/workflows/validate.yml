@@ -2,7 +2,7 @@ name: validate
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: ['**']
 permissions:
   contents: read
 jobs:
@@ -39,6 +39,23 @@ jobs:
           fi
           npm ci --ignore-scripts --no-audit --no-fund
           CHROME_BIN="$chrome_bin" npm run test:browser
+
+  repository-validation-gate:
+    name: codestra/repository-validation
+    needs: [validate]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Require repository test suite
+        env:
+          VALIDATION_RESULT: ${{ needs.validate.result }}
+        run: bash scripts/repository-validation-gate.sh
 
   required-control-plane:
     name: codestra-control-plane
