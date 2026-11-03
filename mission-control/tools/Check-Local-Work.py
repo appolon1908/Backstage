@@ -49,8 +49,21 @@ def scan(p):
     if not m:return None
     repo=re.sub(r"\.git$","",m.group(1))
     head=run(p,["rev-parse","--short","HEAD"],5)
+    full_head=run(p,["rev-parse","HEAD"],5)
     branch=run(p,["rev-parse","--abbrev-ref","HEAD"],5)
     upstream=run(p,["rev-parse","--abbrev-ref","--symbolic-full-name","@{u}"],5)
+    remote_ref_status="tracked" if upstream else ""
+    remote_refs=[]
+    if full_head and not upstream:
+        try:
+            rr=subprocess.run(["git","-c","safe.directory=*","-C",p,"ls-remote","origin"],capture_output=True,text=True,timeout=15)
+            if rr.returncode==0:
+                remote_refs=[line.split("\t",1)[1] for line in rr.stdout.splitlines() if line.startswith(full_head+"\t") and "\t" in line]
+                remote_ref_status="present" if remote_refs else "absent"
+            else:
+                remote_ref_status="unavailable"
+        except Exception:
+            remote_ref_status="unavailable"
     try:
         st=subprocess.run(["git","-c","safe.directory=*","-C",p,"status","--porcelain=v1","-b"],capture_output=True,text=True,timeout=12)
         lines=st.stdout.splitlines() if st.returncode==0 else []
@@ -96,12 +109,19 @@ def scan(p):
         state,color,pending="Committed Local / pending push","red",True
     elif behind>0:
         state,color,pending="Pushed / local behind","orange",True
+    elif not upstream and remote_ref_status=="present":
+        state,color,pending="Remote commit present / no upstream","green",False
+    elif not upstream and remote_ref_status=="absent":
+        state,color,pending="Local-only / pending publication","red",True
+    elif not upstream:
+        state,color,pending="Remote proof unavailable / needs review","orange",True
     else:
         state,color,pending="Pushed / synced","green",False
     started=dirty_since or unpushed or last_at
     return dict(repo=repo,path=p,branch=branch,head=head,upstream=upstream,dirty=dirty,ahead=ahead,behind=behind,
       state=state,color=color,pending=pending,startedAt=started,dirtySince=dirty_since,unpushedSince=unpushed,
-      lastCommitAt=last_at,lastCommit=last,scanError=scan_error,upstreamEvidence="last-known local tracking ref")
+      lastCommitAt=last_at,lastCommit=last,scanError=scan_error,remoteRefStatus=remote_ref_status,remoteRefs=remote_refs,
+      upstreamEvidence="last-known local tracking ref" if upstream else "live ls-remote exact-SHA check")
 
 rows=[]
 with concurrent.futures.ThreadPoolExecutor(max_workers=12) as ex:
@@ -125,7 +145,7 @@ try:
     with open(SNAP,encoding="utf-8-sig") as f:snap=json.load(f)
     by={}
     for x in rows:by.setdefault(x["repo"],[]).append(x)
-    priority=["WIP + unpushed","Committed Local / pending push","Started Local / pending commit","Local scan needs review","Pushed / local behind","Local shell / pending clone","Pushed / synced"]
+    priority=["WIP + unpushed","Committed Local / pending push","Local-only / pending publication","Started Local / pending commit","Remote proof unavailable / needs review","Local scan needs review","Pushed / local behind","Local shell / pending clone","Remote commit present / no upstream","Pushed / synced"]
     for repo in snap.get("repositories",[]):
         items=by.get(repo.get("name"),[])
         if not items:
