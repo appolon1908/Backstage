@@ -16,6 +16,8 @@ jobs:
         env:
           POSTGRES_PASSWORD: ci-only
         run: docker compose config --quiet
+      - name: Validate home-server-only deployment and authentication guards
+        run: python3 -m unittest discover -s deploy/tests -v
       - name: Reject committed secrets
         run: |
           test ! -f .env

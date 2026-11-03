@@ -1,0 +1,34 @@
+# Proposed private-only Caddy ingress on s1-middleware (10.0.0.73).
+# Require BACKSTAGE_BASIC_USER and BACKSTAGE_BASIC_HASH in Caddy's protected
+# systemd environment; supply a freshly generated bcrypt hash via a secret manager.
+# Do not enable this site until server-3:17007 firewall scope is verified.
+# This is NOT an internet-facing configuration.
+
+backstage.codestra.co {
+    tls internal
+
+    @private_client remote_ip 10.0.0.0/24 100.64.0.0/10
+    @sensitive path /.env /.env* /.git /.git/* /metrics /internal /internal/*
+
+    handle @sensitive {
+        respond 404
+    }
+
+    handle @private_client {
+        basic_auth {
+            {$BACKSTAGE_BASIC_USER} {$BACKSTAGE_BASIC_HASH}
+        }
+        reverse_proxy 10.0.0.218:17007 {
+            transport http {
+                dial_timeout 5s
+                response_header_timeout 30s
+            }
+            header_up -X-Forwarded-User
+            header_up -X-Forwarded-Email
+        }
+    }
+
+    handle {
+        respond 403
+    }
+}
